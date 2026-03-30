@@ -207,6 +207,68 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       hasMany: true,
       relationTo: 'categories',
     },
+    // ── Mixie Kadai custom fields ─────────────────────────────
+    {
+      name: 'category',
+      type: 'select',
+      label: 'Category (Mixie Kadai)',
+      admin: { position: 'sidebar' },
+      options: [
+        { label: 'Mixer Grinders',              value: 'mixer-grinders'   },
+        { label: 'Blenders & Juicers',          value: 'blenders-juicers' },
+        { label: 'Coconut Scrapers & Grinders', value: 'coconut-scrapers' },
+        { label: 'Jars',                        value: 'jars'             },
+        { label: 'Spare Parts',                 value: 'spare-parts'      },
+        { label: 'Accessories',                 value: 'accessories'      },
+      ],
+      defaultValue: 'mixer-grinders',
+    },
+    {
+      name: 'inStock',
+      type: 'checkbox',
+      defaultValue: true,
+      label: 'In Stock',
+      admin: { position: 'sidebar' },
+    },
+    {
+      name: 'price',
+      type: 'number',
+      label: 'Selling Price (Rs.)',
+      admin: { description: 'Price in Sri Lankan Rupees shown to customers.' },
+    },
+    {
+      name: 'originalPrice',
+      type: 'number',
+      label: 'Compare-At Price (Rs.)',
+      admin: { description: 'Optional. Shown as strikethrough to indicate a discount.' },
+    },
+    {
+      type: 'row',
+      fields: [
+        { name: 'wattage',  type: 'number', label: 'Wattage (W)' },
+        { name: 'jars',     type: 'number', label: 'Number of Jars' },
+        { name: 'warranty', type: 'text',   label: 'Warranty' },
+      ],
+    },
+    {
+      name: 'features',
+      type: 'array',
+      label: 'Key Features',
+      admin: { description: 'Bullet-point features shown on the product page.' },
+      fields: [
+        { name: 'feature', type: 'text', required: true, label: 'Feature' },
+      ],
+    },
+    {
+      name: 'images',
+      type: 'array',
+      label: 'Product Images (URL)',
+      admin: { description: 'Add image URLs. First image is used as the thumbnail.' },
+      fields: [
+        { name: 'url', type: 'text', required: true, label: 'Image URL' },
+        { name: 'alt', type: 'text', label: 'Alt Text' },
+      ],
+    },
     slugField(),
   ],
 })

@@ -90,8 +90,52 @@ export const plugins: Plugin[] = [
     orders: {
       ordersCollectionOverride: ({ defaultCollection }) => ({
         ...defaultCollection,
+        // Allow unauthenticated POSTs so the Vite frontend can submit COD orders
+        access: {
+          ...defaultCollection.access,
+          create: () => true,
+        },
         fields: [
           ...defaultCollection.fields,
+          // ── Mixie Kadai COD fields ──────────────────────────────
+          {
+            name: 'customerName',
+            type: 'text',
+            label: 'Customer Name',
+            admin: { position: 'sidebar' },
+          },
+          {
+            name: 'customerPhone',
+            type: 'text',
+            label: 'Phone Number',
+            admin: { position: 'sidebar' },
+          },
+          {
+            name: 'deliveryAddress',
+            type: 'textarea',
+            label: 'Delivery Address',
+          },
+          {
+            name: 'deliveryCity',
+            type: 'text',
+            label: 'City',
+            admin: { position: 'sidebar' },
+          },
+          {
+            name: 'codItemsJson',
+            type: 'textarea',
+            label: 'Order Items (JSON)',
+            admin: {
+              readOnly: true,
+              description: 'Auto-generated snapshot of the cart items at time of order.',
+            },
+          },
+          {
+            name: 'codNotes',
+            type: 'textarea',
+            label: 'Order Notes',
+            admin: { position: 'sidebar' },
+          },
           {
             name: 'accessToken',
             type: 'text',
