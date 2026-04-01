@@ -73,10 +73,9 @@ export const CreateAccountForm: React.FC = () => {
 
   return (
     <form className="max-w-lg py-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="prose dark:prose-invert mb-6">
-        <p>
-          {`This is where new customers can signup and create a new account. To manage all users, `}
-          <Link href="/admin/collections/users">login to the admin dashboard</Link>.
+      <div className="mb-6">
+        <p className="font-body text-sm text-brand-muted leading-relaxed">
+          Create an account to save your details, track orders, and check out faster next time.
         </p>
       </div>
 

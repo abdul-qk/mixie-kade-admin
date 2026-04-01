@@ -26,7 +26,7 @@ export const LoginForm: React.FC = () => {
   const [error, setError] = React.useState<null | string>(null)
 
   const {
-    formState: { errors, isLoading },
+    formState: { errors, isSubmitting },
     handleSubmit,
     register,
   } = useForm<FormData>()
@@ -46,7 +46,7 @@ export const LoginForm: React.FC = () => {
 
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>
-      <Message className="classes.message" error={error} />
+      <Message error={error} />
       <div className="flex flex-col gap-8">
         <FormItem>
           <Label htmlFor="email">Email</Label>
@@ -71,7 +71,7 @@ export const LoginForm: React.FC = () => {
         <div className="text-primary/70 mb-6 prose prose-a:hover:text-primary dark:prose-invert">
           <p>
             Forgot your password?{' '}
-            <Link href={`/recover-password${allParams}`}>Click here to reset it</Link>
+            <Link href={`/forgot-password${allParams}`}>Click here to reset it</Link>
           </p>
         </div>
       </div>
@@ -82,8 +82,8 @@ export const LoginForm: React.FC = () => {
             Create an account
           </Link>
         </Button>
-        <Button className="grow" disabled={isLoading} size="lg" type="submit" variant="default">
-          {isLoading ? 'Processing' : 'Continue'}
+        <Button className="grow" disabled={isSubmitting} size="lg" type="submit" variant="default">
+          {isSubmitting ? 'Signing in…' : 'Continue'}
         </Button>
       </div>
     </form>

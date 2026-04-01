@@ -1,10 +1,16 @@
 import { canUseDOM } from './canUseDOM'
 
+import { PRODUCTION_SITE_URL } from './site'
+
 export const getServerSideURL = () => {
   let url = process.env.NEXT_PUBLIC_SERVER_URL
 
   if (!url && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  }
+
+  if (!url && process.env.NODE_ENV === 'production') {
+    return PRODUCTION_SITE_URL
   }
 
   if (!url) {

@@ -79,7 +79,10 @@ export function VariantSelector({ product }: { product: Product }) {
                   // If we found a matching variant, set the variant ID in the search params.
                   optionSearchParams.set('variant', String(matchingVariant.id))
 
-                  if (matchingVariant.inventory && matchingVariant.inventory > 0) {
+                  if (
+                    typeof matchingVariant.inventory !== 'number' ||
+                    matchingVariant.inventory > 0
+                  ) {
                     isAvailableForSale = true
                   } else {
                     isAvailableForSale = false

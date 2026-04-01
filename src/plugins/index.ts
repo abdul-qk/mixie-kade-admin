@@ -9,6 +9,7 @@ import { stripeAdapter } from '@payloadcms/plugin-ecommerce/payments/stripe'
 
 import { Page, Product } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { SITE_NAME } from '@/utilities/site'
 import { ProductsCollection } from '@/collections/Products'
 import { adminOrPublishedStatus } from '@/access/adminOrPublishedStatus'
 import { adminOnlyFieldAccess } from '@/access/adminOnlyFieldAccess'
@@ -17,13 +18,18 @@ import { isAdmin } from '@/access/isAdmin'
 import { isDocumentOwner } from '@/access/isDocumentOwner'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Ecommerce Template` : 'Payload Ecommerce Template'
+  return doc?.title ? `${doc.title} | ${SITE_NAME}` : SITE_NAME
 }
 
-const generateURL: GenerateURL<Product | Page> = ({ doc }) => {
-  const url = getServerSideURL()
-
-  return doc?.slug ? `${url}/${doc.slug}` : url
+const generateURL: GenerateURL<Product | Page> = ({ collectionSlug, doc }) => {
+  const base = getServerSideURL().replace(/\/$/, '')
+  if (!doc?.slug) return base
+  const isProduct =
+    collectionSlug === 'products' || (doc && typeof doc === 'object' && 'variants' in doc)
+  if (isProduct) {
+    return `${base}/products/${doc.slug}`
+  }
+  return `${base}/${doc.slug}`
 }
 
 export const plugins: Plugin[] = [

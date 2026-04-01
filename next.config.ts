@@ -11,6 +11,7 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://loc
 
 const nextConfig: NextConfig = {
   images: {
+    dangerouslyAllowLocalIP: process.env.NODE_ENV !== 'production',
     localPatterns: [
       {
         pathname: '/api/media/file/**',

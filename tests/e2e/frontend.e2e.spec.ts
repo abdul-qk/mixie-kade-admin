@@ -109,20 +109,19 @@ test.describe('Frontend', () => {
     await expect(productInCart).toBeVisible()
   })
 
-  test('can view and sort via search page', async ({ page }) => {
-    await page.goto(`${baseURL}/search`)
+  test('can view and sort via shop page', async ({ page }) => {
+    await page.goto(`${baseURL}/shop`)
 
     const productCard = page.locator(`a[href="/products/test-product"]`)
     await productCard.waitFor({ state: 'visible' })
     await expect(productCard).toBeVisible()
 
     const firstCard = page.locator('div.grid > a').first()
-    const title = firstCard.locator('div.font-mono > div').first()
+    const title = firstCard.locator('p.font-body').first()
     await expect(title).not.toHaveText('Hoodie')
 
-    const priceSort = page.getByText('Price: Low to high')
-    await priceSort.click()
-    await expect(page).toHaveURL(/\/search\?sort=priceInUSD/)
+    await page.getByLabel('Sort products').selectOption('priceInUSD')
+    await expect(page).toHaveURL(/\/shop\?sort=priceInUSD/)
 
     await expect(title).toHaveText('Hoodie')
   })

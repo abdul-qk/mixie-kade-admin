@@ -1,5 +1,9 @@
 const plugin = require('tailwindcss/plugin')
-/** @type {import('tailwindcss').Config} */
+/**
+ * @type {import('tailwindcss').Config}
+ * Tailwind v4 loads `src/app/(app)/globals.css` as the primary token source.
+ * Theme extensions here exist for plugins (e.g. typography) and safelist — prefer editing globals `@theme` for storefront colors.
+ */
 export default {
   content: [
     './pages/**/*.{ts,tsx}',
@@ -84,6 +88,15 @@ export default {
         success: 'hsl(var(--success))',
         error: 'hsl(var(--error))',
         warning: 'hsl(var(--warning))',
+        // ── Mixie Kadai brand colours ──────────────────────────
+        'brand-navy':       '#1B3045',
+        'brand-navy-dark':  '#0f1e2e',
+        'brand-navy-light': '#2a4a68',
+        'brand-gold':       '#C9A84C',
+        'brand-gold-light': '#F5EDD6',
+        'brand-surface':    '#F4F6F8',
+        'brand-cream':      '#FDFCFB',
+        'brand-muted':      '#4B5768',
       },
       typography: ({ theme }) => ({
         DEFAULT: {
@@ -104,6 +117,8 @@ export default {
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
+        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        body:    ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         fadeIn: {

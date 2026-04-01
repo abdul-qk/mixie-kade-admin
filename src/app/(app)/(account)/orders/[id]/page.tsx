@@ -209,6 +209,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `Order ${id}`,
       url: `/orders/${id}`,
     }),
+    robots: { follow: false, index: false },
     title: `Order ${id}`,
   }
 }

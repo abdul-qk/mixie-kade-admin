@@ -19,5 +19,6 @@ export const metadata: Metadata = {
     title: 'Logout',
     url: '/logout',
   }),
+  robots: { follow: false, index: false },
   title: 'Logout',
 }

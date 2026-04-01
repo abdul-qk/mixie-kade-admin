@@ -1,15 +1,23 @@
 import type { Metadata } from 'next'
 
+import { getServerSideURL } from './getURL'
+import { SITE_NAME } from './site'
+
+const base = getServerSideURL()
+
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'An open-source website built with Payload and Next.js.',
+  description:
+    'Shop mixer grinders, genuine spare parts, and kitchen accessories. Islandwide delivery from Jaffna, Sri Lanka.',
   images: [
     {
-      url: 'https://payloadcms.com/images/og-image.jpg',
+      url: `${base}/logo.jpeg`,
+      alt: SITE_NAME,
     },
   ],
-  siteName: 'Payload Website Template',
-  title: 'Payload Website Template',
+  locale: 'en_LK',
+  siteName: SITE_NAME,
+  title: SITE_NAME,
 }
 
 export const mergeOpenGraph = (og?: Partial<Metadata['openGraph']>): Metadata['openGraph'] => {

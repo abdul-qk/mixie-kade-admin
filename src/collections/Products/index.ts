@@ -20,6 +20,42 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { DefaultDocumentIDType, Where } from 'payload'
 
+const toLexicalRichText = (value: unknown) => {
+  if (typeof value !== 'string') return value
+
+  return {
+    root: {
+      type: 'root',
+      version: 1,
+      direction: null,
+      format: '',
+      indent: 0,
+      children: [
+        {
+          type: 'paragraph',
+          version: 1,
+          direction: null,
+          format: '',
+          indent: 0,
+          textFormat: 0,
+          textStyle: '',
+          children: [
+            {
+              type: 'text',
+              version: 1,
+              detail: 0,
+              format: 0,
+              mode: 'normal',
+              style: '',
+              text: value,
+            },
+          ],
+        },
+      ],
+    },
+  }
+}
+
 export const ProductsCollection: CollectionOverride = ({ defaultCollection }) => ({
   ...defaultCollection,
   admin: {
@@ -63,6 +99,10 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
             {
               name: 'description',
               type: 'richText',
+              hooks: {
+                beforeValidate: [({ value }) => toLexicalRichText(value)],
+                afterRead: [({ value }) => toLexicalRichText(value)],
+              },
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -235,6 +275,16 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       type: 'number',
       label: 'Selling Price (Rs.)',
       admin: { description: 'Price in Sri Lankan Rupees shown to customers.' },
+    },
+    {
+      name: 'shippingCost',
+      type: 'number',
+      label: 'Shipping Cost (Rs.)',
+      defaultValue: 0,
+      admin: {
+        position: 'sidebar',
+        description: 'Fixed shipping fee per unit for this product.',
+      },
     },
     {
       name: 'originalPrice',

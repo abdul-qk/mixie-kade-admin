@@ -11,9 +11,10 @@ export const StockIndicator: React.FC<Props> = ({ product }) => {
   const searchParams = useSearchParams()
 
   const variants = product.variants?.docs || []
+  const hasVariants = Boolean(product.enableVariants && variants.length)
 
   const selectedVariant = useMemo<Variant | undefined>(() => {
-    if (product.enableVariants && variants.length) {
+    if (hasVariants) {
       const variantId = searchParams.get('variant')
       const validVariant = variants.find((variant) => {
         if (typeof variant === 'object') {
@@ -28,25 +29,31 @@ export const StockIndicator: React.FC<Props> = ({ product }) => {
     }
 
     return undefined
-  }, [product.enableVariants, searchParams, variants])
+  }, [hasVariants, searchParams, variants])
 
-  const stockQuantity = useMemo(() => {
-    if (product.enableVariants) {
+  const stockQuantity = useMemo<number | undefined>(() => {
+    if (hasVariants) {
       if (selectedVariant) {
-        return selectedVariant.inventory || 0
+        return typeof selectedVariant.inventory === 'number' ? selectedVariant.inventory : undefined
       }
     }
-    return product.inventory || 0
-  }, [product.enableVariants, selectedVariant, product.inventory])
+    if (product.inStock === false) return 0
+    if (product.inStock === true) return undefined
+    return typeof product.inventory === 'number' ? product.inventory : undefined
+  }, [hasVariants, selectedVariant, product.inventory, product.inStock])
 
-  if (product.enableVariants && !selectedVariant) {
+  if (hasVariants && !selectedVariant) {
     return null
   }
 
+  const isOutOfStock = typeof stockQuantity === 'number' ? stockQuantity === 0 : product.inStock === false
+
   return (
     <div className="uppercase font-mono text-sm font-medium text-gray-500">
-      {stockQuantity < 10 && stockQuantity > 0 && <p>Only {stockQuantity} left in stock</p>}
-      {(stockQuantity === 0 || !stockQuantity) && <p>Out of stock</p>}
+      {typeof stockQuantity === 'number' && stockQuantity < 10 && stockQuantity > 0 && (
+        <p>Only {stockQuantity} left in stock</p>
+      )}
+      {isOutOfStock && <p>Out of stock</p>}
     </div>
   )
 }

@@ -43,3 +43,5 @@ public/media
 
 *.db
 seed.mjs
+
+.vercel

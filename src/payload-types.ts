@@ -76,6 +76,7 @@ export interface Config {
     pages: Page;
     categories: Category;
     media: Media;
+    'product-reviews': ProductReview;
     forms: Form;
     'form-submissions': FormSubmission;
     addresses: Address;
@@ -109,6 +110,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'product-reviews': ProductReviewsSelect<false> | ProductReviewsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     addresses: AddressesSelect<false> | AddressesSelect<true>;
@@ -131,10 +133,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    'review-settings': ReviewSetting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'review-settings': ReviewSettingsSelect<false> | ReviewSettingsSelect<true>;
   };
   locale: null;
   widgets: {
@@ -187,6 +191,7 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name?: string | null;
+  phone?: string | null;
   roles?: ('admin' | 'customer')[] | null;
   orders?: {
     docs?: (number | Order)[];
@@ -326,6 +331,10 @@ export interface Product {
    * Price in Sri Lankan Rupees shown to customers.
    */
   price?: number | null;
+  /**
+   * Fixed shipping fee per unit for this product.
+   */
+  shippingCost?: number | null;
   /**
    * Optional. Shown as strikethrough to indicate a discount.
    */
@@ -1065,6 +1074,29 @@ export interface Address {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-reviews".
+ */
+export interface ProductReview {
+  id: number;
+  product: number | Product;
+  customer?: (number | null) | User;
+  order?: (number | null) | Order;
+  status: 'pending' | 'approved' | 'rejected';
+  rating: number;
+  title?: string | null;
+  content: string;
+  displayName: string;
+  email: string;
+  isVerifiedPurchase?: boolean | null;
+  moderationNotes?: string | null;
+  source?: ('web' | 'admin' | 'import') | null;
+  submittedAt: string;
+  approvedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "form-submissions".
  */
 export interface FormSubmission {
@@ -1119,6 +1151,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'product-reviews';
+        value: number | ProductReview;
       } | null)
     | ({
         relationTo: 'forms';
@@ -1208,6 +1244,7 @@ export interface PayloadMigration {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  phone?: T;
   roles?: T;
   orders?: T;
   cart?: T;
@@ -1430,6 +1467,28 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "product-reviews_select".
+ */
+export interface ProductReviewsSelect<T extends boolean = true> {
+  product?: T;
+  customer?: T;
+  order?: T;
+  status?: T;
+  rating?: T;
+  title?: T;
+  content?: T;
+  displayName?: T;
+  email?: T;
+  isVerifiedPurchase?: T;
+  moderationNotes?: T;
+  source?: T;
+  submittedAt?: T;
+  approvedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1680,6 +1739,7 @@ export interface ProductsSelect<T extends boolean = true> {
   category?: T;
   inStock?: T;
   price?: T;
+  shippingCost?: T;
   originalPrice?: T;
   wattage?: T;
   jars?: T;
@@ -1905,6 +1965,20 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "review-settings".
+ */
+export interface ReviewSetting {
+  id: number;
+  enabled?: boolean | null;
+  requireApproval?: boolean | null;
+  allowGuestReviews?: boolean | null;
+  minReviewLength?: number | null;
+  maxReviewLength?: number | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1945,6 +2019,20 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "review-settings_select".
+ */
+export interface ReviewSettingsSelect<T extends boolean = true> {
+  enabled?: T;
+  requireApproval?: T;
+  allowGuestReviews?: T;
+  minReviewLength?: T;
+  maxReviewLength?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

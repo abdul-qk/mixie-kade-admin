@@ -21,7 +21,7 @@ export const homePageData: (args: ProductArgs) => RequiredDataFromCollectionSlug
             type: 'custom',
             appearance: 'default',
             label: 'All products',
-            url: '/search',
+            url: '/shop',
           },
         },
         {

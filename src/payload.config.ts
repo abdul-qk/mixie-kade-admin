@@ -17,19 +17,30 @@ import { fileURLToPath } from 'url'
 import { Categories } from '@/collections/Categories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
+import { ProductReviews } from '@/collections/ProductReviews'
 import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
+import { ReviewSettings } from '@/globals/ReviewSettings'
 import { plugins } from './plugins'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const allowedOrigins = Array.from(
+  new Set(
+    [
+      process.env.FRONTEND_URL,
+      process.env.PAYLOAD_PUBLIC_SERVER_URL,
+      process.env.NEXT_PUBLIC_SERVER_URL,
+    ].filter(Boolean),
+  ),
+) as string[]
 
 export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Pages, Categories, Media],
+  collections: [Users, Pages, Categories, Media, ProductReviews],
   db: sqliteAdapter({
     client: {
       url: process.env.DATABASE_URL || '',
@@ -73,10 +84,10 @@ export default buildConfig({
   }),
   //email: nodemailerAdapter(),
   endpoints: [],
-  globals: [Header, Footer],
+  globals: [Header, Footer, ReviewSettings],
   plugins,
-  cors: ['http://localhost:5173', process.env.FRONTEND_URL].filter(Boolean) as string[],
-  csrf: ['http://localhost:5173', process.env.FRONTEND_URL].filter(Boolean) as string[],
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
