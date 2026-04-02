@@ -14,13 +14,13 @@ export const redirects: NextConfig['redirects'] = async () => {
     source: '/:path((?!ie-incompatible.html$).*)', // all pages except the incompatibility page
   }
 
-  /** Apex domain is canonical; www → apex */
-  const wwwToApex = {
-    destination: 'https://mixiekadai.lk/:path*',
-    has: [{ type: 'host' as const, value: 'www.mixiekadai.lk' }],
+  /** WWW domain is canonical; apex → www */
+  const apexToWww = {
+    destination: 'https://www.mixiekadai.lk/:path*',
+    has: [{ type: 'host' as const, value: 'mixiekadai.lk' }],
     permanent: true,
     source: '/:path*',
   }
 
-  return [internetExplorerRedirect, wwwToApex]
+  return [internetExplorerRedirect, apexToWww]
 }
