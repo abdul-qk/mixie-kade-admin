@@ -47,6 +47,7 @@ export async function ShopPageContent({ categorySlug, searchParams }: Props) {
       title: true,
       slug: true,
       gallery: true,
+      images: true,
       categories: true,
       priceInUSD: true,
       price: true,

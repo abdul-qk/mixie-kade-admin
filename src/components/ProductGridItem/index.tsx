@@ -4,19 +4,20 @@ import { formatStorefrontMoney, resolveUnitPrice } from '@/lib/productPrice'
 import Link from 'next/link'
 import React from 'react'
 import { Media } from '@/components/Media'
+import { getServerSideURL } from '@/utilities/getURL'
+import { getProductPrimarySlide } from '@/utilities/productImages'
 
 type Props = {
   product: Partial<Product>
 }
 
 export const ProductGridItem: React.FC<Props> = ({ product }) => {
-  const { title, slug, gallery, inStock } = product
+  const { title, slug, inStock } = product
   const hasNumericPrice =
     typeof product.price === 'number' || typeof product.priceInUSD === 'number'
   const displayPrice = resolveUnitPrice(product, null)
 
-  const image =
-    gallery?.[0]?.image && typeof gallery[0]?.image !== 'string' ? gallery[0]?.image : null
+  const slide = getProductPrimarySlide(product as Product, null, getServerSideURL())
 
   const inStockBool = inStock !== false // treat undefined as in-stock
 
@@ -27,12 +28,13 @@ export const ProductGridItem: React.FC<Props> = ({ product }) => {
     >
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-brand-surface">
-        {image ? (
+        {slide?.url ? (
           <Media
+            alt={slide.alt || title || ''}
             className="w-full h-full"
-            imgClassName="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            resource={image}
             fill
+            imgClassName="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            src={slide.url}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-brand-surface">

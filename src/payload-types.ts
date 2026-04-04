@@ -352,7 +352,7 @@ export interface Product {
       }[]
     | null;
   /**
-   * Add image URLs. First image is used as the thumbnail.
+   * When any URL is set, the storefront uses these images first (product page, shop grid, cart). Prefer full https URLs. Leave empty to use Content → Gallery uploads instead (supports variant-specific images).
    */
   images?:
     | {

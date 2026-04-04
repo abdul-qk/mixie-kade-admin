@@ -10,7 +10,8 @@ import {
   formatStorefrontMoney,
   resolveUnitPrice,
 } from '@/lib/productPrice'
-import Image from 'next/image'
+import { Media } from '@/components/Media'
+import { getProductPrimarySlide } from '@/utilities/productImages'
 import Link from 'next/link'
 
 function resolveItemDisplay(item: CartItem) {
@@ -19,38 +20,18 @@ function resolveItemDisplay(item: CartItem) {
 
   if (!product || typeof product !== 'object' || !product.slug) return null
 
-  const metaImage =
-    product.meta?.image && typeof product.meta?.image === 'object' ? product.meta.image : undefined
-  const firstGalleryImage =
-    typeof product.gallery?.[0]?.image === 'object' ? product.gallery[0].image : undefined
-
-  let image = firstGalleryImage || metaImage
   const price = resolveUnitPrice(product, variant && typeof variant === 'object' ? variant : null)
 
   const isVariant = Boolean(variant) && typeof variant === 'object'
 
-  if (isVariant && variant) {
-    const imageVariant = product.gallery?.find((galleryItem) => {
-      if (!galleryItem.variantOption) return false
-
-      const variantOptionID =
-        typeof galleryItem.variantOption === 'object'
-          ? galleryItem.variantOption.id
-          : galleryItem.variantOption
-
-      return variant.options?.some((option) =>
-        typeof option === 'object' ? option.id === variantOptionID : option === variantOptionID,
-      )
-    })
-
-    if (imageVariant && typeof imageVariant.image === 'object') {
-      image = imageVariant.image
-    }
-  }
+  const slide = getProductPrimarySlide(
+    product as Product,
+    isVariant && variant && typeof variant === 'object' ? variant : null,
+  )
 
   return {
     product: product as Product,
-    image,
+    slide,
     isVariant,
     variant,
     price: typeof price === 'number' ? price : 0,
@@ -103,7 +84,7 @@ export default function CartPage() {
                 const display = resolveItemDisplay(item)
                 if (!display) return null
 
-                const { product, image, isVariant, variant, price } = display
+                const { product, slide, isVariant, variant, price } = display
                 const quantity = item.quantity ?? 1
 
                 return (
@@ -115,13 +96,13 @@ export default function CartPage() {
                     <div className="flex gap-4 pr-6">
                       <Link href={`/products/${product.slug}`} className="shrink-0">
                         <div className="relative h-20 w-20 overflow-hidden bg-brand-surface/20 border border-brand-surface">
-                          {image?.url ? (
-                            <Image
-                              src={image.url}
-                              alt={image.alt || product.title || 'Product image'}
+                          {slide?.url ? (
+                            <Media
+                              alt={slide.alt || product.title || 'Product image'}
+                              className="h-full w-full"
                               fill
-                              sizes="80px"
-                              className="object-cover"
+                              imgClassName="object-cover"
+                              src={slide.url}
                             />
                           ) : null}
                         </div>

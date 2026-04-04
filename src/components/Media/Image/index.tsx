@@ -32,12 +32,20 @@ export const Image: React.FC<MediaProps> = (props) => {
   let width: number | undefined | null
   let height: number | undefined | null
   let alt = altFromProps
-  let src: StaticImageData | string = srcFromProps || ''
+  let src: StaticImageData | string = srcFromProps != null ? srcFromProps : ''
+
+  if (!src && resource && typeof resource === 'string') {
+    const trimmed = resource.trim()
+    src = trimmed
+      ? /^https?:\/\//i.test(trimmed)
+        ? trimmed
+        : `${process.env.NEXT_PUBLIC_SERVER_URL}${trimmed.startsWith('/') ? trimmed : `/${trimmed}`}`
+      : ''
+  }
 
   if (!src && resource && typeof resource === 'object') {
     const {
       alt: altFromResource,
-      filename: fullFilename,
       height: fullHeight,
       url,
       width: fullWidth,
@@ -47,9 +55,17 @@ export const Image: React.FC<MediaProps> = (props) => {
     height = heightFromProps ?? fullHeight
     alt = altFromResource
 
-    const filename = fullFilename
-
     src = `${process.env.NEXT_PUBLIC_SERVER_URL}${url}`
+  }
+
+  let unoptimized = false
+  if (typeof src === 'string' && /^https?:\/\//i.test(src)) {
+    try {
+      const serverBase = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+      unoptimized = new URL(src).origin !== new URL(serverBase).origin
+    } catch {
+      unoptimized = true
+    }
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
@@ -76,6 +92,7 @@ export const Image: React.FC<MediaProps> = (props) => {
       quality={90}
       sizes={sizes}
       src={src}
+      unoptimized={unoptimized}
       width={!fill ? width || widthFromProps : undefined}
     />
   )

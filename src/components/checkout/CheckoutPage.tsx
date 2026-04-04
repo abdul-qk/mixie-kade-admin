@@ -19,7 +19,8 @@ import { CheckoutForm } from '@/components/forms/CheckoutForm'
 import { useAddresses, useCart, usePayments } from '@payloadcms/plugin-ecommerce/client/react'
 import { CheckoutAddresses } from '@/components/checkout/CheckoutAddresses'
 import { CreateAddressModal } from '@/components/addresses/CreateAddressModal'
-import { Address } from '@/payload-types'
+import { Address, Product, Variant } from '@/payload-types'
+import { getProductPrimarySlide } from '@/utilities/productImages'
 import { Checkbox } from '@/components/ui/checkbox'
 import { AddressItem } from '@/components/addresses/AddressItem'
 import { FormItem } from '@/components/forms/FormItem'
@@ -356,50 +357,36 @@ export const CheckoutPage: React.FC = () => {
           <h2 className="text-3xl font-medium">Your cart</h2>
           {cart?.items?.map((item, index) => {
             if (typeof item.product === 'object' && item.product) {
-              const {
-                product,
-                product: { id, meta, title, gallery },
-                quantity,
-                variant,
-              } = item
+              const { product, product: { title }, quantity, variant } = item
 
               if (!quantity) return null
 
-              let image = gallery?.[0]?.image || meta?.image
               let price = product?.priceInUSD
 
               const isVariant = Boolean(variant) && typeof variant === 'object'
 
               if (isVariant) {
                 price = variant?.priceInUSD
-
-                const imageVariant = product.gallery?.find((item: any) => {
-                  if (!item.variantOption) return false
-                  const variantOptionID =
-                    typeof item.variantOption === 'object'
-                      ? item.variantOption.id
-                      : item.variantOption
-
-                  const hasMatch = variant?.options?.some((option: any) => {
-                    if (typeof option === 'object') return option.id === variantOptionID
-                    else return option === variantOptionID
-                  })
-
-                  return hasMatch
-                })
-
-                if (imageVariant && typeof imageVariant.image !== 'string') {
-                  image = imageVariant.image
-                }
               }
+
+              const slide = getProductPrimarySlide(
+                product as Product,
+                isVariant && variant && typeof variant === 'object' ? (variant as Variant) : null,
+              )
 
               return (
                 <div className="flex items-start gap-4" key={index}>
                   <div className="flex items-stretch justify-stretch h-20 w-20 p-2 rounded-lg border">
                     <div className="relative w-full h-full">
-                      {image && typeof image !== 'string' && (
-                        <Media className="" fill imgClassName="rounded-lg" resource={image} />
-                      )}
+                      {slide?.url ? (
+                        <Media
+                          alt={slide.alt || title || ''}
+                          className=""
+                          fill
+                          imgClassName="rounded-lg object-cover"
+                          src={slide.url}
+                        />
+                      ) : null}
                     </div>
                   </div>
                   <div className="flex grow justify-between items-center">

@@ -1,9 +1,9 @@
 import { Media } from '@/components/Media'
-import { OrderStatus } from '@/components/OrderStatus'
 import { Price } from '@/components/Price'
-import { Button } from '@/components/ui/button'
-import { Media as MediaType, Order, Product, Variant } from '@/payload-types'
+import { Product, Variant } from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
+import { getServerSideURL } from '@/utilities/getURL'
+import { getProductPrimarySlide } from '@/utilities/productImages'
 import Link from 'next/link'
 
 type Props = {
@@ -26,34 +26,7 @@ export const ProductItem: React.FC<Props> = ({
 }) => {
   const { title } = product
 
-  const metaImage =
-    product.meta?.image && typeof product.meta?.image !== 'string' ? product.meta.image : undefined
-
-  const firstGalleryImage =
-    typeof product.gallery?.[0]?.image !== 'string' ? product.gallery?.[0]?.image : undefined
-
-  let image = firstGalleryImage || metaImage
-
-  const isVariant = Boolean(variant) && typeof variant === 'object'
-
-  if (isVariant) {
-    const imageVariant = product.gallery?.find((item) => {
-      if (!item.variantOption) return false
-      const variantOptionID =
-        typeof item.variantOption === 'object' ? item.variantOption.id : item.variantOption
-
-      const hasMatch = variant?.options?.some((option) => {
-        if (typeof option === 'object') return option.id === variantOptionID
-        else return option === variantOptionID
-      })
-
-      return hasMatch
-    })
-
-    if (imageVariant && typeof imageVariant.image !== 'string') {
-      image = imageVariant.image
-    }
-  }
+  const slide = getProductPrimarySlide(product, variant ?? null, getServerSideURL())
 
   const itemPrice = variant?.priceInUSD || product.priceInUSD
   const itemURL = `/products/${product.slug}${variant ? `?variant=${variant.id}` : ''}`
@@ -62,9 +35,15 @@ export const ProductItem: React.FC<Props> = ({
     <div className="flex items-center gap-4">
       <div className="flex items-stretch justify-stretch h-20 w-20 p-2 rounded-lg border">
         <div className="relative w-full h-full">
-          {image && typeof image !== 'string' && (
-            <Media className="" fill imgClassName="rounded-lg object-cover" resource={image} />
-          )}
+          {slide?.url ? (
+            <Media
+              alt={slide.alt || title}
+              className=""
+              fill
+              imgClassName="rounded-lg object-cover"
+              src={slide.url}
+            />
+          ) : null}
         </div>
       </div>
       <div className="flex grow justify-between items-center">

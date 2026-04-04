@@ -89,32 +89,42 @@ export const AccountForm: React.FC = () => {
     }
   }, [user, router, reset, changePassword])
 
+  const fieldInputClass =
+    'border-neutral-300 bg-white text-brand-navy shadow-sm placeholder:text-neutral-400 focus-visible:border-brand-navy focus-visible:ring-brand-navy/25 dark:border-neutral-300 dark:bg-white dark:text-brand-navy'
+
+  const labelClassName =
+    'mb-2 font-body text-sm font-medium text-brand-navy peer-disabled:opacity-60'
+
+  const introClass = 'font-body text-sm leading-relaxed text-brand-navy'
+
+  const textLinkClass =
+    'inline h-auto min-h-0 p-0 align-baseline font-body text-sm font-medium text-brand-gold underline underline-offset-4 hover:text-brand-navy hover:no-underline'
+
   return (
     <form className="max-w-xl" onSubmit={handleSubmit(onSubmit)}>
       {!changePassword ? (
         <Fragment>
-          <div className="prose dark:prose-invert mb-8">
-            <p className="">
-              {'Change your account details below, or '}
-              <Button
-                className="px-0 text-inherit underline hover:cursor-pointer"
-                onClick={() => setChangePassword(!changePassword)}
-                type="button"
-                variant="link"
-              >
-                click here
-              </Button>
-              {' to change your password.'}
-            </p>
-          </div>
+          <p className={`${introClass} mb-8`}>
+            {'Change your account details below, or '}
+            <Button
+              className={textLinkClass}
+              onClick={() => setChangePassword(!changePassword)}
+              type="button"
+              variant="link"
+            >
+              change your password
+            </Button>
+            .
+          </p>
 
           <div className="flex flex-col gap-8 mb-8">
             <FormItem>
-              <Label htmlFor="email" className="mb-2">
-                Email Address
+              <Label htmlFor="email" className={labelClassName}>
+                Email address
               </Label>
               <Input
                 id="email"
+                className={fieldInputClass}
                 {...register('email', { required: 'Please provide an email.' })}
                 type="email"
               />
@@ -122,11 +132,12 @@ export const AccountForm: React.FC = () => {
             </FormItem>
 
             <FormItem>
-              <Label htmlFor="name" className="mb-2">
+              <Label htmlFor="name" className={labelClassName}>
                 Name
               </Label>
               <Input
                 id="name"
+                className={fieldInputClass}
                 {...register('name', { required: 'Please provide a name.' })}
                 type="text"
               />
@@ -136,28 +147,27 @@ export const AccountForm: React.FC = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <div className="prose dark:prose-invert mb-8">
-            <p>
-              {'Change your password below, or '}
-              <Button
-                className="px-0 text-inherit underline hover:cursor-pointer"
-                onClick={() => setChangePassword(!changePassword)}
-                type="button"
-                variant="link"
-              >
-                cancel
-              </Button>
-              .
-            </p>
-          </div>
+          <p className={`${introClass} mb-8`}>
+            {'Choose a new password below, or '}
+            <Button
+              className={textLinkClass}
+              onClick={() => setChangePassword(!changePassword)}
+              type="button"
+              variant="link"
+            >
+              cancel
+            </Button>
+            {' to go back.'}
+          </p>
 
           <div className="flex flex-col gap-8 mb-8">
             <FormItem>
-              <Label htmlFor="password" className="mb-2">
+              <Label htmlFor="password" className={labelClassName}>
                 New password
               </Label>
               <Input
                 id="password"
+                className={fieldInputClass}
                 {...register('password', { required: 'Please provide a new password.' })}
                 type="password"
               />
@@ -165,11 +175,12 @@ export const AccountForm: React.FC = () => {
             </FormItem>
 
             <FormItem>
-              <Label htmlFor="passwordConfirm" className="mb-2">
+              <Label htmlFor="passwordConfirm" className={labelClassName}>
                 Confirm password
               </Label>
               <Input
                 id="passwordConfirm"
+                className={fieldInputClass}
                 {...register('passwordConfirm', {
                   required: 'Please confirm your new password.',
                   validate: (value) => value === password.current || 'The passwords do not match',
@@ -181,7 +192,12 @@ export const AccountForm: React.FC = () => {
           </div>
         </Fragment>
       )}
-      <Button disabled={isLoading || isSubmitting || !isDirty} type="submit" variant="default">
+      <Button
+        className="min-w-[11rem] bg-brand-navy font-body font-medium text-white shadow-sm hover:bg-brand-gold hover:text-brand-navy disabled:bg-neutral-200 disabled:text-neutral-600 disabled:opacity-100 disabled:shadow-none"
+        disabled={isLoading || isSubmitting || !isDirty}
+        type="submit"
+        variant="default"
+      >
         {isLoading || isSubmitting
           ? 'Processing'
           : changePassword

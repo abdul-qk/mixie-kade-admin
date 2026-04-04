@@ -9,8 +9,8 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
+import { Media } from '@/components/Media'
 import { ShoppingCart } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useMemo, useState } from 'react'
@@ -25,6 +25,7 @@ import {
   formatStorefrontMoney,
   resolveUnitPrice,
 } from '@/lib/productPrice'
+import { getProductPrimarySlide } from '@/utilities/productImages'
 
 function formatCartTotal(grand: number, sampleProduct: Partial<Product> | undefined): string {
   if (sampleProduct && typeof (sampleProduct as Product).price === 'number') {
@@ -90,48 +91,14 @@ export function CartModal() {
                   if (typeof product !== 'object' || !item || !product || !product.slug)
                     return <React.Fragment key={i} />
 
-                  const metaImage =
-                    product.meta?.image && typeof product.meta?.image === 'object'
-                      ? product.meta.image
-                      : undefined
-
-                  const firstGalleryImage =
-                    typeof product.gallery?.[0]?.image === 'object'
-                      ? product.gallery?.[0]?.image
-                      : undefined
-
-                  let image = firstGalleryImage || metaImage
                   const unitPrice = resolveUnitPrice(product, variant && typeof variant === 'object' ? variant : null)
 
                   const isVariant = Boolean(variant) && typeof variant === 'object'
 
-                  if (isVariant && variant && typeof variant === 'object') {
-                    const v = variant as Variant
-                    const imageVariant = product.gallery?.find(
-                      (galleryItem: NonNullable<Product['gallery']>[number]) => {
-                        if (!galleryItem.variantOption) return false
-                        const variantOptionID =
-                          typeof galleryItem.variantOption === 'object' &&
-                          galleryItem.variantOption !== null &&
-                          'id' in galleryItem.variantOption
-                            ? (galleryItem.variantOption as { id: number }).id
-                            : (galleryItem.variantOption as number)
-
-                        const hasMatch = v.options?.some((option) => {
-                          if (typeof option === 'object' && option !== null && 'id' in option) {
-                            return option.id === variantOptionID
-                          }
-                          return option === variantOptionID
-                        })
-
-                        return hasMatch
-                      },
-                    )
-
-                    if (imageVariant && typeof imageVariant.image === 'object') {
-                      image = imageVariant.image
-                    }
-                  }
+                  const slide = getProductPrimarySlide(
+                    product as Product,
+                    isVariant && variant && typeof variant === 'object' ? (variant as Variant) : null,
+                  )
 
                   const qty = item.quantity ?? 1
                   const lineTotal = unitPrice * qty
@@ -147,15 +114,15 @@ export function CartModal() {
                           href={`/products/${(item.product as Product)?.slug}`}
                         >
                           <div className="relative h-16 w-16 shrink-0 cursor-pointer overflow-hidden rounded-md border border-brand-surface bg-brand-surface/30">
-                            {image?.url && (
-                              <Image
-                                alt={image?.alt || product?.title || ''}
-                                className="h-full w-full object-cover"
-                                height={94}
-                                src={image.url}
-                                width={94}
+                            {slide?.url ? (
+                              <Media
+                                alt={slide.alt || product?.title || ''}
+                                className="h-full w-full"
+                                fill
+                                imgClassName="object-cover"
+                                src={slide.url}
                               />
-                            )}
+                            ) : null}
                           </div>
 
                           <div className="flex flex-1 flex-col text-base min-w-0">

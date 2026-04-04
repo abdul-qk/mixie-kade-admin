@@ -25,6 +25,8 @@ export const Providers: React.FC<{
                     slug: true,
                     title: true,
                     gallery: true,
+                    images: true,
+                    meta: true,
                     inventory: true,
                     price: true,
                     priceInUSD: true,

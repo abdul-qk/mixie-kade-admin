@@ -3,6 +3,7 @@ import type { Media, Product } from '@/payload-types'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { ProductGridItem } from '@/components/ProductGridItem'
 import { Gallery } from '@/components/product/Gallery'
+import { ProductUrlGallery } from '@/components/product/ProductUrlGallery'
 import { ProductDescription } from '@/components/product/ProductDescription'
 import { ProductReviewsSection } from '@/components/product/ProductReviewsSection'
 import { WhatsAppButton } from '@/components/product/WhatsAppButton'
@@ -17,6 +18,11 @@ import { Metadata } from 'next'
 import { canonicalUrl } from '@/utilities/canonicalUrl'
 import { getServerSideURL } from '@/utilities/getURL'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import {
+  getProductImageSlides,
+  getUrlFieldImageSlides,
+  hasUrlFieldImageRows,
+} from '@/utilities/productImages'
 
 type Args = {
   params: Promise<{
@@ -36,11 +42,13 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 
   if (!product) return notFound()
 
-  const gallery = product.gallery?.filter((item) => typeof item.image === 'object') || []
+  const siteBase = getServerSideURL()
+  const slides = getProductImageSlides(product, siteBase)
   const metaImage = typeof product.meta?.image === 'object' ? product.meta?.image : undefined
   const canIndex = product._status === 'published'
-  const seoImage = metaImage || (gallery.length ? (gallery[0]?.image as Media) : undefined)
-  const ogUrl = absoluteMediaUrl(seoImage?.url ?? undefined)
+  const ogFromMeta = absoluteMediaUrl(metaImage?.url ?? undefined)
+  const ogFromSlides = slides[0]?.url
+  const ogUrl = ogFromMeta || ogFromSlides
 
   const title = product.meta?.title || product.title
   const description = product.meta?.description || ''
@@ -55,10 +63,10 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
       images: ogUrl
         ? [
             {
-              alt: seoImage?.alt ?? title,
-              height: seoImage?.height ?? undefined,
+              alt: metaImage?.alt ?? slides[0]?.alt ?? title,
+              height: metaImage?.height ?? undefined,
               url: ogUrl,
-              width: seoImage?.width ?? undefined,
+              width: metaImage?.width ?? undefined,
             },
           ]
         : undefined,
@@ -76,10 +84,14 @@ export default async function ProductPage({ params }: Args) {
 
   if (!product) return notFound()
 
+  const siteBase = getServerSideURL()
   const gallery =
     product.gallery
       ?.filter((item) => typeof item.image === 'object')
       .map((item) => ({ ...item, image: item.image as Media })) || []
+
+  const urlFieldSlides = getUrlFieldImageSlides(product, siteBase)
+  const showUrlGallery = hasUrlFieldImageRows(product) && urlFieldSlides.length > 0
 
   const lkrPrice = (product as any).price as number | undefined
 
@@ -89,12 +101,8 @@ export default async function ProductPage({ params }: Args) {
       ? product.meta.description
       : `${product.title} — mixer grinders & kitchen products from Mixie Kadai, Sri Lanka.`
 
-  const imageUrls: string[] = []
-  for (const item of gallery) {
-    const im = item.image as Media
-    const u = absoluteMediaUrl(im?.url ?? undefined)
-    if (u) imageUrls.push(u)
-  }
+  const imageSlides = getProductImageSlides(product, siteBase)
+  const imageUrls = imageSlides.map((s) => s.url).filter(Boolean)
   const primaryImage =
     absoluteMediaUrl(
       typeof product.meta?.image === 'object' && product.meta?.image?.url
@@ -211,14 +219,16 @@ export default async function ProductPage({ params }: Args) {
                   <div className="aspect-square w-full bg-brand-surface animate-pulse" />
                 }
               >
-                {gallery.length ? (
+                {showUrlGallery ? (
+                  <ProductUrlGallery slides={urlFieldSlides} />
+                ) : gallery.length ? (
                   <Gallery gallery={gallery} />
                 ) : (
                   <div className="aspect-square w-full border border-brand-surface bg-brand-cream flex items-center justify-center text-center p-8">
                     <div>
                       <p className="font-display text-2xl text-brand-navy mb-2">{product.title}</p>
                       <p className="font-body text-sm text-brand-muted">
-                        Product images will appear here once uploaded.
+                        Add product image URLs or upload images in the gallery.
                       </p>
                     </div>
                   </div>

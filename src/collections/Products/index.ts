@@ -85,6 +85,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
     variants: true,
     enableVariants: true,
     gallery: true,
+    images: true,
     priceInUSD: true,
     inventory: true,
     meta: true,
@@ -313,7 +314,10 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       name: 'images',
       type: 'array',
       label: 'Product Images (URL)',
-      admin: { description: 'Add image URLs. First image is used as the thumbnail.' },
+      admin: {
+        description:
+          'When any URL is set, the storefront uses these images first (product page, shop grid, cart). Prefer full https URLs. Leave empty to use Content → Gallery uploads instead (supports variant-specific images).',
+      },
       fields: [
         { name: 'url', type: 'text', required: true, label: 'Image URL' },
         { name: 'alt', type: 'text', label: 'Alt Text' },

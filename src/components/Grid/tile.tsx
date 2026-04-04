@@ -7,21 +7,28 @@ import React from 'react'
 
 type Props = {
   active?: boolean
+  alt?: string
   isInteractive?: boolean
   label?: {
     amount: number
     position?: 'bottom' | 'center'
     title: string
   }
-  media: MediaType
+  media?: MediaType | null
+  /** Remote or absolute image URL (e.g. product URL field). */
+  src?: string
 }
 
 export const GridTileImage: React.FC<Props> = ({
   active,
+  alt,
   isInteractive = true,
   label,
-  ...props
+  media,
+  src: srcUrl,
 }) => {
+  const show = Boolean(media) || Boolean(srcUrl?.trim())
+
   return (
     <div
       className={clsx(
@@ -33,14 +40,16 @@ export const GridTileImage: React.FC<Props> = ({
         },
       )}
     >
-      {props.media ? (
+      {show ? (
         <Media
+          alt={alt}
           className={clsx('relative h-full w-full object-cover', {
             'transition duration-300 ease-in-out group-hover:scale-105': isInteractive,
           })}
           height={80}
           imgClassName="h-full w-full object-cover"
-          resource={props.media}
+          resource={media ?? undefined}
+          src={srcUrl}
           width={80}
         />
       ) : null}
