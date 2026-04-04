@@ -1,5 +1,7 @@
 'use client'
 
+import { shopPhotos } from '@/constants/shopPhotos'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { useReveal } from '@/hooks/useReveal'
@@ -66,18 +68,14 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="reveal reveal-right delay-2 relative">
-            <div className="bg-brand-surface rounded-xl aspect-[4/3] flex items-center justify-center overflow-hidden">
-              <div className="w-2/3 h-2/3 bg-brand-navy/10 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-brand-gold/30 rounded-full mx-auto mb-3 flex items-center justify-center">
-                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#C9A84C" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 21V12h6v9" />
-                    </svg>
-                  </div>
-                  <p className="font-body text-xs text-brand-navy/40">Shop photo here</p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-surface ring-1 ring-brand-navy/10 shadow-md">
+              <Image
+                alt="Mixie Kadai retail store — mixer grinders and spare parts on display in Jaffna"
+                className="object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                src={shopPhotos.aboutCompany}
+              />
             </div>
           </div>
         </div>
@@ -86,18 +84,19 @@ export default function AboutPage() {
       {/* 3. About the Owner */}
       <section ref={ownerRef as React.RefObject<HTMLElement>} className="py-20 px-6 bg-brand-surface">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="reveal reveal-left order-2 lg:order-1 flex justify-center lg:justify-start">
-            <div className="bg-brand-navy/10 rounded-2xl aspect-square w-full max-w-xs flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-brand-navy/20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                  <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#1B3045" strokeWidth="1.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                    <circle cx="12" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <p className="font-body text-xs text-brand-navy/40">Owner portrait here</p>
-              </div>
+          <div className="reveal reveal-left order-2 lg:order-1 flex flex-col items-center lg:items-start gap-3">
+            <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-brand-navy/10 ring-1 ring-brand-navy/10 shadow-md">
+              <Image
+                alt="Inside Mixie Kadai — curated mixer grinders and genuine parts"
+                className="object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 320px"
+                src={shopPhotos.aboutStore}
+              />
             </div>
+            <p className="font-body text-xs text-brand-muted text-center lg:text-left max-w-xs">
+              Our Jaffna showroom — where we help customers choose the right appliance.
+            </p>
           </div>
           <div className="reveal reveal-right delay-2 order-1 lg:order-2">
             <p className="font-body text-xs font-semibold tracking-widest text-brand-gold uppercase mb-3">Meet the Owner</p>
@@ -228,13 +227,23 @@ export default function AboutPage() {
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-brand-navy">Visit Us in Jaffna</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="reveal reveal-left delay-1 bg-brand-navy/10 rounded-xl aspect-video flex flex-col items-center justify-center gap-3">
-              <p className="font-body text-sm text-brand-navy/40 font-medium">Shop Photos</p>
-              <p className="font-body text-xs text-brand-navy/30">Add shop photos here</p>
+            <div className="reveal reveal-left delay-1 relative aspect-video overflow-hidden rounded-xl bg-brand-navy/10 ring-1 ring-brand-navy/10 shadow-md">
+              <Image
+                alt="Mixie Kadai — wide view of the Jaffna shop floor"
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                src={shopPhotos.visitWide}
+              />
             </div>
-            <div className="reveal reveal-right delay-2 bg-brand-gold-light rounded-xl aspect-video flex flex-col items-center justify-center gap-3">
-              <p className="font-body text-sm text-brand-muted font-medium">Delivery Photos</p>
-              <p className="font-body text-xs text-brand-muted/60">Add delivery photos here</p>
+            <div className="reveal reveal-right delay-2 relative aspect-video overflow-hidden rounded-xl bg-brand-gold-light ring-1 ring-brand-navy/10 shadow-md">
+              <Image
+                alt="Mixie Kadai — products and displays at our store"
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                src={shopPhotos.visitDetail}
+              />
             </div>
           </div>
         </div>

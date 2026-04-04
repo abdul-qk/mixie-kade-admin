@@ -1,7 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
+import { shopPhotos } from '@/constants/shopPhotos'
 import { useReveal } from '@/hooks/useReveal'
 
 export function AboutSnippet() {
@@ -36,14 +38,16 @@ export function AboutSnippet() {
           </Link>
         </div>
 
-        {/* Image placeholder — right */}
+        {/* Store photo — right */}
         <div className="reveal reveal-right delay-2 w-full lg:w-1/2 flex justify-center">
-          <div className="relative w-full max-w-md aspect-[4/3] bg-brand-navy overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-navy-light opacity-50" />
-            <div className="absolute bottom-0 left-0 w-2/3 h-1/2 bg-brand-gold opacity-20" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="font-display text-2xl text-white/30 italic">Mixie Kadai</p>
-            </div>
+          <div className="relative w-full max-w-md aspect-[4/3] overflow-hidden rounded-sm ring-1 ring-brand-navy/10 shadow-md">
+            <Image
+              alt="Mixie Kadai showroom — mixer grinders and kitchen appliances in Jaffna"
+              className="object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 448px"
+              src={shopPhotos.homeAbout}
+            />
           </div>
         </div>
 
