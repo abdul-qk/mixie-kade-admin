@@ -5,4 +5,6 @@ export const shopPhotos = {
   aboutStore: '/shop/shop-3.jpeg',
   visitWide: '/shop/shop-4.jpeg',
   visitDetail: '/shop/shop-5.jpeg',
+  /** Owner portrait — /public/owner.png */
+  ownerPortrait: '/owner.png',
 } as const

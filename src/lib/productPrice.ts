@@ -7,6 +7,14 @@ export type CartLineItem = NonNullable<NonNullable<Cart['items']>[number]>
  * Resolves the storefront unit price for a line item.
  * Prefer LKR `price` when present on product/variant, then fall back to `priceInUSD`.
  */
+/** List price for shop sorting (LKR `price` first, then `priceInUSD`). Null = no fixed price. */
+export function getSortableListPrice(product: Partial<Product>): number | null {
+  const p = product as Product & { price?: number | null }
+  if (typeof p.price === 'number') return p.price
+  if (typeof p.priceInUSD === 'number') return p.priceInUSD
+  return null
+}
+
 export function resolveUnitPrice(
   product: Partial<Product>,
   variant?: Partial<Variant> | null,

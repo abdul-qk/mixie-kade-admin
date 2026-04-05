@@ -17,6 +17,8 @@ type Props = {
   searchParams: Promise<SearchParams>
 }
 
+export const dynamic = 'force-dynamic'
+
 export function generateStaticParams() {
   return SHOP_CATEGORY_SLUGS.map((category) => ({ category }))
 }

@@ -6,6 +6,8 @@ import React from 'react'
 type SearchParams = { [key: string]: string | string[] | undefined }
 type Props = { searchParams: Promise<SearchParams> }
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const sp = await searchParams
   const q = Array.isArray(sp.q) ? sp.q[0] : sp.q

@@ -16,7 +16,8 @@ type Props = {
   productID: number
   reviews: ReviewItem[]
   enabled: boolean
-  allowGuestReviews: boolean
+  /** True when the form should render: guests allowed, or viewer is logged in. */
+  showReviewForm: boolean
 }
 
 const renderStars = (rating: number) => {
@@ -24,7 +25,7 @@ const renderStars = (rating: number) => {
   return '★'.repeat(safeRating) + '☆'.repeat(5 - safeRating)
 }
 
-export function ProductReviewsSection({ productID, reviews, enabled, allowGuestReviews }: Props) {
+export function ProductReviewsSection({ productID, reviews, enabled, showReviewForm }: Props) {
   if (!enabled) return null
 
   const reviewCount = reviews.length
@@ -51,13 +52,14 @@ export function ProductReviewsSection({ productID, reviews, enabled, allowGuestR
           </div>
 
           <div className="lg:col-span-3">
-            {allowGuestReviews ? (
+            {showReviewForm ? (
               <ProductReviewForm productID={productID} />
             ) : (
               <div className="border border-brand-surface bg-white p-5 md:p-6">
                 <h3 className="font-display text-xl text-brand-navy">Write a Review</h3>
                 <p className="font-body text-sm text-brand-muted mt-2">
-                  Review submissions are currently limited to signed-in customers.
+                  Review submissions are limited to signed-in customers. Please log in to your account to
+                  write a review.
                 </p>
               </div>
             )}

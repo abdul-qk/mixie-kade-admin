@@ -87,15 +87,16 @@ export default function AboutPage() {
           <div className="reveal reveal-left order-2 lg:order-1 flex flex-col items-center lg:items-start gap-3">
             <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-brand-navy/10 ring-1 ring-brand-navy/10 shadow-md">
               <Image
-                alt="Inside Mixie Kadai — curated mixer grinders and genuine parts"
-                className="object-cover"
+                alt="Hashim Huzefa, owner of Mixie Kadai"
+                className="object-cover object-top"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 320px"
-                src={shopPhotos.aboutStore}
+                src={shopPhotos.ownerPortrait}
               />
             </div>
             <p className="font-body text-xs text-brand-muted text-center lg:text-left max-w-xs">
-              Our Jaffna showroom — where we help customers choose the right appliance.
+              Hashim Huzefa — founder &amp; owner, Mixie Kadai.
             </p>
           </div>
           <div className="reveal reveal-right delay-2 order-1 lg:order-2">

@@ -25,6 +25,7 @@ export function ProductReviewForm({ productID }: Props) {
     try {
       const response = await fetch('/api/reviews', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

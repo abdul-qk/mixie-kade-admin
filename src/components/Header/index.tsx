@@ -1,10 +1,11 @@
 'use client'
 
-import { Cart } from '@/components/Cart'
 import { useAuth } from '@/providers/Auth'
+import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
+import { ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useState, Suspense } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 const navLinks = [
   { label: 'Home',       href: '/'            },
@@ -19,8 +20,14 @@ export function Header() {
   const [scrolled,  setScrolled]  = useState(false)
   const [menuOpen,  setMenuOpen]  = useState(false)
   const { user, status }          = useAuth()
+  const { cart }                  = useCart()
   const pathname                  = usePathname()
   const loading                   = status === undefined
+
+  const cartQuantity = useMemo(() => {
+    if (!cart?.items?.length) return 0
+    return cart.items.reduce((n, item) => n + (item.quantity || 0), 0)
+  }, [cart?.items])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -97,10 +104,23 @@ export function Header() {
               </Link>
             )}
 
-            {/* Cart — using the existing ecommerce plugin Cart component */}
-            <Suspense fallback={null}>
-              <Cart />
-            </Suspense>
+            {/* Cart — full cart page */}
+            <Link
+              href="/cart"
+              aria-label={
+                cartQuantity > 0
+                  ? `Shopping cart, ${cartQuantity} items`
+                  : 'Shopping cart'
+              }
+              className="relative flex items-center justify-center text-brand-navy hover:text-brand-gold transition-colors duration-200 p-1"
+            >
+              <ShoppingCart className="h-[22px] w-[22px]" strokeWidth={1.75} aria-hidden />
+              {cartQuantity > 0 ? (
+                <span className="absolute -top-0.5 -right-1 min-w-[18px] h-[18px] rounded-full bg-brand-navy text-[10px] font-semibold text-white flex items-center justify-center px-1 tabular-nums">
+                  {cartQuantity > 99 ? '99+' : cartQuantity}
+                </span>
+              ) : null}
+            </Link>
 
             {/* Hamburger — mobile only */}
             <button
@@ -145,6 +165,14 @@ export function Header() {
                   </Link>
                 </li>
               )}
+              <li>
+                <Link
+                  href="/cart"
+                  className="block py-2.5 font-body text-sm font-medium text-brand-navy hover:text-brand-gold transition-colors duration-200"
+                >
+                  Cart{cartQuantity > 0 ? ` (${cartQuantity})` : ''}
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/checkout"

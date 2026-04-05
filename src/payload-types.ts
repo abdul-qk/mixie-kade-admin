@@ -75,6 +75,7 @@ export interface Config {
     users: User;
     pages: Page;
     categories: Category;
+    brands: Brand;
     media: Media;
     'product-reviews': ProductReview;
     forms: Form;
@@ -109,6 +110,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    brands: BrandsSelect<false> | BrandsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'product-reviews': ProductReviewsSelect<false> | ProductReviewsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
@@ -326,6 +328,7 @@ export interface Product {
   category?:
     | ('mixer-grinders' | 'blenders-juicers' | 'coconut-scrapers' | 'jars' | 'spare-parts' | 'accessories')
     | null;
+  brand?: (number | null) | Brand;
   inStock?: boolean | null;
   /**
    * Price in Sri Lankan Rupees shown to customers.
@@ -948,6 +951,21 @@ export interface Variant {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands".
+ */
+export interface Brand {
+  id: number;
+  title: string;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "transactions".
  */
 export interface Transaction {
@@ -1147,6 +1165,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'categories';
         value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'brands';
+        value: number | Brand;
       } | null)
     | ({
         relationTo: 'media';
@@ -1451,6 +1473,17 @@ export interface CategoriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "brands_select".
+ */
+export interface BrandsSelect<T extends boolean = true> {
+  title?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -1737,6 +1770,7 @@ export interface ProductsSelect<T extends boolean = true> {
       };
   categories?: T;
   category?: T;
+  brand?: T;
   inStock?: T;
   price?: T;
   shippingCost?: T;

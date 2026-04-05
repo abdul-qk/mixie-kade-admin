@@ -9,7 +9,7 @@ import { ProductReviewsSection } from '@/components/product/ProductReviewsSectio
 import { WhatsAppButton } from '@/components/product/WhatsAppButton'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
-import { draftMode } from 'next/headers'
+import { draftMode, headers } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React, { Suspense } from 'react'
@@ -185,6 +185,10 @@ export default async function ProductPage({ params }: Args) {
     slug: 'review-settings',
   })
 
+  const { user } = await payload.auth({ headers: await headers() })
+  const allowGuestReviews = reviewSettings?.allowGuestReviews !== false
+  const showReviewForm = allowGuestReviews || Boolean(user)
+
   return (
     <React.Fragment>
       <script
@@ -282,10 +286,10 @@ export default async function ProductPage({ params }: Args) {
       ) : null}
 
       <ProductReviewsSection
-        allowGuestReviews={reviewSettings?.allowGuestReviews !== false}
         enabled={reviewSettings?.enabled !== false}
         productID={product.id}
         reviews={(reviewsData.docs as any[]) ?? []}
+        showReviewForm={showReviewForm}
       />
     </React.Fragment>
   )

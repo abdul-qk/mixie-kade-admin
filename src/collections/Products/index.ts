@@ -60,7 +60,7 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
   ...defaultCollection,
   admin: {
     ...defaultCollection?.admin,
-    defaultColumns: ['title', 'enableVariants', '_status', 'variants.variants'],
+    defaultColumns: ['title', 'brand', 'enableVariants', '_status', 'variants.variants'],
     livePreview: {
       url: ({ data, req }) =>
         generatePreviewPath({
@@ -263,6 +263,13 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
         { label: 'Accessories',                 value: 'accessories'      },
       ],
       defaultValue: 'mixer-grinders',
+    },
+    {
+      name: 'brand',
+      type: 'relationship',
+      relationTo: 'brands',
+      label: 'Brand',
+      admin: { position: 'sidebar' },
     },
     {
       name: 'inStock',

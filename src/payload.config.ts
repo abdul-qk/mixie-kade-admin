@@ -14,6 +14,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
+import { Brands } from '@/collections/Brands'
 import { Categories } from '@/collections/Categories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
@@ -40,7 +41,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Pages, Categories, Media, ProductReviews],
+  collections: [Users, Pages, Categories, Brands, Media, ProductReviews],
   db: sqliteAdapter({
     client: {
       url: process.env.DATABASE_URL || '',
