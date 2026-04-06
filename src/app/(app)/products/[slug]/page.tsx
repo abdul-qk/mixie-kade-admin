@@ -18,6 +18,7 @@ import { Metadata } from 'next'
 import { canonicalUrl } from '@/utilities/canonicalUrl'
 import { getServerSideURL } from '@/utilities/getURL'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { formatStorefrontMoney, resolveCompareAtPrice, resolveUnitPrice } from '@/lib/productPrice'
 import {
   getProductImageSlides,
   getUrlFieldImageSlides,
@@ -93,7 +94,11 @@ export default async function ProductPage({ params }: Args) {
   const urlFieldSlides = getUrlFieldImageSlides(product, siteBase)
   const showUrlGallery = hasUrlFieldImageRows(product) && urlFieldSlides.length > 0
 
-  const lkrPrice = (product as any).price as number | undefined
+  const displayPrice = resolveUnitPrice(product, null)
+  const compareAtPrice = resolveCompareAtPrice(product, null)
+  const hasNumericPrice =
+    typeof (product as any).price === 'number' || typeof product.priceInUSD === 'number'
+  const hasCompareAt = typeof compareAtPrice === 'number' && compareAtPrice > displayPrice
 
   const productPageUrl = canonicalUrl(`/products/${slug}`)
   const metaDesc =
@@ -127,8 +132,8 @@ export default async function ProductPage({ params }: Args) {
         (product.inventory ?? 0) > 0
           ? 'https://schema.org/InStock'
           : 'https://schema.org/OutOfStock',
-      price: lkrPrice ?? product.priceInUSD,
-      priceCurrency: lkrPrice ? 'LKR' : 'USD',
+      price: displayPrice,
+      priceCurrency: typeof (product as any).price === 'number' ? 'LKR' : 'USD',
       url: productPageUrl,
     },
     url: productPageUrl,
@@ -247,11 +252,17 @@ export default async function ProductPage({ params }: Args) {
                   {product.title}
                 </h1>
 
-                {/* LKR price badge */}
-                {lkrPrice ? (
-                  <p className="font-body text-2xl font-bold text-brand-navy">
-                    Rs. {lkrPrice.toLocaleString()}
-                  </p>
+                {hasNumericPrice ? (
+                  <div className="flex items-baseline gap-3">
+                    <p className="font-body text-2xl font-bold text-brand-navy">
+                      {formatStorefrontMoney(displayPrice, product)}
+                    </p>
+                    {hasCompareAt ? (
+                      <p className="font-body text-sm text-brand-muted line-through tabular-nums">
+                        {formatStorefrontMoney(compareAtPrice, product)}
+                      </p>
+                    ) : null}
+                  </div>
                 ) : null}
               </div>
 

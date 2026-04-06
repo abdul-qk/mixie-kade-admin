@@ -23,6 +23,11 @@ const statusColours: Record<string, string> = {
   cancelled: 'bg-red-100 text-red-800',
 }
 
+const paymentMethodLabel: Record<string, string> = {
+  cod: 'Cash on Delivery',
+  bank_transfer: 'Bank Transfer',
+}
+
 export default async function OrdersPage() {
   const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
@@ -64,6 +69,7 @@ export default async function OrdersPage() {
           {orders.map((order) => {
             const status   = (order as any).status || 'pending'
             const badgeCls = statusColours[status] || 'bg-gray-100 text-gray-700'
+            const paymentMethod = (order as any).paymentMethod || 'cod'
             const createdAt = new Date(order.createdAt).toLocaleDateString('en-GB', {
               day: 'numeric', month: 'short', year: 'numeric',
             })
@@ -83,6 +89,9 @@ export default async function OrdersPage() {
                     <p className="font-body text-sm font-semibold text-brand-navy">Order #{order.id}</p>
                     <span className={`font-body text-xs font-medium px-2.5 py-0.5 rounded-full capitalize ${badgeCls}`}>
                       {status}
+                    </span>
+                    <span className="font-body text-xs font-medium px-2.5 py-0.5 rounded-full bg-brand-gold-light text-brand-navy">
+                      {paymentMethodLabel[paymentMethod] || 'Payment Pending'}
                     </span>
                   </div>
                   <div className="flex items-center gap-4">

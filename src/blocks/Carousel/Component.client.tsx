@@ -6,6 +6,7 @@ import AutoScroll from 'embla-carousel-auto-scroll'
 import Link from 'next/link'
 import React from 'react'
 import { GridTileImage } from '@/components/Grid/tile'
+import { resolveCompareAtPrice, resolveUnitPrice } from '@/lib/productPrice'
 
 export const CarouselClient: React.FC<{ products: Product[] }> = async ({ products }) => {
   if (!products?.length) return null
@@ -27,7 +28,11 @@ export const CarouselClient: React.FC<{ products: Product[] }> = async ({ produc
       ]}
     >
       <CarouselContent>
-        {carouselProducts.map((product, i) => (
+        {carouselProducts.map((product, i) => {
+          const price = resolveUnitPrice(product, null)
+          const compareAtPrice = resolveCompareAtPrice(product, null)
+          const hasCompareAt = typeof compareAtPrice === 'number' && compareAtPrice > price
+          return (
           <CarouselItem
             className="relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3"
             key={`${product.slug}${i}`}
@@ -35,14 +40,16 @@ export const CarouselClient: React.FC<{ products: Product[] }> = async ({ produc
             <Link className="relative h-full w-full" href={`/products/${product.slug}`}>
               <GridTileImage
                 label={{
-                  amount: product.priceInUSD!,
+                  amount: price,
+                  compareAtAmount: hasCompareAt ? compareAtPrice : undefined,
                   title: product.title,
                 }}
                 media={product.meta?.image as Media}
               />
             </Link>
           </CarouselItem>
-        ))}
+          )
+        })}
       </CarouselContent>
     </Carousel>
   )

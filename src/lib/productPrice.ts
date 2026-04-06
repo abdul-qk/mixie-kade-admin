@@ -33,6 +33,22 @@ export function resolveUnitPrice(
   return 0
 }
 
+/** Compare-at/original price for sale display. Variant value takes precedence when present. */
+export function resolveCompareAtPrice(
+  product: Partial<Product>,
+  variant?: Partial<Variant> | null,
+): number | null {
+  const isVariant = Boolean(variant && typeof variant === 'object')
+  if (isVariant && variant) {
+    const v = variant as Variant & { originalPrice?: number | null }
+    if (typeof v.originalPrice === 'number') return v.originalPrice
+  }
+
+  const p = product as Product & { originalPrice?: number | null }
+  if (typeof p.originalPrice === 'number') return p.originalPrice
+  return null
+}
+
 export function resolveShippingPerUnit(product: Partial<Product>): number {
   const s = (product as Product).shippingCost
   return typeof s === 'number' ? s : 0

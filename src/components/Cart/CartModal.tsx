@@ -23,6 +23,7 @@ import type { Product, Variant } from '@/payload-types'
 import {
   computeCartOrderTotals,
   formatStorefrontMoney,
+  resolveCompareAtPrice,
   resolveUnitPrice,
 } from '@/lib/productPrice'
 import { getProductPrimarySlide } from '@/utilities/productImages'
@@ -102,6 +103,14 @@ export function CartModal() {
 
                   const qty = item.quantity ?? 1
                   const lineTotal = unitPrice * qty
+                  const compareAtPrice = resolveCompareAtPrice(
+                    product,
+                    variant && typeof variant === 'object' ? variant : null,
+                  )
+                  const compareLineTotal =
+                    typeof compareAtPrice === 'number' ? compareAtPrice * qty : null
+                  const hasCompare =
+                    typeof compareLineTotal === 'number' && compareLineTotal > lineTotal
 
                   return (
                     <li className="flex w-full flex-col border-b border-brand-surface/80 last:border-0" key={i}>
@@ -141,9 +150,16 @@ export function CartModal() {
                           </div>
                         </Link>
                         <div className="flex h-16 flex-col justify-between items-end shrink-0">
-                          <span className="text-right text-sm font-semibold text-brand-navy tabular-nums">
-                            {formatStorefrontMoney(lineTotal, product)}
-                          </span>
+                          <div className="text-right">
+                            <span className="text-sm font-semibold text-brand-navy tabular-nums">
+                              {formatStorefrontMoney(lineTotal, product)}
+                            </span>
+                            {hasCompare ? (
+                              <p className="text-xs text-brand-muted line-through tabular-nums">
+                                {formatStorefrontMoney(compareLineTotal, product)}
+                              </p>
+                            ) : null}
+                          </div>
                           <div className="ml-auto flex h-9 flex-row items-center rounded-lg border border-brand-surface">
                             <EditItemQuantityButton item={item} type="minus" />
                             <p className="w-8 text-center">

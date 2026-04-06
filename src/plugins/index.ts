@@ -143,6 +143,35 @@ export const plugins: Plugin[] = [
             admin: { position: 'sidebar' },
           },
           {
+            name: 'paymentMethod',
+            type: 'select',
+            label: 'Payment Method',
+            defaultValue: 'cod',
+            required: true,
+            options: [
+              {
+                label: 'Cash on Delivery',
+                value: 'cod',
+              },
+              {
+                label: 'Online Bank Transfer',
+                value: 'bank_transfer',
+              },
+            ],
+            admin: { position: 'sidebar' },
+          },
+          {
+            name: 'paymentInstructions',
+            type: 'textarea',
+            label: 'Payment Instructions',
+            defaultValue:
+              'For bank transfer orders: Customer must send payment screenshot via WhatsApp with the order number as reference. Dispatch only after proof verification.',
+            admin: {
+              position: 'sidebar',
+              readOnly: true,
+            },
+          },
+          {
             name: 'accessToken',
             type: 'text',
             unique: true,

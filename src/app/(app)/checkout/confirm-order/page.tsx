@@ -17,6 +17,8 @@ export default async function ConfirmOrderPage({
 }) {
   const searchParams = await searchParamsPromise
   const orderId = searchParams.id as string | undefined
+  const paymentMethod = searchParams.paymentMethod as 'cod' | 'bank_transfer' | undefined
+  const isBankTransfer = paymentMethod === 'bank_transfer'
 
   return (
     <div className="min-h-screen bg-brand-cream flex items-center justify-center px-6">
@@ -41,22 +43,42 @@ export default async function ConfirmOrderPage({
           </p>
         )}
 
-        {/* COD reminder */}
-        <div className="bg-brand-gold-light border border-brand-gold rounded-xl px-6 py-5 mb-10 text-left">
-          <div className="flex items-start gap-3">
-            <span className="text-brand-gold mt-0.5">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </span>
-            <div>
-              <p className="font-body text-sm font-semibold text-brand-navy">Cash on Delivery</p>
-              <p className="font-body text-xs text-brand-muted mt-1">
-                Payment will be collected when your order is delivered. We&apos;ll call you to confirm delivery details.
-              </p>
+        {isBankTransfer ? (
+          <div className="bg-brand-gold-light border border-brand-gold rounded-xl px-6 py-5 mb-10 text-left">
+            <div className="flex items-start gap-3">
+              <span className="text-brand-gold mt-0.5">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 1.343-3 3v6h6v-6c0-1.657-1.343-3-3-3zm0 0V6m0 2h.01M6 7h12a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2z" />
+                </svg>
+              </span>
+              <div className="space-y-1">
+                <p className="font-body text-sm font-semibold text-brand-navy">Online Bank Transfer</p>
+                <p className="font-body text-xs text-brand-muted">
+                  Please send your payment screenshot via WhatsApp with your order number as the reference.
+                </p>
+                <p className="font-body text-xs text-brand-muted">
+                  Your order will be dispatched only after payment proof is verified.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="bg-brand-gold-light border border-brand-gold rounded-xl px-6 py-5 mb-10 text-left">
+            <div className="flex items-start gap-3">
+              <span className="text-brand-gold mt-0.5">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </span>
+              <div>
+                <p className="font-body text-sm font-semibold text-brand-navy">Cash on Delivery</p>
+                <p className="font-body text-xs text-brand-muted mt-1">
+                  Payment will be collected when your order is delivered. We&apos;ll call you to confirm delivery details.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link

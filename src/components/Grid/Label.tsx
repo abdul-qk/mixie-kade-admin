@@ -5,11 +5,13 @@ import { Price } from '@/components/Price'
 
 type Props = {
   amount: number
+  compareAtAmount?: number
   position?: 'bottom' | 'center'
   title: string
 }
 
-export const Label: React.FC<Props> = ({ amount, position = 'bottom', title }) => {
+export const Label: React.FC<Props> = ({ amount, compareAtAmount, position = 'bottom', title }) => {
+  const hasCompareAt = typeof compareAtAmount === 'number' && compareAtAmount > amount
   return (
     <div
       className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label', {
@@ -21,11 +23,20 @@ export const Label: React.FC<Props> = ({ amount, position = 'bottom', title }) =
           {title}
         </h3>
 
-        <Price
-          amount={amount}
-          className="flex-none rounded-full bg-blue-600 p-2 text-white"
-          currencyCodeClassName="hidden @[275px]/label:inline"
-        />
+        <div className="flex flex-col items-end gap-1">
+          {hasCompareAt ? (
+            <Price
+              amount={compareAtAmount}
+              className="flex-none rounded-full bg-black/40 px-2 py-1 text-[11px] text-white line-through"
+              currencyCodeClassName="hidden"
+            />
+          ) : null}
+          <Price
+            amount={amount}
+            className="flex-none rounded-full bg-blue-600 p-2 text-white"
+            currencyCodeClassName="hidden @[275px]/label:inline"
+          />
+        </div>
       </div>
     </div>
   )

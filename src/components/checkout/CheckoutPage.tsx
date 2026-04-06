@@ -26,6 +26,7 @@ import { AddressItem } from '@/components/addresses/AddressItem'
 import { FormItem } from '@/components/forms/FormItem'
 import { toast } from 'sonner'
 import { LoadingSpinner } from '@/components/LoadingSpinner'
+import { formatStorefrontMoney, resolveCompareAtPrice, resolveUnitPrice } from '@/lib/productPrice'
 
 const apiKey = `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
 const stripe = loadStripe(apiKey)
@@ -361,17 +362,17 @@ export const CheckoutPage: React.FC = () => {
 
               if (!quantity) return null
 
-              let price = product?.priceInUSD
-
               const isVariant = Boolean(variant) && typeof variant === 'object'
-
-              if (isVariant) {
-                price = variant?.priceInUSD
-              }
+              const activeVariant =
+                isVariant && variant && typeof variant === 'object' ? (variant as Variant) : null
+              const price = resolveUnitPrice(product, activeVariant)
+              const compareAtPrice = resolveCompareAtPrice(product, activeVariant)
+              const hasCompare =
+                typeof compareAtPrice === 'number' && compareAtPrice > price
 
               const slide = getProductPrimarySlide(
                 product as Product,
-                isVariant && variant && typeof variant === 'object' ? (variant as Variant) : null,
+                activeVariant,
               )
 
               return (
@@ -408,7 +409,16 @@ export const CheckoutPage: React.FC = () => {
                       </div>
                     </div>
 
-                    {typeof price === 'number' && <Price amount={price} />}
+                    <div className="text-right">
+                      <p className="font-body text-sm font-semibold text-brand-navy tabular-nums">
+                        {formatStorefrontMoney(price, product)}
+                      </p>
+                      {hasCompare ? (
+                        <p className="font-body text-xs text-brand-muted line-through tabular-nums">
+                          {formatStorefrontMoney(compareAtPrice, product)}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               )

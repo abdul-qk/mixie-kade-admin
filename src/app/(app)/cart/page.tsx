@@ -8,6 +8,7 @@ import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
 import {
   computeCartOrderTotals,
   formatStorefrontMoney,
+  resolveCompareAtPrice,
   resolveUnitPrice,
 } from '@/lib/productPrice'
 import { Media } from '@/components/Media'
@@ -86,6 +87,15 @@ export default function CartPage() {
 
                 const { product, slide, isVariant, variant, price } = display
                 const quantity = item.quantity ?? 1
+                const compareAtPrice = resolveCompareAtPrice(
+                  product,
+                  isVariant && variant && typeof variant === 'object' ? variant : null,
+                )
+                const lineTotal = price * quantity
+                const compareLineTotal =
+                  typeof compareAtPrice === 'number' ? compareAtPrice * quantity : null
+                const hasCompare =
+                  typeof compareLineTotal === 'number' && compareLineTotal > lineTotal
 
                 return (
                   <li key={item.id ?? i} className="relative p-4 sm:p-5">
@@ -134,9 +144,16 @@ export default function CartPage() {
                             <EditItemQuantityButton item={item} type="plus" />
                           </div>
 
-                          <span className="font-body text-sm font-semibold text-brand-navy tabular-nums">
-                            {formatStorefrontMoney(price * quantity, product)}
-                          </span>
+                          <div className="text-right">
+                            <span className="font-body text-sm font-semibold text-brand-navy tabular-nums">
+                              {formatStorefrontMoney(lineTotal, product)}
+                            </span>
+                            {hasCompare ? (
+                              <p className="font-body text-xs text-brand-muted line-through tabular-nums">
+                                {formatStorefrontMoney(compareLineTotal, product)}
+                              </p>
+                            ) : null}
+                          </div>
                         </div>
                       </div>
                     </div>

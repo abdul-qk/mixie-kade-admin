@@ -6,7 +6,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import type { Product } from '@/payload-types'
-import { computeCartOrderTotals, resolveUnitPrice, resolveShippingPerUnit } from '@/lib/productPrice'
+import {
+  computeCartOrderTotals,
+  resolveCompareAtPrice,
+  resolveUnitPrice,
+  resolveShippingPerUnit,
+} from '@/lib/productPrice'
 
 type FormState = {
   customerName: string
@@ -14,6 +19,7 @@ type FormState = {
   address: string
   city: string
   notes: string
+  paymentMethod: 'cod' | 'bank_transfer'
 }
 
 export default function CheckoutPage() {
@@ -31,6 +37,7 @@ export default function CheckoutPage() {
     address:      '',
     city:         '',
     notes:        '',
+    paymentMethod: 'cod',
   })
   const [submitting, setSubmitting] = useState(false)
   const [error, setError]           = useState<string | null>(null)
@@ -100,6 +107,7 @@ export default function CheckoutPage() {
           deliveryCity:    form.city,
           codNotes:        form.notes || '',
           codItemsJson:    JSON.stringify(orderItems),
+          paymentMethod:   form.paymentMethod,
           items:           orderItems,
           total,
         }),
@@ -115,7 +123,7 @@ export default function CheckoutPage() {
       const data = await res.json()
       const orderId = data?.doc?.id || data?.id
       await clearCart()
-      router.push(`/checkout/confirm-order?id=${orderId}`)
+      router.push(`/checkout/confirm-order?id=${orderId}&paymentMethod=${encodeURIComponent(form.paymentMethod)}`)
     } catch (err: any) {
       setError(err.message)
     } finally {
@@ -231,6 +239,42 @@ export default function CheckoutPage() {
               />
             </div>
 
+            {/* Payment method */}
+            <div>
+              <p className="block font-body text-sm font-medium text-brand-navy mb-2">
+                Payment Method <span className="text-red-500" aria-hidden="true">*</span>
+                <span className="sr-only">(required)</span>
+              </p>
+              <div className="space-y-2">
+                <label className="flex items-start gap-3 border border-brand-surface bg-white px-4 py-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="cod"
+                    checked={form.paymentMethod === 'cod'}
+                    onChange={handleChange}
+                    className="mt-1"
+                  />
+                  <span className="font-body text-sm text-brand-navy">
+                    Cash on Delivery
+                  </span>
+                </label>
+                <label className="flex items-start gap-3 border border-brand-surface bg-white px-4 py-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="bank_transfer"
+                    checked={form.paymentMethod === 'bank_transfer'}
+                    onChange={handleChange}
+                    className="mt-1"
+                  />
+                  <span className="font-body text-sm text-brand-navy">
+                    Online Bank Transfer
+                  </span>
+                </label>
+              </div>
+            </div>
+
             {error && (
               <div
                 role="alert"
@@ -240,19 +284,42 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            <div className="bg-brand-gold-light border-l-4 border-brand-gold px-4 py-3">
-              <p className="font-body text-sm font-semibold text-brand-navy">Cash on Delivery</p>
-              <p className="font-body text-xs text-brand-muted mt-0.5">
-                No online payment needed. Pay when your order arrives.
-              </p>
-            </div>
+            {form.paymentMethod === 'cod' ? (
+              <div className="bg-brand-gold-light border-l-4 border-brand-gold px-4 py-3">
+                <p className="font-body text-sm font-semibold text-brand-navy">Cash on Delivery</p>
+                <p className="font-body text-xs text-brand-muted mt-0.5">
+                  No online payment needed. Pay when your order arrives.
+                </p>
+              </div>
+            ) : (
+              <div className="bg-brand-gold-light border-l-4 border-brand-gold px-4 py-3 space-y-1">
+                <p className="font-body text-sm font-semibold text-brand-navy">Online Bank Transfer</p>
+                <p className="font-body text-xs text-brand-muted">
+                  Account Number: <span className="font-semibold text-brand-navy">111000285346</span>
+                </p>
+                <p className="font-body text-xs text-brand-muted">
+                  Account Name: <span className="font-semibold text-brand-navy">Hakimi Appliances</span>
+                </p>
+                <p className="font-body text-xs text-brand-muted">
+                  Bank: <span className="font-semibold text-brand-navy">Ndb manipay</span>
+                </p>
+                <p className="font-body text-xs text-brand-muted pt-1">
+                  After payment, send your screenshot via WhatsApp with your order number as the reference.
+                  Your order will be dispatched only after payment proof is verified.
+                </p>
+              </div>
+            )}
 
             <button
               type="submit"
               disabled={submitting}
               className="w-full bg-brand-navy hover:bg-brand-gold text-white font-body font-semibold text-sm py-4 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {submitting ? 'Placing Order...' : 'Place Order (Cash on Delivery)'}
+              {submitting
+                ? 'Placing Order...'
+                : form.paymentMethod === 'bank_transfer'
+                  ? 'Place Order (Online Bank Transfer)'
+                  : 'Place Order (Cash on Delivery)'}
             </button>
           </form>
 
@@ -266,8 +333,14 @@ export default function CheckoutPage() {
                   const product = item.product as Product
                   const variant = item.variant && typeof item.variant === 'object' ? item.variant : null
                   const price = resolveUnitPrice(product, variant)
+                  const compareAtPrice = resolveCompareAtPrice(product, variant)
                   const shippingCost = resolveShippingPerUnit(product)
                   const qty     = item.quantity ?? 1
+                  const lineTotal = price * qty
+                  const compareLineTotal =
+                    typeof compareAtPrice === 'number' ? compareAtPrice * qty : null
+                  const hasCompare =
+                    typeof compareLineTotal === 'number' && compareLineTotal > lineTotal
                   return (
                     <div key={i} className="flex justify-between gap-2">
                       <span className="font-body text-sm text-brand-navy leading-snug flex flex-col">
@@ -281,8 +354,13 @@ export default function CheckoutPage() {
                           </span>
                         )}
                       </span>
-                      <span className="font-body text-sm font-semibold text-brand-navy whitespace-nowrap">
-                        Rs. {(price * qty).toLocaleString()}
+                      <span className="font-body text-sm font-semibold text-brand-navy whitespace-nowrap text-right">
+                        <span>Rs. {lineTotal.toLocaleString()}</span>
+                        {hasCompare ? (
+                          <span className="ml-2 text-xs text-brand-muted line-through tabular-nums">
+                            Rs. {compareLineTotal.toLocaleString()}
+                          </span>
+                        ) : null}
                       </span>
                     </div>
                   )

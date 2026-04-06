@@ -79,6 +79,7 @@ export default async function Order({ params, searchParams }: PageProps) {
         items: true,
         customerEmail: true,
         customer: true,
+        paymentMethod: true,
         status: true,
         createdAt: true,
         updatedAt: true,

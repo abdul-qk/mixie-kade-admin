@@ -4,6 +4,7 @@ import { Product, Variant } from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
 import { getServerSideURL } from '@/utilities/getURL'
 import { getProductPrimarySlide } from '@/utilities/productImages'
+import { formatStorefrontMoney, resolveCompareAtPrice, resolveUnitPrice } from '@/lib/productPrice'
 import Link from 'next/link'
 
 type Props = {
@@ -28,7 +29,9 @@ export const ProductItem: React.FC<Props> = ({
 
   const slide = getProductPrimarySlide(product, variant ?? null, getServerSideURL())
 
-  const itemPrice = variant?.priceInUSD || product.priceInUSD
+  const itemPrice = resolveUnitPrice(product, variant ?? null)
+  const compareAtPrice = resolveCompareAtPrice(product, variant ?? null)
+  const hasCompare = typeof compareAtPrice === 'number' && compareAtPrice > itemPrice
   const itemURL = `/products/${product.slug}${variant ? `?variant=${variant.id}` : ''}`
 
   return (
@@ -67,16 +70,19 @@ export const ProductItem: React.FC<Props> = ({
           </div>
         </div>
 
-        {itemPrice && quantity && (
+        {quantity ? (
           <div className="text-right">
             <p className="font-medium text-lg">Subtotal</p>
-            <Price
-              className="font-mono text-primary/50 text-sm"
-              amount={itemPrice * quantity}
-              currencyCode={currencyCode}
-            />
+            <p className="font-mono text-primary/50 text-sm tabular-nums">
+              {formatStorefrontMoney(itemPrice * quantity, product)}
+            </p>
+            {hasCompare ? (
+              <p className="font-mono text-xs text-primary/40 line-through tabular-nums">
+                {formatStorefrontMoney((compareAtPrice as number) * quantity, product)}
+              </p>
+            ) : null}
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   )

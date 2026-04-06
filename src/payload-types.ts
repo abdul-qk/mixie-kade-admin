@@ -271,6 +271,8 @@ export interface Order {
    */
   codItemsJson?: string | null;
   codNotes?: string | null;
+  paymentMethod: 'cod' | 'bank_transfer';
+  paymentInstructions?: string | null;
   accessToken?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -1860,6 +1862,8 @@ export interface OrdersSelect<T extends boolean = true> {
   deliveryCity?: T;
   codItemsJson?: T;
   codNotes?: T;
+  paymentMethod?: T;
+  paymentInstructions?: T;
   accessToken?: T;
   updatedAt?: T;
   createdAt?: T;

@@ -1,6 +1,7 @@
 import type { Media, Product, ThreeItemGridBlock as ThreeItemGridBlockProps } from '@/payload-types'
 
 import { GridTileImage } from '@/components/Grid/tile'
+import { resolveCompareAtPrice, resolveUnitPrice } from '@/lib/productPrice'
 import Link from 'next/link'
 import React from 'react'
 import type { DefaultDocumentIDType } from 'payload'
@@ -8,15 +9,13 @@ import type { DefaultDocumentIDType } from 'payload'
 type Props = { item: Product; priority?: boolean; size: 'full' | 'half' }
 
 export const ThreeItemGridItem: React.FC<Props> = ({ item, size }) => {
-  let price = item.priceInUSD
-
-  if (item.enableVariants && item.variants?.docs?.length) {
-    const variant = item.variants.docs[0]
-
-    if (variant && typeof variant === 'object' && variant.priceInUSD) {
-      price = variant.priceInUSD
-    }
-  }
+  const firstVariant =
+    item.enableVariants && item.variants?.docs?.length && typeof item.variants.docs[0] === 'object'
+      ? item.variants.docs[0]
+      : null
+  const price = resolveUnitPrice(item, firstVariant)
+  const compareAtPrice = resolveCompareAtPrice(item, firstVariant)
+  const hasCompareAt = typeof compareAtPrice === 'number' && compareAtPrice > price
 
   return (
     <div
@@ -25,7 +24,8 @@ export const ThreeItemGridItem: React.FC<Props> = ({ item, size }) => {
       <Link className="relative block aspect-square h-full w-full" href={`/products/${item.slug}`}>
         <GridTileImage
           label={{
-            amount: price!,
+            amount: price,
+            compareAtAmount: hasCompareAt ? compareAtPrice : undefined,
             position: size === 'full' ? 'center' : 'bottom',
             title: item.title,
           }}
