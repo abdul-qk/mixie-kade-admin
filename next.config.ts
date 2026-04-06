@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
       {
         pathname: '/shop/**',
       },
+      {
+        pathname: '/owner.png',
+      },
     ],
     qualities: [90, 100],
     remotePatterns: [

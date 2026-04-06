@@ -1,10 +1,10 @@
 'use client'
 
 import { shopPhotos } from '@/constants/shopPhotos'
+import { useReveal } from '@/hooks/useReveal'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { useReveal } from '@/hooks/useReveal'
 
 const stats = [
   { number: '20+',        label: 'Mixer Grinder Models' },
@@ -83,19 +83,18 @@ export default function AboutPage() {
 
       {/* 3. About the Owner */}
       <section ref={ownerRef as React.RefObject<HTMLElement>} className="py-20 px-6 bg-brand-surface">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="reveal reveal-left order-2 lg:order-1 flex flex-col items-center lg:items-start gap-3">
-            <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-brand-navy/10 ring-1 ring-brand-navy/10 shadow-md">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-20">
+          <div className="reveal reveal-left order-2 flex h-full min-h-[min(52vh,520px)] flex-col gap-3 lg:order-1 lg:min-h-0">
+            <div className="relative min-h-[280px] w-full flex-1 overflow-hidden rounded-2xl bg-brand-navy/10 shadow-md ring-1 ring-brand-navy/10">
               <Image
                 alt="Hashim Huzefa, owner of Mixie Kadai"
                 className="object-cover object-top"
                 fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 320px"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 src={shopPhotos.ownerPortrait}
               />
             </div>
-            <p className="font-body text-xs text-brand-muted text-center lg:text-left max-w-xs">
+            <p className="shrink-0 font-body text-xs text-brand-muted text-center lg:text-left">
               Hashim Huzefa — founder &amp; owner, Mixie Kadai.
             </p>
           </div>
