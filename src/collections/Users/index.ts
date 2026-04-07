@@ -37,6 +37,22 @@ export const Users: CollectionConfig = {
       label: 'Phone Number',
     },
     {
+      name: 'deliveryCity',
+      type: 'text',
+      label: 'City',
+      admin: {
+        description: 'Saved for checkout — default delivery city.',
+      },
+    },
+    {
+      name: 'deliveryAddress',
+      type: 'textarea',
+      label: 'Delivery address',
+      admin: {
+        description: 'Saved for checkout — default street address and area.',
+      },
+    },
+    {
       name: 'roles',
       type: 'select',
       access: {

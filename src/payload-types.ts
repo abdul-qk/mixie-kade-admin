@@ -194,6 +194,14 @@ export interface User {
   id: number;
   name?: string | null;
   phone?: string | null;
+  /**
+   * Saved for checkout — default delivery city.
+   */
+  deliveryCity?: string | null;
+  /**
+   * Saved for checkout — default street address and area.
+   */
+  deliveryAddress?: string | null;
   roles?: ('admin' | 'customer')[] | null;
   orders?: {
     docs?: (number | Order)[];
@@ -1269,6 +1277,8 @@ export interface PayloadMigration {
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
   phone?: T;
+  deliveryCity?: T;
+  deliveryAddress?: T;
   roles?: T;
   orders?: T;
   cart?: T;

@@ -1,19 +1,11 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import type { Product, Variant } from '@/payload-types'
-
 import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
-import clsx from 'clsx'
 import { useSearchParams } from 'next/navigation'
-import React, { useCallback, useEffect, useMemo } from 'react'
-import { toast } from 'sonner'
+import { useMemo } from 'react'
 
-type Props = {
-  product: Product
-}
-
-function disabledReasonMessage(reason: string): string | null {
+export function disabledReasonMessage(reason: string): string | null {
   switch (reason) {
     case 'no-variant-selected':
       return 'Please select an option above before adding to cart.'
@@ -28,8 +20,8 @@ function disabledReasonMessage(reason: string): string | null {
   }
 }
 
-export function AddToCart({ product }: Props) {
-  const { addItem, cart, isLoading } = useCart()
+export function useProductPurchaseState(product: Product) {
+  const { cart } = useCart()
   const searchParams = useSearchParams()
 
   const variants = product.variants?.docs || []
@@ -53,20 +45,6 @@ export function AddToCart({ product }: Props) {
 
     return undefined
   }, [hasVariants, searchParams, variants])
-
-  const addToCart = useCallback(
-    (e: React.FormEvent<HTMLButtonElement>) => {
-      e.preventDefault()
-
-      addItem({
-        product: product.id,
-        variant: selectedVariant?.id ?? undefined,
-      }).then(() => {
-        toast.success('Item added to cart.')
-      })
-    },
-    [addItem, product, selectedVariant],
-  )
 
   const disableDebug = useMemo(() => {
     const simpleProductInventory =
@@ -174,44 +152,15 @@ export function AddToCart({ product }: Props) {
   const disabled = disableDebug.isDisabled
   const helperText = disabled ? disabledReasonMessage(disableDebug.reason) : null
 
-  useEffect(() => {
-    if (process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line no-console
-      console.log('[AddToCart debug]', {
-        productId: product.id,
-        productTitle: product.title,
-        hasVariants,
-        selectedVariantId: selectedVariant?.id,
-        variantFromQuery: searchParams.get('variant'),
-        cartItemsCount: cart?.items?.length ?? 0,
-        isLoading,
-        disabledByLogic: disabled,
-        disabledFinal: disabled || isLoading,
-        reason: disableDebug.reason,
-        details: disableDebug.details,
-      })
-    }
-  }, [product, hasVariants, selectedVariant, searchParams, cart?.items?.length, isLoading, disabled, disableDebug])
-
-  return (
-    <div className="w-full space-y-2">
-      {helperText ? (
-        <p className="font-body text-sm text-brand-muted leading-snug" role="status">
-          {helperText}
-        </p>
-      ) : null}
-      <Button
-        aria-label="Add to cart"
-        variant={'default'}
-        className={clsx({
-          'h-[52px] w-full rounded-none bg-brand-navy text-white hover:bg-brand-navy/90': true,
-        })}
-        disabled={disabled || isLoading}
-        onClick={addToCart}
-        type="submit"
-      >
-        {isLoading ? 'Adding…' : 'Add To Cart'}
-      </Button>
-    </div>
-  )
+  return {
+    addItemPayload: {
+      product: product.id,
+      variant: selectedVariant?.id ?? undefined,
+    } as const,
+    disableDebug,
+    disabled,
+    hasVariants,
+    helperText,
+    selectedVariant,
+  }
 }

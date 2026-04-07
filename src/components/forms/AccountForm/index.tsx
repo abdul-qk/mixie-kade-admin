@@ -2,10 +2,10 @@
 
 import { FormError } from '@/components/forms/FormError'
 import { FormItem } from '@/components/forms/FormItem'
-import { Message } from '@/components/Message'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import { User } from '@/payload-types'
 import { useAuth } from '@/providers/Auth'
 import { useRouter } from 'next/navigation'
@@ -16,6 +16,8 @@ import { toast } from 'sonner'
 type FormData = {
   email: string
   name: User['name']
+  deliveryCity: User['deliveryCity']
+  deliveryAddress: User['deliveryAddress']
   password: string
   passwordConfirm: string
 }
@@ -39,34 +41,53 @@ export const AccountForm: React.FC = () => {
 
   const onSubmit = useCallback(
     async (data: FormData) => {
-      if (user) {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/${user.id}`, {
-          // Make sure to include cookies with fetch
-          body: JSON.stringify(data),
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'PATCH',
-        })
+      if (!user) return
 
-        if (response.ok) {
-          const json = await response.json()
-          setUser(json.doc)
-          toast.success('Successfully updated account.')
-          setChangePassword(false)
-          reset({
-            name: json.doc.name,
-            email: json.doc.email,
-            password: '',
-            passwordConfirm: '',
-          })
-        } else {
-          toast.error('There was a problem updating your account.')
-        }
+      const body = changePassword
+        ? {
+            password: data.password,
+            passwordConfirm: data.passwordConfirm,
+          }
+        : {
+            email: data.email,
+            name: data.name,
+            deliveryCity: data.deliveryCity?.trim() || null,
+            deliveryAddress: data.deliveryAddress?.trim() || null,
+          }
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/${user.id}`, {
+        body: JSON.stringify(body),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'PATCH',
+      })
+
+      if (response.ok) {
+        const json = await response.json()
+        setUser(json.doc)
+        toast.success(
+          changePassword ? 'Password updated successfully.' : 'Successfully updated account.',
+        )
+        setChangePassword(false)
+        reset({
+          name: json.doc.name,
+          email: json.doc.email,
+          deliveryCity: json.doc.deliveryCity ?? '',
+          deliveryAddress: json.doc.deliveryAddress ?? '',
+          password: '',
+          passwordConfirm: '',
+        })
+      } else {
+        toast.error(
+          changePassword
+            ? 'There was a problem updating your password.'
+            : 'There was a problem updating your account.',
+        )
       }
     },
-    [user, setUser, reset],
+    [user, setUser, reset, changePassword],
   )
 
   useEffect(() => {
@@ -83,6 +104,8 @@ export const AccountForm: React.FC = () => {
       reset({
         name: user.name,
         email: user.email,
+        deliveryCity: user.deliveryCity ?? '',
+        deliveryAddress: user.deliveryAddress ?? '',
         password: '',
         passwordConfirm: '',
       })
@@ -142,6 +165,36 @@ export const AccountForm: React.FC = () => {
                 type="text"
               />
               {errors.name && <FormError message={errors.name.message} />}
+            </FormItem>
+
+            <FormItem>
+              <Label htmlFor="deliveryCity" className={labelClassName}>
+                City <span className="font-normal text-brand-muted">(for delivery)</span>
+              </Label>
+              <Input
+                id="deliveryCity"
+                className={fieldInputClass}
+                {...register('deliveryCity')}
+                type="text"
+                autoComplete="address-level2"
+                placeholder="e.g. Colombo"
+              />
+              {errors.deliveryCity && <FormError message={errors.deliveryCity.message} />}
+            </FormItem>
+
+            <FormItem>
+              <Label htmlFor="deliveryAddress" className={labelClassName}>
+                Delivery address <span className="font-normal text-brand-muted">(for delivery)</span>
+              </Label>
+              <Textarea
+                id="deliveryAddress"
+                className={`${fieldInputClass} min-h-[88px] resize-none`}
+                {...register('deliveryAddress')}
+                autoComplete="street-address"
+                placeholder="House no, street, area..."
+                rows={3}
+              />
+              {errors.deliveryAddress && <FormError message={errors.deliveryAddress.message} />}
             </FormItem>
           </div>
         </Fragment>

@@ -2,7 +2,7 @@
 import type { Product } from '@/payload-types'
 
 import { RichText } from '@/components/RichText'
-import { AddToCart } from '@/components/Cart/AddToCart'
+import { ProductCartActions } from '@/components/Cart/ProductCartActions'
 import React, { Suspense } from 'react'
 
 import { VariantSelector } from './VariantSelector'
@@ -91,9 +91,9 @@ export function ProductDescription({ product }: { product: Product }) {
         </Suspense>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="flex items-stretch justify-between">
         <Suspense fallback={null}>
-          <AddToCart product={product} />
+          <ProductCartActions product={product} />
         </Suspense>
       </div>
     </div>

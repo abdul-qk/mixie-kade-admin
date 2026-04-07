@@ -1,17 +1,17 @@
 'use client'
 
-import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
-import { useAuth } from '@/providers/Auth'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
-import type { Product } from '@/payload-types'
 import {
   computeCartOrderTotals,
   resolveCompareAtPrice,
-  resolveUnitPrice,
   resolveShippingPerUnit,
+  resolveUnitPrice,
 } from '@/lib/productPrice'
+import type { Product } from '@/payload-types'
+import { useAuth } from '@/providers/Auth'
+import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
 type FormState = {
   customerName: string
@@ -42,13 +42,15 @@ export default function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError]           = useState<string | null>(null)
 
-  // Pre-fill from logged-in user
+  // Pre-fill from logged-in user (saved profile: name, phone, city, address)
   useEffect(() => {
     if (user) {
       setForm(f => ({
         ...f,
-        customerName: f.customerName || user.name  || '',
-        phone:        f.phone        || (user as any).phone || '',
+        customerName: f.customerName || user.name || '',
+        phone: f.phone || user.phone || '',
+        city: f.city || user.deliveryCity || '',
+        address: f.address || user.deliveryAddress || '',
       }))
     }
   }, [user])
@@ -301,7 +303,7 @@ export default function CheckoutPage() {
                   Account Name: <span className="font-semibold text-brand-navy">Hakimi Appliances</span>
                 </p>
                 <p className="font-body text-xs text-brand-muted">
-                  Bank: <span className="font-semibold text-brand-navy">Ndb manipay</span>
+                  Bank: <span className="font-semibold text-brand-navy">NDB Manipay</span>
                 </p>
                 <p className="font-body text-xs text-brand-muted pt-1">
                   After payment, send your screenshot via WhatsApp with your order number as the reference.
