@@ -250,21 +250,6 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
     },
     // ── Mixie Kadai custom fields ─────────────────────────────
     {
-      name: 'category',
-      type: 'select',
-      label: 'Category (Mixie Kadai)',
-      admin: { position: 'sidebar' },
-      options: [
-        { label: 'Mixer Grinders',              value: 'mixer-grinders'   },
-        { label: 'Blenders & Juicers',          value: 'blenders-juicers' },
-        { label: 'Coconut Scrapers & Grinders', value: 'coconut-scrapers' },
-        { label: 'Jars',                        value: 'jars'             },
-        { label: 'Spare Parts',                 value: 'spare-parts'      },
-        { label: 'Accessories',                 value: 'accessories'      },
-      ],
-      defaultValue: 'mixer-grinders',
-    },
-    {
       name: 'brand',
       type: 'relationship',
       relationTo: 'brands',

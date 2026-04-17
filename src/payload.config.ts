@@ -23,6 +23,7 @@ import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
 import { ReviewSettings } from '@/globals/ReviewSettings'
+import { domexOrderEndpoints } from '@/endpoints/orders/domex'
 import { plugins } from './plugins'
 
 const filename = fileURLToPath(import.meta.url)
@@ -84,7 +85,7 @@ export default buildConfig({
     },
   }),
   //email: nodemailerAdapter(),
-  endpoints: [],
+  endpoints: [...domexOrderEndpoints],
   globals: [Header, Footer, ReviewSettings],
   plugins,
   cors: allowedOrigins,

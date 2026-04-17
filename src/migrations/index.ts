@@ -2,6 +2,7 @@ import * as migration_20260330_153328 from './20260330_153328';
 import * as migration_20260331_062750 from './20260331_062750';
 import * as migration_20260405_085111_add_brands from './20260405_085111_add_brands';
 import * as migration_20260407_users_delivery_defaults from './20260407_users_delivery_defaults';
+import * as migration_20260411_061038 from './20260411_061038';
 
 export const migrations = [
   {
@@ -23,5 +24,10 @@ export const migrations = [
     up: migration_20260407_users_delivery_defaults.up,
     down: migration_20260407_users_delivery_defaults.down,
     name: '20260407_users_delivery_defaults',
+  },
+  {
+    up: migration_20260411_061038.up,
+    down: migration_20260411_061038.down,
+    name: '20260411_061038',
   },
 ];

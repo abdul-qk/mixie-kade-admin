@@ -191,6 +191,150 @@ export const plugins: Plugin[] = [
               ],
             },
           },
+          {
+            name: 'shippingCarrier',
+            type: 'text',
+            label: 'Shipping Carrier',
+            defaultValue: 'domex',
+            admin: {
+              position: 'sidebar',
+              readOnly: true,
+            },
+          },
+          {
+            name: 'trackingNo',
+            type: 'text',
+            label: 'Tracking Number',
+            maxLength: 25,
+            admin: {
+              position: 'sidebar',
+              description: 'Domex tracking number (max 25 characters).',
+            },
+          },
+          {
+            name: 'domexCustomerCode',
+            type: 'text',
+            label: 'Domex Customer Code',
+            maxLength: 6,
+            admin: {
+              position: 'sidebar',
+              description: 'Required for Domex API calls (max 6 characters).',
+            },
+          },
+          {
+            name: 'dispatchedAt',
+            type: 'date',
+            label: 'Dispatched At',
+            admin: {
+              position: 'sidebar',
+              date: {
+                pickerAppearance: 'dayAndTime',
+              },
+            },
+          },
+          {
+            name: 'deliveredAt',
+            type: 'date',
+            label: 'Delivered At',
+            admin: {
+              position: 'sidebar',
+              date: {
+                pickerAppearance: 'dayAndTime',
+              },
+            },
+          },
+          {
+            name: 'shipmentStatusCode',
+            type: 'text',
+            label: 'Shipment Status Code',
+            admin: {
+              position: 'sidebar',
+              readOnly: true,
+            },
+          },
+          {
+            name: 'shipmentStatusLabel',
+            type: 'text',
+            label: 'Shipment Status',
+            admin: {
+              position: 'sidebar',
+              readOnly: true,
+            },
+          },
+          {
+            name: 'shipmentEvents',
+            type: 'array',
+            label: 'Shipment Events',
+            admin: {
+              readOnly: true,
+              description: 'Latest Domex tracking events for this order.',
+            },
+            fields: [
+              {
+                name: 'statusDate',
+                type: 'text',
+              },
+              {
+                name: 'statusCode',
+                type: 'text',
+              },
+              {
+                name: 'status',
+                type: 'text',
+              },
+              {
+                name: 'remark',
+                type: 'text',
+              },
+            ],
+          },
+          {
+            name: 'shipmentSyncMeta',
+            type: 'group',
+            label: 'Shipment Sync Meta',
+            admin: {
+              position: 'sidebar',
+            },
+            fields: [
+              {
+                name: 'lastSyncedAt',
+                type: 'date',
+                admin: {
+                  date: {
+                    pickerAppearance: 'dayAndTime',
+                  },
+                  readOnly: true,
+                },
+              },
+              {
+                name: 'lastError',
+                type: 'textarea',
+                admin: {
+                  readOnly: true,
+                },
+              },
+              {
+                name: 'retryCount',
+                type: 'number',
+                defaultValue: 0,
+                min: 0,
+                admin: {
+                  readOnly: true,
+                },
+              },
+            ],
+          },
+          {
+            name: 'domexActions',
+            type: 'ui',
+            label: 'Domex Actions',
+            admin: {
+              components: {
+                Field: '@/components/orders/DomexActions',
+              },
+              condition: (_, __, { user }) => Boolean(user),
+            },
+          },
         ],
       }),
     },

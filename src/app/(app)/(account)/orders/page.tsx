@@ -16,11 +16,10 @@ export const metadata: Metadata = {
 }
 
 const statusColours: Record<string, string> = {
-  pending:   'bg-yellow-100 text-yellow-800',
-  confirmed: 'bg-blue-100 text-blue-800',
-  shipped:   'bg-purple-100 text-purple-800',
-  delivered: 'bg-green-100 text-green-800',
+  processing: 'bg-yellow-100 text-yellow-800',
+  completed: 'bg-green-100 text-green-800',
   cancelled: 'bg-red-100 text-red-800',
+  refunded: 'bg-gray-200 text-gray-800',
 }
 
 const paymentMethodLabel: Record<string, string> = {
@@ -67,7 +66,7 @@ export default async function OrdersPage() {
       ) : (
         <ul className="flex flex-col gap-4">
           {orders.map((order) => {
-            const status   = (order as any).status || 'pending'
+            const status = (order as any).shipmentStatusLabel || (order as any).status || 'processing'
             const badgeCls = statusColours[status] || 'bg-gray-100 text-gray-700'
             const paymentMethod = (order as any).paymentMethod || 'cod'
             const createdAt = new Date(order.createdAt).toLocaleDateString('en-GB', {
@@ -96,11 +95,17 @@ export default async function OrdersPage() {
                   </div>
                   <div className="flex items-center gap-4">
                     <p className="font-body text-xs text-brand-muted">{createdAt}</p>
-                    {(order as any).total != null && (
+                    {(order as any).amount != null && (
                       <p className="font-body font-bold text-brand-navy">
-                        Rs. {Number((order as any).total).toLocaleString()}
+                        Rs. {Number((order as any).amount).toLocaleString()}
                       </p>
                     )}
+                    <Link
+                      href={`/orders/${order.id}`}
+                      className="font-body text-xs font-medium border border-brand-navy text-brand-navy px-3 py-1.5 hover:bg-brand-navy hover:text-white transition-colors"
+                    >
+                      Track your order
+                    </Link>
                   </div>
                 </div>
 

@@ -8,16 +8,12 @@ import { ShopFilters } from '@/components/storefront/ShopFilters'
 import { ShopToolbar } from '@/components/storefront/ShopToolbar'
 import { ProductGridItem } from '@/components/ProductGridItem'
 import { Grid } from '@/components/Grid'
-import {
-  SHOP_CATEGORY_LABELS,
-  type ShopCategorySlug,
-} from '@/constants/shopCategories'
 import type { Product } from '@/payload-types'
 
 type SearchParams = { [key: string]: string | string[] | undefined }
 
 type Props = {
-  categorySlug: ShopCategorySlug | null
+  categorySlug: string | null
   searchParams: SearchParams
 }
 
@@ -88,13 +84,40 @@ export async function ShopPageContent({ categorySlug, searchParams }: Props) {
 
   const payload = await getPayload({ config: configPromise })
 
+  const [catMatch, allCategories] = await Promise.all([
+    categorySlug
+      ? payload.find({
+          collection: 'categories',
+          limit: 1,
+          overrideAccess: false,
+          where: { slug: { equals: categorySlug } },
+        })
+      : Promise.resolve({ docs: [] as { id: number; title: string }[] }),
+    payload.find({
+      collection: 'categories',
+      limit: 200,
+      overrideAccess: false,
+      pagination: false,
+      select: { slug: true, title: true },
+      sort: 'title',
+    }),
+  ])
+
+  let categoryId: number | null = null
+  let categoryTitle: string | null = null
+  const cat = catMatch.docs[0]
+  if (cat && typeof cat.id === 'number') {
+    categoryId = cat.id
+    categoryTitle = cat.title
+  }
+
   const andConditions: Where[] = [{ _status: { equals: 'published' } }]
   const qTrimmed = searchValue.trim()
   if (qTrimmed) {
     andConditions.push(searchWhereClause(qTrimmed))
   }
-  if (categorySlug) {
-    andConditions.push({ category: { equals: categorySlug } })
+  if (categoryId !== null) {
+    andConditions.push({ categories: { equals: categoryId } })
   }
 
   const wattageNum =
@@ -122,8 +145,8 @@ export async function ShopPageContent({ categorySlug, searchParams }: Props) {
   if (qTrimmed) {
     scopeForFacets.push(searchWhereClause(qTrimmed))
   }
-  if (categorySlug) {
-    scopeForFacets.push({ category: { equals: categorySlug } })
+  if (categoryId !== null) {
+    scopeForFacets.push({ categories: { equals: categoryId } })
   }
 
   const [facetProducts, allBrands] = await Promise.all([
@@ -196,12 +219,12 @@ export async function ShopPageContent({ categorySlug, searchParams }: Props) {
 
   const resultsText = docs.length === 1 ? 'result' : 'results'
 
-  const heroLabel = categorySlug ? SHOP_CATEGORY_LABELS[categorySlug] : 'All Products'
+  const heroLabel = categorySlug && categoryTitle ? categoryTitle : 'All Products'
   const heroTitle = searchValue ? `Search: "${searchValue}"` : categorySlug ? heroLabel : 'Shop'
 
-  const filterCategories = (
-    Object.entries(SHOP_CATEGORY_LABELS) as [ShopCategorySlug, string][]
-  ).map(([slug, title]) => ({ slug, title }))
+  const filterCategories = allCategories.docs
+    .filter((c) => typeof c.slug === 'string' && c.slug.length > 0)
+    .map((c) => ({ slug: c.slug as string, title: c.title }))
 
   return (
     <div className="min-h-screen bg-brand-cream">

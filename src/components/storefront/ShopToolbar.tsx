@@ -4,8 +4,6 @@ import { X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback } from 'react'
 
-import type { ShopCategorySlug } from '@/constants/shopCategories'
-
 type SortOption = { slug: string | null; title: string }
 
 const sortOptions: SortOption[] = [
@@ -32,14 +30,14 @@ const selectClass =
 const colsSelectClass =
   'w-full border border-brand-surface bg-white font-body text-sm text-brand-navy px-3 py-2 outline-none focus:border-brand-navy focus:ring-1 focus:ring-brand-navy/20 transition-colors cursor-pointer sm:w-auto sm:min-w-[4.5rem]'
 
-function shopBasePath(activeCategorySlug: ShopCategorySlug | null): string {
+function shopBasePath(activeCategorySlug: string | null): string {
   if (activeCategorySlug) {
     return `/shop/${activeCategorySlug}`
   }
   return '/shop'
 }
 
-export function ShopToolbar({ activeCategorySlug }: { activeCategorySlug: ShopCategorySlug | null }) {
+export function ShopToolbar({ activeCategorySlug }: { activeCategorySlug: string | null }) {
   const router = useRouter()
   const searchParams = useSearchParams()
 

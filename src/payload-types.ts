@@ -282,6 +282,36 @@ export interface Order {
   paymentMethod: 'cod' | 'bank_transfer';
   paymentInstructions?: string | null;
   accessToken?: string | null;
+  shippingCarrier?: string | null;
+  /**
+   * Domex tracking number (max 25 characters).
+   */
+  trackingNo?: string | null;
+  /**
+   * Required for Domex API calls (max 6 characters).
+   */
+  domexCustomerCode?: string | null;
+  dispatchedAt?: string | null;
+  deliveredAt?: string | null;
+  shipmentStatusCode?: string | null;
+  shipmentStatusLabel?: string | null;
+  /**
+   * Latest Domex tracking events for this order.
+   */
+  shipmentEvents?:
+    | {
+        statusDate?: string | null;
+        statusCode?: string | null;
+        status?: string | null;
+        remark?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  shipmentSyncMeta?: {
+    lastSyncedAt?: string | null;
+    lastError?: string | null;
+    retryCount?: number | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -335,9 +365,6 @@ export interface Product {
     description?: string | null;
   };
   categories?: (number | Category)[] | null;
-  category?:
-    | ('mixer-grinders' | 'blenders-juicers' | 'coconut-scrapers' | 'jars' | 'spare-parts' | 'accessories')
-    | null;
   brand?: (number | null) | Brand;
   inStock?: boolean | null;
   /**
@@ -1781,7 +1808,6 @@ export interface ProductsSelect<T extends boolean = true> {
         description?: T;
       };
   categories?: T;
-  category?: T;
   brand?: T;
   inStock?: T;
   price?: T;
@@ -1875,6 +1901,29 @@ export interface OrdersSelect<T extends boolean = true> {
   paymentMethod?: T;
   paymentInstructions?: T;
   accessToken?: T;
+  shippingCarrier?: T;
+  trackingNo?: T;
+  domexCustomerCode?: T;
+  dispatchedAt?: T;
+  deliveredAt?: T;
+  shipmentStatusCode?: T;
+  shipmentStatusLabel?: T;
+  shipmentEvents?:
+    | T
+    | {
+        statusDate?: T;
+        statusCode?: T;
+        status?: T;
+        remark?: T;
+        id?: T;
+      };
+  shipmentSyncMeta?:
+    | T
+    | {
+        lastSyncedAt?: T;
+        lastError?: T;
+        retryCount?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

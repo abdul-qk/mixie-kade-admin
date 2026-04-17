@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-import { isShopCategorySlug } from '@/constants/shopCategories'
-
 /**
  * Legacy `/shop?category=slug` → `/shop/slug` (preserve `sort`, drop empty category param).
+ * Slug is validated on the shop page against the Categories collection.
  */
 export function middleware(request: NextRequest) {
   const url = request.nextUrl
@@ -13,7 +12,7 @@ export function middleware(request: NextRequest) {
   }
 
   const category = url.searchParams.get('category')
-  if (!category || !isShopCategorySlug(category)) {
+  if (!category || category.includes('/') || category.includes('..')) {
     return NextResponse.next()
   }
 

@@ -16,11 +16,10 @@ export const metadata: Metadata = {
 }
 
 const statusColours: Record<string, string> = {
-  pending:   'bg-yellow-100 text-yellow-800',
-  confirmed: 'bg-blue-100 text-blue-800',
-  shipped:   'bg-purple-100 text-purple-800',
-  delivered: 'bg-green-100 text-green-800',
+  processing: 'bg-yellow-100 text-yellow-800',
+  completed: 'bg-green-100 text-green-800',
   cancelled: 'bg-red-100 text-red-800',
+  refunded: 'bg-gray-200 text-gray-800',
 }
 
 export default async function AccountPage() {
@@ -78,7 +77,7 @@ export default async function AccountPage() {
         ) : (
           <ul className="flex flex-col gap-4">
             {orders.map((order) => {
-              const status = (order as any).status || 'pending'
+              const status = (order as any).shipmentStatusLabel || (order as any).status || 'processing'
               const badgeCls = statusColours[status] || 'bg-gray-100 text-gray-700'
               const createdAt = new Date(order.createdAt).toLocaleDateString('en-GB', {
                 day: 'numeric', month: 'short', year: 'numeric',
@@ -99,9 +98,9 @@ export default async function AccountPage() {
                       </p>
                     )}
                   </div>
-                  {(order as any).total != null && (
+                  {(order as any).amount != null && (
                     <p className="font-body font-bold text-brand-navy whitespace-nowrap">
-                      Rs. {Number((order as any).total).toLocaleString()}
+                      Rs. {Number((order as any).amount).toLocaleString()}
                     </p>
                   )}
                 </li>

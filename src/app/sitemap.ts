@@ -2,14 +2,13 @@ import configPromise from '@payload-config'
 import type { MetadataRoute } from 'next'
 import { getPayload } from 'payload'
 
-import { SHOP_CATEGORY_SLUGS } from '@/constants/shopCategories'
 import { getServerSideURL } from '@/utilities/getURL'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = getServerSideURL().replace(/\/$/, '')
   const payload = await getPayload({ config: configPromise })
 
-  const [pages, products] = await Promise.all([
+  const [pages, products, categories] = await Promise.all([
     payload.find({
       collection: 'pages',
       draft: false,
@@ -27,6 +26,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       pagination: false,
       select: { slug: true, updatedAt: true },
       where: { _status: { equals: 'published' } },
+    }),
+    payload.find({
+      collection: 'categories',
+      limit: 500,
+      overrideAccess: false,
+      pagination: false,
+      select: { slug: true, updatedAt: true },
     }),
   ])
 
@@ -51,12 +57,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: path === '/' ? 1 : 0.82,
       url: `${base}${path}`,
     })),
-    ...SHOP_CATEGORY_SLUGS.map((slug) => ({
-      changeFrequency: 'weekly' as const,
-      lastModified: new Date(),
-      priority: 0.85,
-      url: `${base}/shop/${slug}`,
-    })),
+    ...categories.docs
+      .filter((c) => typeof c.slug === 'string' && c.slug.length > 0)
+      .map((c) => ({
+        changeFrequency: 'weekly' as const,
+        lastModified: c.updatedAt ? new Date(c.updatedAt) : new Date(),
+        priority: 0.85,
+        url: `${base}/shop/${c.slug}`,
+      })),
   ]
 
   for (const doc of pages.docs) {

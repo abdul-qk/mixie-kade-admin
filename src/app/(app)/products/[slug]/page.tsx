@@ -334,7 +334,12 @@ const queryRelatedProducts = async ({
 
   if (curated.length) return curated.slice(0, 4)
 
-  if (!product.category) return []
+  const categoryRefs = product.categories ?? []
+  const catIds = categoryRefs
+    .map((c) => (typeof c === 'object' && c !== null ? c.id : c))
+    .filter((id): id is number => typeof id === 'number')
+
+  if (!catIds.length) return []
 
   const fallback = await payload.find({
     collection: 'products',
@@ -344,9 +349,7 @@ const queryRelatedProducts = async ({
     where: {
       and: [
         {
-          category: {
-            equals: product.category,
-          },
+          or: catIds.map((id) => ({ categories: { equals: id } })),
         },
         {
           id: {

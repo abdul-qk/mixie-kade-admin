@@ -14,6 +14,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { OrderStatus } from '@/components/OrderStatus'
 import { AddressItem } from '@/components/addresses/AddressItem'
+import { TrackingTimeline } from '@/components/orders/TrackingTimeline'
 
 export const dynamic = 'force-dynamic'
 
@@ -81,6 +82,14 @@ export default async function Order({ params, searchParams }: PageProps) {
         customer: true,
         paymentMethod: true,
         status: true,
+        trackingNo: true,
+        domexCustomerCode: true,
+        shippingCarrier: true,
+        shipmentStatusCode: true,
+        shipmentStatusLabel: true,
+        shipmentEvents: true,
+        dispatchedAt: true,
+        deliveredAt: true,
         createdAt: true,
         updatedAt: true,
         shippingAddress: true,
@@ -194,6 +203,48 @@ export default async function Order({ params, searchParams }: PageProps) {
 
             {/* @ts-expect-error - some kind of type hell */}
             <AddressItem address={order.shippingAddress} hideActions />
+          </div>
+        )}
+
+        {order.trackingNo && order.domexCustomerCode && (
+          <div className="flex flex-col gap-4">
+            <h2 className="font-mono text-primary/50 mb-1 uppercase text-sm">Shipment Tracking</h2>
+            <div className="flex flex-col gap-2 text-sm">
+              <p>
+                <span className="font-semibold">Carrier:</span> {order.shippingCarrier || 'domex'}
+              </p>
+              <p>
+                <span className="font-semibold">Tracking No:</span> {order.trackingNo}
+              </p>
+              {order.shipmentStatusLabel && (
+                <p>
+                  <span className="font-semibold">Latest Status:</span> {order.shipmentStatusLabel}
+                  {order.shipmentStatusCode ? ` (${order.shipmentStatusCode})` : ''}
+                </p>
+              )}
+              {order.dispatchedAt && (
+                <p>
+                  <span className="font-semibold">Dispatched:</span>{' '}
+                  {formatDateTime({ date: order.dispatchedAt, format: 'MMMM dd, yyyy h:mm a' })}
+                </p>
+              )}
+              {order.deliveredAt && (
+                <p>
+                  <span className="font-semibold">Delivered:</span>{' '}
+                  {formatDateTime({ date: order.deliveredAt, format: 'MMMM dd, yyyy h:mm a' })}
+                </p>
+              )}
+            </div>
+            <TrackingTimeline
+              trackingNo={order.trackingNo}
+              customerCode={order.domexCustomerCode}
+              initialEvents={(order.shipmentEvents || []).map((event) => ({
+                statusDate: event.statusDate,
+                statusCode: event.statusCode,
+                status: event.status,
+                remark: event.remark,
+              }))}
+            />
           </div>
         )}
       </div>
