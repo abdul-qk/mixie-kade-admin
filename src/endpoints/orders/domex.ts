@@ -36,6 +36,14 @@ const normalizeShipmentStatus = (events: DomexStatusEvent[]) => {
   }
 }
 
+const getOrderIDFromRoute = (req: PayloadRequest): string | number | null => {
+  const rawID = req.routeParams?.id
+  if (typeof rawID === 'string' || typeof rawID === 'number') {
+    return rawID
+  }
+  return null
+}
+
 const dispatchDomex: Endpoint = {
   path: '/orders/:id/domex/dispatch',
   method: 'post',
@@ -44,7 +52,7 @@ const dispatchDomex: Endpoint = {
       return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const orderID = req.routeParams?.id
+    const orderID = getOrderIDFromRoute(req)
     if (!orderID) {
       return Response.json({ error: 'Order id is required.' }, { status: 400 })
     }
@@ -159,7 +167,7 @@ const syncDomex: Endpoint = {
       return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const orderID = req.routeParams?.id
+    const orderID = getOrderIDFromRoute(req)
     if (!orderID) {
       return Response.json({ error: 'Order id is required.' }, { status: 400 })
     }

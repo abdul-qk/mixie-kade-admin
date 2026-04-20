@@ -1,27 +1,26 @@
 import Link from 'next/link'
-import React from 'react'
 
 const shopLinks = [
-  { label: 'Mixer Grinders',              href: '/shop/mixer-grinders'   },
-  { label: 'Blenders & Juicers',          href: '/shop/blenders-juicers' },
-  { label: 'Coconut Scrapers & Grinders', href: '/shop/coconut-scrapers' },
-  { label: 'Jars',                        href: '/shop/jars'             },
-  { label: 'Spare Parts',                 href: '/shop/spare-parts'      },
-  { label: 'Accessories',                 href: '/shop/accessories'      },
-  { label: 'Offers',                      href: '/shop'                  },
+  { label: 'Mixer Grinders', href: '/shop/mixer-grinders' },
+  { label: 'Blenders & Juicers', href: '/shop/blenders-juicers' },
+  { label: 'Coconut Scrapers & Hand Mixers', href: '/shop/coconut-scrapers' },
+  { label: 'Jars', href: '/shop/jars' },
+  { label: 'Spare Parts', href: '/shop/spare-parts' },
+  { label: 'Accessories', href: '/shop/accessories' },
+  { label: 'Offers', href: '/shop' },
 ]
 
 const companyLinks = [
-  { label: 'About Us', href: '/about'   },
-  { label: 'Contact',  href: '/contact' },
-  { label: 'Guides',   href: '/guides'  },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Guides', href: '/guides' },
   { label: 'Delivery', href: '/delivery/sri-lanka' },
-  { label: 'FAQ',      href: '/faq'     },
+  { label: 'FAQ', href: '/faq' },
 ]
 
 const policyLinks: { label: string; href: string }[] = [
   { label: 'Shipping & Returns', href: '/shipping-returns' },
-  { label: 'Privacy Policy',     href: '/privacy-policy'  },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
 ]
 
 export async function Footer() {

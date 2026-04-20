@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 
 export function Hero() {
   return (
@@ -32,7 +31,7 @@ export function Hero() {
         </h1>
 
         <p className="font-body text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl animate-fade-in-delay">
-          Shop 20+ grinder models, genuine spare parts, and kitchen accessories — all in one place.
+          Shop 100+ grinder models, genuine spare parts, and kitchen accessories — all in one place.
         </p>
 
         <div className="flex flex-wrap items-center gap-4 animate-fade-in-delay-2">

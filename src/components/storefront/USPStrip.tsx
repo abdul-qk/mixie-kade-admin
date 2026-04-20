@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useRef } from 'react'
 import { useReveal } from '@/hooks/useReveal'
+import React from 'react'
 
 const usps = [
   {
@@ -17,7 +17,7 @@ const usps = [
     ),
   },
   {
-    label: '50+ Genuine Spare Parts',
+    label: 'Genuine Spare Parts',
     sub: 'For every major brand',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6">

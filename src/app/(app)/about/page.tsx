@@ -174,7 +174,7 @@ export default function AboutPage() {
             <div className="reveal reveal-left delay-1 bg-brand-navy text-white p-8 rounded-xl">
               <h3 className="font-display text-2xl font-semibold mb-4">Islandwide Delivery</h3>
               <ul className="space-y-3 font-body text-sm text-white/80">
-                {['Free delivery island-wide on orders over Rs. 5,000', 'Orders dispatched within 1–2 business days', 'Tracked shipping to all provinces', 'Secure packaging — every order'].map(item => (
+                {['Free delivery island-wide on orders over Rs. 20,000', 'Orders dispatched within 1–2 business days', 'Tracked shipping to all provinces', 'Secure packaging — every order'].map(item => (
                   <li key={item} className="flex items-start gap-2"><span className="text-brand-gold mt-0.5">✓</span>{item}</li>
                 ))}
               </ul>
@@ -182,7 +182,7 @@ export default function AboutPage() {
             <div className="reveal reveal-right delay-2 bg-brand-gold-light border border-brand-gold p-8 rounded-xl">
               <h3 className="font-display text-2xl font-semibold text-brand-navy mb-4">Warranty Coverage</h3>
               <ul className="space-y-3 font-body text-sm text-brand-muted">
-                {['All products carry manufacturer warranty', 'Preethi: 2-year product + 5-year motor warranty', 'Lifetime free service on select models', '100% genuine parts — no counterfeits'].map(item => (
+                {['All products carry manufacturer warranty', '1 year to 2 year warranty based on the product', '100% genuine parts — no counterfeits'].map(item => (
                   <li key={item} className="flex items-start gap-2"><span className="text-brand-gold mt-0.5">✓</span>{item}</li>
                 ))}
               </ul>

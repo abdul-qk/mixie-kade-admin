@@ -1,10 +1,10 @@
 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import React from 'react'
 import { shopPhotos } from '@/constants/shopPhotos'
 import { useReveal } from '@/hooks/useReveal'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 export function AboutSnippet() {
   const sectionRef = useReveal()
@@ -23,7 +23,7 @@ export function AboutSnippet() {
           </h2>
           <p className="font-body text-brand-muted text-base leading-relaxed mb-4">
             Mixie Kadai is Sri Lanka&apos;s trusted destination for mixer grinders, blenders, and kitchen appliances.
-            We carry 20+ grinder models and 50+ genuine spare parts to serve families, home cooks, and repair
+            We carry 100+ grinder models and 50+ genuine spare parts to serve families, home cooks, and repair
             technicians across the country.
           </p>
           <p className="font-body text-brand-muted text-base leading-relaxed mb-8">
