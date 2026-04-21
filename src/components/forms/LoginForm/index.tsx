@@ -45,12 +45,21 @@ export const LoginForm: React.FC = () => {
   )
 
   return (
-    <form className="" onSubmit={handleSubmit(onSubmit)}>
-      <Message error={error} />
-      <div className="flex flex-col gap-8">
+    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <h2 className="font-display text-2xl font-semibold text-slate-950">Sign In</h2>
+        <p className="font-body mt-2 text-[15px] leading-relaxed text-slate-600">
+          Enter your details to continue shopping and manage your orders.
+        </p>
+      </div>
+      <Message error={error} className="my-0 border border-red-200 bg-red-50 text-red-900" />
+      <div className="flex flex-col gap-5">
         <FormItem>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-800">
+            Email address
+          </Label>
           <Input
+            className="h-11 border-slate-300 bg-white text-slate-900 placeholder:text-slate-400"
             id="email"
             type="email"
             {...register('email', { required: 'Email is required.' })}
@@ -59,8 +68,11 @@ export const LoginForm: React.FC = () => {
         </FormItem>
 
         <FormItem>
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className="mb-2 block text-sm font-medium text-slate-800">
+            Password
+          </Label>
           <Input
+            className="h-11 border-slate-300 bg-white text-slate-900 placeholder:text-slate-400"
             id="password"
             type="password"
             {...register('password', { required: 'Please provide a password.' })}
@@ -68,22 +80,28 @@ export const LoginForm: React.FC = () => {
           {errors.password && <FormError message={errors.password.message} />}
         </FormItem>
 
-        <div className="text-primary/70 mb-6 prose prose-a:hover:text-primary dark:prose-invert">
-          <p>
+        <div className="font-body text-sm text-slate-600">
+          <p className="leading-relaxed">
             Forgot your password?{' '}
-            <Link href={`/forgot-password${allParams}`}>Click here to reset it</Link>
+            <Link
+              href={`/forgot-password${allParams}`}
+              className="font-medium text-brand-navy underline underline-offset-4 transition-colors duration-200 hover:text-sky-700"
+            >
+              Reset it here
+            </Link>
           </p>
         </div>
       </div>
 
-      <div className="flex gap-4 justify-between">
-        <Button asChild variant="outline" size="lg">
-          <Link href={`/create-account${allParams}`} className="grow max-w-[50%]">
-            Create an account
-          </Link>
-        </Button>
-        <Button className="grow" disabled={isSubmitting} size="lg" type="submit" variant="default">
-          {isSubmitting ? 'Signing in…' : 'Continue'}
+      <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center">
+        <Button
+          className="h-11 w-full bg-brand-navy text-white transition-colors duration-200 hover:bg-sky-800 sm:flex-1"
+          disabled={isSubmitting}
+          size="lg"
+          type="submit"
+          variant="default"
+        >
+          {isSubmitting ? 'Signing in…' : 'Login'}
         </Button>
       </div>
     </form>

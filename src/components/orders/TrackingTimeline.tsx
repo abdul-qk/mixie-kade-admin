@@ -11,11 +11,10 @@ type ShipmentEvent = {
 
 type Props = {
   trackingNo: string
-  customerCode: string
   initialEvents: ShipmentEvent[]
 }
 
-export function TrackingTimeline({ trackingNo, customerCode, initialEvents }: Props) {
+export function TrackingTimeline({ trackingNo, initialEvents }: Props) {
   const [events, setEvents] = useState<ShipmentEvent[]>(initialEvents)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -24,7 +23,7 @@ export function TrackingTimeline({ trackingNo, customerCode, initialEvents }: Pr
     setIsRefreshing(true)
     setError(null)
     try {
-      const query = new URLSearchParams({ trackingNo, customerCode }).toString()
+      const query = new URLSearchParams({ trackingNo }).toString()
       const response = await fetch(`/api/orders/domex/track?${query}`, {
         method: 'GET',
         credentials: 'include',

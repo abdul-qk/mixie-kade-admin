@@ -72,21 +72,23 @@ export const CreateAccountForm: React.FC = () => {
   )
 
   return (
-    <form className="max-w-lg py-4" onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-6">
-        <p className="font-body text-sm text-brand-muted leading-relaxed">
+    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <h2 className="font-display text-2xl font-semibold text-slate-950">Create account</h2>
+        <p className="font-body mt-2 text-[15px] leading-relaxed text-slate-600">
           Create an account to save your details, track orders, and check out faster next time.
         </p>
       </div>
 
-      <Message error={error} />
+      <Message error={error} className="my-0 border border-red-200 bg-red-50 text-red-900" />
 
-      <div className="flex flex-col gap-8 mb-8">
+      <div className="flex flex-col gap-5">
         <FormItem>
-          <Label htmlFor="email" className="mb-2">
+          <Label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-800">
             Email Address
           </Label>
           <Input
+            className="h-11 border-slate-300 bg-white text-slate-900 placeholder:text-slate-400"
             id="email"
             {...register('email', { required: 'Email is required.' })}
             type="email"
@@ -95,10 +97,11 @@ export const CreateAccountForm: React.FC = () => {
         </FormItem>
 
         <FormItem>
-          <Label htmlFor="password" className="mb-2">
+          <Label htmlFor="password" className="mb-2 block text-sm font-medium text-slate-800">
             New password
           </Label>
           <Input
+            className="h-11 border-slate-300 bg-white text-slate-900 placeholder:text-slate-400"
             id="password"
             {...register('password', { required: 'Password is required.' })}
             type="password"
@@ -107,10 +110,11 @@ export const CreateAccountForm: React.FC = () => {
         </FormItem>
 
         <FormItem>
-          <Label htmlFor="passwordConfirm" className="mb-2">
+          <Label htmlFor="passwordConfirm" className="mb-2 block text-sm font-medium text-slate-800">
             Confirm Password
           </Label>
           <Input
+            className="h-11 border-slate-300 bg-white text-slate-900 placeholder:text-slate-400"
             id="passwordConfirm"
             {...register('passwordConfirm', {
               required: 'Please confirm your password.',
@@ -121,14 +125,25 @@ export const CreateAccountForm: React.FC = () => {
           {errors.passwordConfirm && <FormError message={errors.passwordConfirm.message} />}
         </FormItem>
       </div>
-      <Button disabled={loading} type="submit" variant="default">
+
+      <Button
+        className="h-11 w-full bg-brand-navy text-white transition-colors duration-200 hover:bg-sky-800"
+        disabled={loading}
+        type="submit"
+        variant="default"
+      >
         {loading ? 'Processing' : 'Create Account'}
       </Button>
 
-      <div className="prose dark:prose-invert mt-8">
-        <p>
+      <div className="font-body text-sm text-slate-600">
+        <p className="leading-relaxed">
           {'Already have an account? '}
-          <Link href={`/login${allParams}`}>Login</Link>
+          <Link
+            href={`/login${allParams}`}
+            className="font-medium text-brand-navy underline underline-offset-4 transition-colors duration-200 hover:text-sky-700"
+          >
+            Login
+          </Link>
         </p>
       </div>
     </form>

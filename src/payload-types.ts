@@ -136,11 +136,13 @@ export interface Config {
     header: Header;
     footer: Footer;
     'review-settings': ReviewSetting;
+    'domex-settings': DomexSetting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'review-settings': ReviewSettingsSelect<false> | ReviewSettingsSelect<true>;
+    'domex-settings': DomexSettingsSelect<false> | DomexSettingsSelect<true>;
   };
   locale: null;
   widgets: {
@@ -287,10 +289,6 @@ export interface Order {
    * Domex tracking number (max 25 characters).
    */
   trackingNo?: string | null;
-  /**
-   * Required for Domex API calls (max 6 characters).
-   */
-  domexCustomerCode?: string | null;
   dispatchedAt?: string | null;
   deliveredAt?: string | null;
   shipmentStatusCode?: string | null;
@@ -1903,7 +1901,6 @@ export interface OrdersSelect<T extends boolean = true> {
   accessToken?: T;
   shippingCarrier?: T;
   trackingNo?: T;
-  domexCustomerCode?: T;
   dispatchedAt?: T;
   deliveredAt?: T;
   shipmentStatusCode?: T;
@@ -2076,6 +2073,31 @@ export interface ReviewSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "domex-settings".
+ */
+export interface DomexSetting {
+  id: number;
+  /**
+   * Used for dispatch and tracking when order-level customer code is deprecated.
+   */
+  defaultCustomerCode: string;
+  /**
+   * If empty, the server falls back to DOMEX_API_KEY from environment variables.
+   */
+  apiKey?: string | null;
+  /**
+   * If empty, the server falls back to DOMEX_BASE_URL from environment variables.
+   */
+  baseUrl?: string | null;
+  /**
+   * If empty, the server falls back to DOMEX_SENDER_CONTACT_NO from environment variables.
+   */
+  senderContactNo?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -2130,6 +2152,19 @@ export interface ReviewSettingsSelect<T extends boolean = true> {
   allowGuestReviews?: T;
   minReviewLength?: T;
   maxReviewLength?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "domex-settings_select".
+ */
+export interface DomexSettingsSelect<T extends boolean = true> {
+  defaultCustomerCode?: T;
+  apiKey?: T;
+  baseUrl?: T;
+  senderContactNo?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

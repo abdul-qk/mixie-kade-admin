@@ -83,7 +83,6 @@ export default async function Order({ params, searchParams }: PageProps) {
         paymentMethod: true,
         status: true,
         trackingNo: true,
-        domexCustomerCode: true,
         shippingCarrier: true,
         shipmentStatusCode: true,
         shipmentStatusLabel: true,
@@ -206,7 +205,7 @@ export default async function Order({ params, searchParams }: PageProps) {
           </div>
         )}
 
-        {order.trackingNo && order.domexCustomerCode && (
+        {order.trackingNo && (
           <div className="flex flex-col gap-4">
             <h2 className="font-mono text-primary/50 mb-1 uppercase text-sm">Shipment Tracking</h2>
             <div className="flex flex-col gap-2 text-sm">
@@ -237,7 +236,6 @@ export default async function Order({ params, searchParams }: PageProps) {
             </div>
             <TrackingTimeline
               trackingNo={order.trackingNo}
-              customerCode={order.domexCustomerCode}
               initialEvents={(order.shipmentEvents || []).map((event) => ({
                 statusDate: event.statusDate,
                 statusCode: event.statusCode,

@@ -19,6 +19,7 @@ import { Categories } from '@/collections/Categories'
 import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
 import { ProductReviews } from '@/collections/ProductReviews'
+import { DomexSettings } from '@/globals/DomexSettings'
 import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
@@ -86,7 +87,7 @@ export default buildConfig({
   }),
   //email: nodemailerAdapter(),
   endpoints: [...domexOrderEndpoints],
-  globals: [Header, Footer, ReviewSettings],
+  globals: [Header, Footer, ReviewSettings, DomexSettings],
   plugins,
   cors: allowedOrigins,
   csrf: allowedOrigins,

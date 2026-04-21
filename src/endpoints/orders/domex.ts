@@ -2,6 +2,7 @@ import type { Endpoint, PayloadRequest } from 'payload'
 
 import { checkRole } from '@/access/utilities'
 import { domexClient, DomexApiError, DomexStatusEvent } from '@/lib/domex/client'
+import { resolveDomexSettings } from '@/lib/domex/settings'
 import type { User } from '@/payload-types'
 
 const isAdminRequest = (req: PayloadRequest): boolean => {
@@ -58,6 +59,7 @@ const dispatchDomex: Endpoint = {
     }
 
     try {
+      const domexSettings = await resolveDomexSettings(req.payload)
       const order = await req.payload.findByID({
         collection: 'orders',
         id: orderID,
@@ -68,7 +70,7 @@ const dispatchDomex: Endpoint = {
       })
 
       const trackingNo = order.trackingNo?.trim()
-      const customerCode = order.domexCustomerCode?.trim()
+      const customerCode = domexSettings.defaultCustomerCode
       const receiverName = order.customerName?.trim()
       const receiverAddress = order.deliveryAddress?.trim()
       const receiverCity = order.deliveryCity?.trim()
@@ -77,9 +79,15 @@ const dispatchDomex: Endpoint = {
       const itemCount = Array.isArray(order.items) ? order.items.length : 0
       const createdUser = req.user?.email || req.user?.id || 'admin'
 
-      if (!trackingNo || !customerCode) {
+      if (!trackingNo) {
         return Response.json(
-          { error: 'Both trackingNo and domexCustomerCode are required before dispatch.' },
+          { error: 'trackingNo is required before dispatch.' },
+          { status: 400 },
+        )
+      }
+      if (!customerCode) {
+        return Response.json(
+          { error: 'Domex default customer code is required. Configure it in Domex Settings.' },
           { status: 400 },
         )
       }
@@ -99,7 +107,7 @@ const dispatchDomex: Endpoint = {
         itemType: 'ITEM',
         senderName: 'Mixie Kade',
         senderAddress: 'N/A',
-        senderContactNo: process.env.DOMEX_SENDER_CONTACT_NO || '0000000000',
+        senderContactNo: domexSettings.senderContactNo,
         receiverName,
         receiverAddress,
         receiverCity,
@@ -113,9 +121,9 @@ const dispatchDomex: Endpoint = {
         isPaid: order.paymentMethod === 'bank_transfer' ? 'Yes' : 'No',
         refNo: String(order.id),
         remark: order.codNotes || '',
-      })
+      }, domexSettings)
 
-      const events = await domexClient.getStatusDetails({ trackingNo, customerCode })
+      const events = await domexClient.getStatusDetails({ trackingNo, customerCode }, domexSettings)
       const normalized = normalizeShipmentStatus(events)
 
       const updated = await req.payload.update({
@@ -173,6 +181,7 @@ const syncDomex: Endpoint = {
     }
 
     try {
+      const domexSettings = await resolveDomexSettings(req.payload)
       const order = await req.payload.findByID({
         collection: 'orders',
         id: orderID,
@@ -183,17 +192,23 @@ const syncDomex: Endpoint = {
       })
 
       const trackingNo = order.trackingNo?.trim()
-      const customerCode = order.domexCustomerCode?.trim()
-      if (!trackingNo || !customerCode) {
+      const customerCode = domexSettings.defaultCustomerCode
+      if (!trackingNo) {
         return Response.json(
-          { error: 'Both trackingNo and domexCustomerCode are required to sync tracking.' },
+          { error: 'trackingNo is required to sync tracking.' },
+          { status: 400 },
+        )
+      }
+      if (!customerCode) {
+        return Response.json(
+          { error: 'Domex default customer code is required. Configure it in Domex Settings.' },
           { status: 400 },
         )
       }
 
       const [events, waybill] = await Promise.all([
-        domexClient.getStatusDetails({ trackingNo, customerCode }),
-        domexClient.getWaybillDetails({ trackingNo, customerCode }),
+        domexClient.getStatusDetails({ trackingNo, customerCode }, domexSettings),
+        domexClient.getWaybillDetails({ trackingNo, customerCode }, domexSettings),
       ])
       const normalized = normalizeShipmentStatus(events)
 
@@ -273,19 +288,23 @@ const publicTrackDomex: Endpoint = {
   method: 'get',
   handler: async (req) => {
     const trackingNo = String(req.query?.trackingNo || '').trim()
-    const customerCode = String(req.query?.customerCode || '').trim()
+    const domexSettings = await resolveDomexSettings(req.payload)
+    const customerCode = String(req.query?.customerCode || '').trim() || domexSettings.defaultCustomerCode
 
     if (!trackingNo || !customerCode) {
       return Response.json(
-        { error: 'trackingNo and customerCode are required query params.' },
+        {
+          error:
+            'trackingNo is required and a Domex customer code must exist in query params or Domex Settings.',
+        },
         { status: 400 },
       )
     }
 
     try {
       const [events, waybill] = await Promise.all([
-        domexClient.getStatusDetails({ trackingNo, customerCode }),
-        domexClient.getWaybillDetails({ trackingNo, customerCode }),
+        domexClient.getStatusDetails({ trackingNo, customerCode }, domexSettings),
+        domexClient.getWaybillDetails({ trackingNo, customerCode }, domexSettings),
       ])
       return Response.json({ events, waybill })
     } catch (error) {

@@ -26,28 +26,48 @@ export default async function CreateAccount() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-cream">
-      {/* Page hero */}
-      <div className="bg-brand-navy text-white py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-body text-brand-gold text-xs font-semibold tracking-widest uppercase mb-3">
+    <div className="min-h-screen bg-slate-50 px-4 py-10 md:px-6 md:py-14">
+      <div className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl md:grid-cols-[1.05fr_0.95fr]">
+        <section className="relative overflow-hidden bg-brand-navy px-6 py-10 text-white md:px-10 md:py-14">
+          <div className="pointer-events-none absolute -right-20 -top-16 h-52 w-52 rounded-full bg-brand-gold/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-16 -left-14 h-44 w-44 rounded-full bg-sky-400/20 blur-3xl" />
+          <p className="font-body mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-brand-gold">
             Join Mixie Kadai
           </p>
-          <h1 className="font-display text-4xl md:text-5xl font-semibold">Create Account</h1>
-        </div>
-      </div>
+          <h1 className="font-display text-3xl font-semibold leading-tight md:text-5xl">Create your account</h1>
+          <p className="font-body mt-4 max-w-md text-[15px] leading-relaxed text-slate-200 md:text-base">
+            Save delivery details, view your orders, and enjoy a quicker checkout every time.
+          </p>
 
-      <div className="max-w-md mx-auto px-6 py-16">
-        <RenderParams />
-        <div className="bg-white border border-brand-surface p-8">
-          <CreateAccountForm />
-        </div>
-        <p className="font-body text-sm text-brand-muted text-center mt-6">
-          Already have an account?{' '}
-          <Link href="/login" className="text-brand-navy font-medium underline underline-offset-4 hover:text-brand-gold transition-colors">
-            Sign in →
-          </Link>
-        </p>
+          <ul className="mt-8 space-y-4">
+            {[
+              'Faster checkout with saved information',
+              'Easy profile and address management',
+              'Quick access to recent orders',
+            ].map((item) => (
+              <li key={item} className="font-body flex items-start gap-3 text-sm text-slate-100 md:text-[15px]">
+                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-brand-gold" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="px-5 py-8 md:px-10 md:py-12">
+          <RenderParams />
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <CreateAccountForm />
+          </div>
+          <p className="font-body mt-6 text-center text-sm text-slate-600">
+            Already have an account?{' '}
+            <Link
+              href="/login"
+              className="font-semibold text-brand-navy underline underline-offset-4 transition-colors duration-200 hover:text-sky-700"
+            >
+              Sign in
+            </Link>
+          </p>
+        </section>
       </div>
     </div>
   )

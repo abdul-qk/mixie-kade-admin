@@ -88,8 +88,10 @@ export class DomexApiError extends Error {
   }
 }
 
-const DOMEX_BASE_URL = process.env.DOMEX_BASE_URL || 'https://www.connectmesecure.com/api/CustomerInwards'
-const DOMEX_API_KEY = process.env.DOMEX_API_KEY
+type DomexClientConfig = {
+  apiKey: string
+  baseUrl: string
+}
 
 const validateShipmentRequest = (payload: DomexShipmentRequest): void => {
   if (!payload.trackingNo || payload.trackingNo.length > 25) {
@@ -140,8 +142,8 @@ const normalizeError = async (response: Response): Promise<DomexApiError> => {
   })
 }
 
-const ensureCredentials = (): void => {
-  if (!DOMEX_API_KEY) {
+const ensureCredentials = (config: DomexClientConfig): void => {
+  if (!config.apiKey) {
     throw new DomexApiError({
       message: 'DOMEX_API_KEY is not configured.',
       status: 500,
@@ -149,13 +151,13 @@ const ensureCredentials = (): void => {
   }
 }
 
-const request = async <T>(path: string, init: RequestInit): Promise<T> => {
-  ensureCredentials()
-  const response = await fetch(`${DOMEX_BASE_URL}${path}`, {
+const request = async <T>(path: string, init: RequestInit, config: DomexClientConfig): Promise<T> => {
+  ensureCredentials(config)
+  const response = await fetch(`${config.baseUrl}${path}`, {
     ...init,
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': DOMEX_API_KEY as string,
+      'x-api-key': config.apiKey,
       ...(init.headers || {}),
     },
     cache: 'no-store',
@@ -170,35 +172,41 @@ const request = async <T>(path: string, init: RequestInit): Promise<T> => {
 }
 
 export const domexClient = {
-  async createShipment(payload: DomexShipmentRequest): Promise<{ errorCode?: number; message?: string }> {
+  async createShipment(
+    payload: DomexShipmentRequest,
+    config: DomexClientConfig,
+  ): Promise<{ errorCode?: number; message?: string }> {
     validateShipmentRequest(payload)
     return request('/setCustomerDataEntry', {
       method: 'POST',
       body: JSON.stringify(payload),
-    })
+    }, config)
   },
 
-  async updateShipment(payload: DomexShipmentRequest): Promise<{ errorCode?: number; message?: string }> {
+  async updateShipment(
+    payload: DomexShipmentRequest,
+    config: DomexClientConfig,
+  ): Promise<{ errorCode?: number; message?: string }> {
     validateShipmentRequest(payload)
     return request('/updateCustomerDataEntry', {
       method: 'PUT',
       body: JSON.stringify(payload),
-    })
+    }, config)
   },
 
   async getStatusDetails(params: {
     trackingNo: string
     customerCode: string
-  }): Promise<DomexStatusEvent[]> {
+  }, config: DomexClientConfig): Promise<DomexStatusEvent[]> {
     const query = new URLSearchParams(params).toString()
-    return request(`/getCustomerStatusDetails?${query}`, { method: 'GET' })
+    return request(`/getCustomerStatusDetails?${query}`, { method: 'GET' }, config)
   },
 
   async getWaybillDetails(params: {
     trackingNo: string
     customerCode: string
-  }): Promise<DomexWaybillDetails> {
+  }, config: DomexClientConfig): Promise<DomexWaybillDetails> {
     const query = new URLSearchParams(params).toString()
-    return request(`/getCustomerWayBillDetails?${query}`, { method: 'GET' })
+    return request(`/getCustomerWayBillDetails?${query}`, { method: 'GET' }, config)
   },
 }

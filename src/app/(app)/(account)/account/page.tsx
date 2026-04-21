@@ -49,7 +49,15 @@ export default async function AccountPage() {
 
       {/* Profile card — explicit light surfaces so dark theme tokens do not wash out labels/inputs */}
       <div className="rounded-lg border border-neutral-200/80 bg-white p-8 shadow-sm">
-        <h2 className="font-display mb-6 text-2xl font-semibold text-brand-navy">Profile settings</h2>
+        <div className="mb-6 flex items-center justify-between gap-4">
+          <h2 className="font-display text-2xl font-semibold text-brand-navy">Profile settings</h2>
+          <Link
+            href="/logout"
+            className="font-body inline-flex items-center justify-center rounded-md border border-brand-navy px-4 py-2 text-sm font-medium text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
+          >
+            Log out
+          </Link>
+        </div>
         <AccountForm />
       </div>
 

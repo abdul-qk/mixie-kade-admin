@@ -212,16 +212,6 @@ export const plugins: Plugin[] = [
             },
           },
           {
-            name: 'domexCustomerCode',
-            type: 'text',
-            label: 'Domex Customer Code',
-            maxLength: 6,
-            admin: {
-              position: 'sidebar',
-              description: 'Required for Domex API calls (max 6 characters).',
-            },
-          },
-          {
             name: 'dispatchedAt',
             type: 'date',
             label: 'Dispatched At',
