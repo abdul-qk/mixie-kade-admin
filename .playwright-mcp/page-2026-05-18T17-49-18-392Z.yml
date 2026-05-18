@@ -1,0 +1,945 @@
+- generic [active] [ref=e1]:
+  - text:  X
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - paragraph [ref=e10]:
+            - text: "Hotline :"
+            - link "+94 115 400 400" [ref=e11] [cursor=pointer]:
+              - /url: tel:+94115400400
+          - link "Careers" [ref=e12] [cursor=pointer]:
+            - /url: https://www.singersl.com/career-opportunities
+        - combobox [ref=e14]:
+          - option "LKR (Rs.)" [selected]
+          - option "USD"
+      - generic [ref=e15]:
+        - text: 
+        - navigation [ref=e16]:
+          - generic [ref=e18]:
+            - link "SINGER Sri Lanka" [ref=e20] [cursor=pointer]:
+              - /url: https://www.singersl.com
+              - img "SINGER Sri Lanka" [ref=e21]
+            - generic [ref=e23]:
+              - combobox [ref=e24]:
+                - option "All Categories" [selected]
+                - option "Air Conditioner"
+                - option "Air Coolers"
+                - option "Air Heaters"
+                - option "Air Purifiers"
+                - option "Bakeware / Kitchenware"
+                - option "Bathware & Accessories"
+                - option "Batteries"
+                - option "Battery Chargers"
+                - option "Bedding Products"
+                - option "Beds"
+                - option "Bicycle Accessories"
+                - option "Bicycles"
+                - option "Bottle Coolers"
+                - option "Built-In Microwave Ovens"
+                - option "Built-In Ovens"
+                - option "Bundle Offers"
+                - option "Bush Cutters"
+                - option "Car Care Products"
+                - option "Car Chargers"
+                - option "Center Tables"
+                - option "Coconut Scrapers"
+                - option "Coffee Makers"
+                - option "Consumer Medical Equipment"
+                - option "Cooker Hobs"
+                - option "Cooker Hoods"
+                - option "Cookware (Pots & Pans)"
+                - option "Deep Freezers"
+                - option "Dining Sets"
+                - option "Dishwashers"
+                - option "Display Units And TV Stands"
+                - option "Domestic Sewing Machines"
+                - option "Dressing Tables"
+                - option "Drums"
+                - option "Electric Ovens"
+                - option "Electrical Accessories"
+                - option "Fans"
+                - option "Fitness Equipment"
+                - option "Flasks"
+                - option "Floor Polishers"
+                - option "Food Containers"
+                - option "Food Processors / Choppers"
+                - option "Fryers / Electric Grills"
+                - option "Gadgets & Accessories"
+                - option "Garden Equipment"
+                - option "Gas Cookers"
+                - option "Gas Ovens"
+                - option "Generators"
+                - option "Gift Vouchers"
+                - option "Guitars"
+                - option "Hampers"
+                - option "Hand Mixers / Stick Mixers"
+                - option "High Pressure Cleaners"
+                - option "High-Grade Keyboards"
+                - option "Home Audio Video"
+                - option "Immersion Water Heaters"
+                - option "Induction Cookers"
+                - option "Industrial Sewing Machines"
+                - option "Infrared Cookers"
+                - option "Interactive Flat Panel Smart Boards"
+                - option "Irons"
+                - option "Juicers / Smoothie Makers"
+                - option "Kettles"
+                - option "Kids Furniture"
+                - option "Kitchen Machines"
+                - option "Ladders"
+                - option "Laptops / Notebooks"
+                - option "Lawn Mowers, Grass Cutters"
+                - option "Lighting Products"
+                - option "Mattress - Foam"
+                - option "Mattress - Spring"
+                - option "Meat Mincers"
+                - option "Melodicas / Pianicas"
+                - option "Microwave Ovens"
+                - option "Mini-Keyboards"
+                - option "Mistblowers"
+                - option "Mixer Grinders / Blenders"
+                - option "Mobile Phones"
+                - option "Monitors"
+                - option "Motor Cycles"
+                - option "Multi Use Lubrication And Protection"
+                - option "Multipurpose Papers"
+                - option "Office FurnIture"
+                - option "Other / Miscellaneous Kitchen Appliances"
+                - option "Other Furniture"
+                - option "Personal Care"
+                - option "Photocopier Toner Cartridges"
+                - option "Photocopiers"
+                - option "Plastic Furniture"
+                - option "Power Tools And Accessories"
+                - option "Power Weeders"
+                - option "Pressure Cookers"
+                - option "Printer Cartridges"
+                - option "Printers"
+                - option "Projectors"
+                - option "Pruners, Shears, Trimmers"
+                - option "Refrigerator"
+                - option "Rice Cookers"
+                - option "Satellite TV Connections"
+                - option "Scales"
+                - option "Security Systems"
+                - option "Sewing Machine Parts & Accessories"
+                - option "Sofa Sets"
+                - option "Sprayers"
+                - option "Standard Keyboards"
+                - option "Starlink Products"
+                - option "Steamers"
+                - option "Televisions"
+                - option "Three Wheelers"
+                - option "Toasters / Sandwich Makers"
+                - option "Tractors"
+                - option "Utility Furniture"
+                - option "Vacuum Cleaners"
+                - option "Wardrobes"
+                - option "Washing Machines"
+                - option "Water Boilers"
+                - option "Water Filters, Purifiers & Geysers"
+                - option "Water Pumps"
+                - option "Woodworking Machines"
+              - searchbox "Search for Products" [ref=e25]
+              - button "Search" [ref=e26] [cursor=pointer]:
+                - img "Search" [ref=e27]
+            - list [ref=e29]:
+              - listitem [ref=e30]:
+                - link "Account Log in" [ref=e31] [cursor=pointer]:
+                  - /url: "#"
+                  - img "Account" [ref=e32]
+                  - generic [ref=e33]: Log in
+              - listitem [ref=e34]:
+                - link "Wishlist Wishlist" [ref=e35] [cursor=pointer]:
+                  - /url: "#"
+                  - img "Wishlist" [ref=e36]
+                  - generic [ref=e37]: Wishlist
+              - listitem [ref=e38]:
+                - link "Cart 0 My Cart" [ref=e39] [cursor=pointer]:
+                  - /url: https://www.singersl.com/cart
+                  - generic [ref=e40]:
+                    - img "Cart" [ref=e41]
+                    - generic [ref=e42]: "0"
+                  - paragraph [ref=e43]: My Cart
+        - navigation [ref=e48]:
+          - generic [ref=e49]:
+            - list [ref=e50]:
+              - listitem [ref=e51] [cursor=pointer]:
+                - link "Products " [ref=e52]:
+                  - /url: https://www.singersl.com/products
+                  - text: Products
+                  - generic [ref=e53]: 
+              - listitem [ref=e54] [cursor=pointer]:
+                - link "Brands " [ref=e55]:
+                  - /url: https://www.singersl.com/brands
+                  - text: Brands
+                  - generic [ref=e56]: 
+              - listitem [ref=e57]:
+                - link "Duty Free" [ref=e58] [cursor=pointer]:
+                  - /url: https://www.singersl.com/duty-free
+              - listitem [ref=e59] [cursor=pointer]:
+                - link "Added Services " [ref=e60]:
+                  - /url: "#"
+                  - text: Added Services
+                  - generic [ref=e61]: 
+              - listitem [ref=e62]:
+                - link "Omni Cart" [ref=e63] [cursor=pointer]:
+                  - /url: https://www.singersl.com/filter?search=omni-cart-products
+              - listitem [ref=e64]:
+                - link "🔥 Card Carnival" [ref=e65] [cursor=pointer]:
+                  - /url: /bank-offers
+                  - generic [ref=e66]: 🔥 Card Carnival
+            - generic [ref=e67]:
+              - link "Shop Starlink STARLINK" [ref=e69] [cursor=pointer]:
+                - /url: https://www.singersl.com/starlink
+                - img "Shop Starlink" [ref=e70]
+                - generic [ref=e72]: STARLINK
+              - link "Shop Furniture SHOP FURNITURE" [ref=e74] [cursor=pointer]:
+                - /url: https://www.singersl.com/products/furnitures
+                - img "Shop Furniture" [ref=e75]
+                - generic [ref=e76]:
+                  - generic [ref=e77]: SHOP
+                  - generic [ref=e78]: FURNITURE
+              - link "Store Locator Store Locator" [ref=e79] [cursor=pointer]:
+                - /url: https://www.singersl.com/store-locator
+                - img "Store Locator" [ref=e80]
+                - generic [ref=e81]: Store Locator
+              - link "Service Centres Service Centres" [ref=e82] [cursor=pointer]:
+                - /url: https://www.singersl.com/service-centres
+                - img "Service Centres" [ref=e83]
+                - generic [ref=e84]: Service Centres
+    - text: 
+    - navigation "system-breadcrumb" [ref=e88]:
+      - heading "Breadcrumb" [level=2] [ref=e89]
+      - list [ref=e90]:
+        - listitem [ref=e91]:
+          - link "Home" [ref=e92] [cursor=pointer]:
+            - /url: https://www.singersl.com
+        - listitem [ref=e93]:
+          - text: "|"
+          - link "Products" [ref=e94] [cursor=pointer]:
+            - /url: https://www.singersl.com/products
+        - listitem [ref=e95]:
+          - text: "|"
+          - link "Mixer Grinders / Blenders" [ref=e96] [cursor=pointer]:
+            - /url: https://www.singersl.com/products/kitchen-appliances/mixer-grinders-blenders
+        - listitem [ref=e97]: "| Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)"
+    - generic [ref=e100]:
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - generic [ref=e105]:
+              - img "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e110] [cursor=pointer]
+              - img "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e115] [cursor=pointer]
+              - img "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e120] [cursor=pointer]
+            - button "" [ref=e121] [cursor=pointer]:
+              - generic [ref=e122]: 
+            - button "" [ref=e123] [cursor=pointer]:
+              - generic [ref=e124]: 
+          - text:  
+          - link "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e127] [cursor=pointer]:
+            - /url: "#"
+            - img "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e128]
+        - generic [ref=e129]:
+          - link " Download Brochure" [ref=e131] [cursor=pointer]:
+            - /url: https://www.singersl.com/brochure/download/PN-MX-AV425-B
+            - generic [ref=e132]: 
+            - text: Download Brochure
+          - generic [ref=e133]:
+            - link [ref=e134] [cursor=pointer]:
+              - /url: https://www.facebook.com/sharer.php?u=https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black
+            - link [ref=e135] [cursor=pointer]:
+              - /url: https://api.whatsapp.com/send/?text=https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black
+            - link [ref=e136] [cursor=pointer]:
+              - /url: https://twitter.com/intent/tweet?text=https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black
+            - link [ref=e137] [cursor=pointer]:
+              - /url: https://www.facebook.com/dialog/send?app_id=140586622674265&link=https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black%23.Yw7Vv5KXNU8.messenger&redirect_uri=https%3A%2F%2Fwww.addthis.com%2Fmessengerredirect
+            - link [ref=e138] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - img "panasonic_logo.png" [ref=e143]
+            - generic [ref=e144]:
+              - link " Add to Wishlist" [ref=e145] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e146]: 
+                - text: Add to Wishlist
+              - button " Compare" [ref=e147] [cursor=pointer]:
+                - generic [ref=e148]: 
+                - text: Compare
+          - link "Show All Panasonic Products" [ref=e150] [cursor=pointer]:
+            - /url: https://www.singersl.com/brands/panasonic
+          - button "BANK OFFER" [ref=e151] [cursor=pointer]:
+            - generic [ref=e152]: BANK OFFER
+          - heading "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [level=5] [ref=e153]
+          - paragraph [ref=e154]: "PRODUCT CODE: PN-MX-AV425-B"
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: 
+              - text: AVAILABLE
+            - generic [ref=e166]:
+              - generic [ref=e168]: "0"
+              - generic [ref=e170]: "0"
+              - generic [ref=e172]: "0"
+              - generic [ref=e174]: "0"
+              - generic [ref=e176]: "0"
+          - generic [ref=e177]:
+            - heading "Rs.39,899 Rs. 41,999" [level=4] [ref=e178]
+            - paragraph [ref=e179]: 5.00% OFF
+          - generic [ref=e181]:
+            - heading " Card Offers" [level=5] [ref=e182]:
+              - generic [ref=e183]: 
+              - text: Card Offers
+            - generic [ref=e184]:
+              - generic [ref=e189]:
+                - img "null" [ref=e191]
+                - generic [ref=e192]:
+                  - paragraph [ref=e193]: 10% OFF
+                  - paragraph [ref=e194]: Rs. 35,699
+              - button "Previous" [ref=e199] [cursor=pointer]:
+                - generic [ref=e201]: Previous
+              - button "Next" [ref=e202] [cursor=pointer]:
+                - generic [ref=e204]: Next
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - heading " Easy Installment Available." [level=5] [ref=e208]:
+                - generic [ref=e209]: 
+                - text: Easy Installment Available.
+              - paragraph [ref=e210]:
+                - generic [ref=e211] [cursor=pointer]:
+                  - text: Check Offers
+                  - generic [ref=e212]: 
+            - generic [ref=e213]:
+              - generic [ref=e216]:
+                - generic [ref=e218]:
+                  - img "Sampath Bank" [ref=e220]
+                  - generic [ref=e221]:
+                    - paragraph [ref=e222]: 24 x
+                    - paragraph [ref=e223]: RS 1,662
+                - generic [ref=e225]:
+                  - img "Pan Asia Bank" [ref=e227]
+                  - generic [ref=e228]:
+                    - paragraph [ref=e229]: 60 x
+                    - paragraph [ref=e230]: RS 964
+                - generic [ref=e232]:
+                  - img "DFCC" [ref=e234]
+                  - generic [ref=e235]:
+                    - paragraph [ref=e236]: 12 x
+                    - paragraph [ref=e237]: RS 3,325
+                - generic [ref=e239]:
+                  - img "NDB" [ref=e241]
+                  - generic [ref=e242]:
+                    - paragraph [ref=e243]: 36 x
+                    - paragraph [ref=e244]: RS 1,108
+                - generic [ref=e246]:
+                  - img "Com Bank" [ref=e248]
+                  - generic [ref=e249]:
+                    - paragraph [ref=e250]: 36 x
+                    - paragraph [ref=e251]: RS 1,158
+              - button "Previous" [ref=e252] [cursor=pointer]:
+                - generic [ref=e254]: Previous
+              - button "Next" [ref=e255] [cursor=pointer]:
+                - generic [ref=e257]: Next
+          - generic [ref=e258]:
+            - img "Reward Points Icon" [ref=e259]
+            - paragraph [ref=e260]:
+              - text: Earn 199 RED points with this purchase
+              - link "More Info" [ref=e261] [cursor=pointer]:
+                - /url: https://www.singersl.com/added-services/singer-red-loyalty-program
+          - generic [ref=e262]:
+            - img "Offer Icon" [ref=e263]
+            - paragraph [ref=e264]: Offer - Extra 5% off (Price is inclusive of Discount)
+          - generic [ref=e265]:
+            - img "Offer Icon" [ref=e266]
+            - paragraph [ref=e267]:
+              - strong [ref=e268]: Special Discount - Checkout using Sampath Bank payment method and get extra 10% off
+              - link "T&C" [ref=e269] [cursor=pointer]:
+                - /url: javascript:void(0);
+          - generic [ref=e270]:
+            - img "Offer Icon" [ref=e271]
+            - paragraph [ref=e272]:
+              - text: Pay in 3 X Rs. 13,300 with
+              - img "mint-pay" [ref=e273]
+        - generic [ref=e275]:
+          - generic [ref=e277]:
+            - generic [ref=e278]: Color
+            - list [ref=e279]:
+              - listitem [ref=e280]:
+                - link "Black" [ref=e281] [cursor=pointer]:
+                  - /url: " https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black "
+          - generic [ref=e282]:
+            - generic [ref=e287]:
+              - link "Buy Now" [ref=e288] [cursor=pointer]:
+                - /url: "#"
+                - button "Buy Now" [ref=e289]
+              - link "Add To Cart" [ref=e290] [cursor=pointer]:
+                - /url: "#"
+                - button "Add To Cart" [ref=e291]
+            - generic [ref=e292]:
+              - button "-" [ref=e293] [cursor=pointer]
+              - generic [ref=e294]: "1"
+              - button "+" [ref=e295] [cursor=pointer]
+          - generic [ref=e296]:
+            - paragraph [ref=e298]:
+              - text: Delivery - Standard 3 To 5 Working Days.
+              - generic [ref=e300] [cursor=pointer]: 
+            - paragraph [ref=e302]:
+              - text: 1 Years(s) Manufacturer Warranty
+              - generic [ref=e304] [cursor=pointer]: 
+            - generic [ref=e305]:
+              - generic [ref=e306]:
+                - radio "Include Extended Warranty (Normal + 2 Year) for Rs.3,000" [ref=e307]
+                - generic [ref=e308]: Include Extended Warranty (Normal + 2 Year) for Rs.3,000
+              - generic [ref=e309]:
+                - radio "Include Extended Warranty Plus (2 Years Extended Warranty + Fire, Lightning, Electrical Inclusion, Explosion, Flood, Cyclone, Storm, Tempest & Natural Disasters Cover) for Rs.3,300" [ref=e310]
+                - generic [ref=e311]: Include Extended Warranty Plus (2 Years Extended Warranty + Fire, Lightning, Electrical Inclusion, Explosion, Flood, Cyclone, Storm, Tempest & Natural Disasters Cover) for Rs.3,300
+            - generic [ref=e313]:
+              - paragraph [ref=e315]:
+                - strong [ref=e316]:
+                  - generic [ref=e317]: 
+                  - text: Find your nearest store to purchase offline.
+              - generic [ref=e318]:
+                - textbox "Town/City/Code" [ref=e319]
+                - button "Fnd Store" [ref=e320] [cursor=pointer]
+    - generic [ref=e323]:
+      - tablist [ref=e325]:
+        - tab "Features" [selected] [ref=e326] [cursor=pointer]
+        - tab "Specifications" [ref=e327] [cursor=pointer]
+        - tab "Easy payment" [ref=e328] [cursor=pointer]
+        - tab "Enquiry" [ref=e329] [cursor=pointer]
+      - tabpanel "Features" [ref=e331]:
+        - generic [ref=e332]:
+          - generic [ref=e334]:
+            - separator [ref=e335]
+            - heading "www.singersl.com" [level=4] [ref=e336]
+          - button "View More " [ref=e337] [cursor=pointer]:
+            - text: View More
+            - generic [ref=e338]: 
+    - generic [ref=e339]:
+      - heading "Similar Products" [level=4] [ref=e340]:
+        - strong [ref=e341]: Similar Products
+      - generic [ref=e345]:
+        - generic [ref=e347]:
+          - link "Panasonic Wet And Dry Mixer Grinder 2 Jars - PN-MX-AC210" [ref=e348] [cursor=pointer]:
+            - /url: https://www.singersl.com/product/panasonic-wet-and-dry-mixer-grinder-2-jars-pn-mx-ac210
+            - img "Panasonic Wet And Dry Mixer Grinder 2 Jars - PN-MX-AC210" [ref=e349]
+          - generic [ref=e350]: bank offer
+          - generic [ref=e351]:
+            - paragraph [ref=e352]: PN-MX-AC210
+            - generic [ref=e361]:
+              - generic [ref=e363]: "0"
+              - generic [ref=e365]: "0"
+              - generic [ref=e367]: "0"
+              - generic [ref=e369]: "0"
+              - generic [ref=e371]: "0"
+            - heading "Panasonic Wet And Dry Mixer Grinder 2 Jars -..." [level=5] [ref=e372]:
+              - link "Panasonic Wet And Dry Mixer Grinder 2 Jars -..." [ref=e373] [cursor=pointer]:
+                - /url: https://www.singersl.com/product/panasonic-wet-and-dry-mixer-grinder-2-jars-pn-mx-ac210
+            - generic [ref=e375]:
+              - text: Rs 26,099
+              - generic [ref=e376]: Rs 28,999 10% Off
+        - generic [ref=e378]:
+          - link "Panasonic Wet And Dry Mixer Grinder 3 Jars 1000W Black - PN-MX-AC350B" [ref=e379] [cursor=pointer]:
+            - /url: https://www.singersl.com/product/panasonic-wet-and-dry-mixer-grinder-3-jars-1000w-black-pn-mx-ac350b
+            - img "Panasonic Wet And Dry Mixer Grinder 3 Jars 1000W Black - PN-MX-AC350B" [ref=e380]
+          - generic [ref=e381]: bank offer
+          - generic [ref=e382]:
+            - paragraph [ref=e383]: PN-MX-AC350B
+            - generic [ref=e392]:
+              - generic [ref=e394]: "0"
+              - generic [ref=e396]: "0"
+              - generic [ref=e398]: "0"
+              - generic [ref=e400]: "0"
+              - generic [ref=e402]: "0"
+            - heading "Panasonic Wet And Dry Mixer Grinder 3 Jars 10..." [level=5] [ref=e403]:
+              - link "Panasonic Wet And Dry Mixer Grinder 3 Jars 10..." [ref=e404] [cursor=pointer]:
+                - /url: https://www.singersl.com/product/panasonic-wet-and-dry-mixer-grinder-3-jars-1000w-black-pn-mx-ac350b
+            - generic [ref=e406]:
+              - text: Rs 30,399
+              - generic [ref=e407]: Rs 31,999 5% Off
+        - generic [ref=e409]:
+          - link "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e410] [cursor=pointer]:
+            - /url: https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black
+            - img "Panasonic AV Super Wet And Dry Mixer Grinder MX-AV425 - 4 Jars (Charcoal Black)" [ref=e411]
+          - generic [ref=e412]: bank offer
+          - generic [ref=e413]:
+            - paragraph [ref=e414]: PN-MX-AV425-B
+            - generic [ref=e423]:
+              - generic [ref=e425]: "0"
+              - generic [ref=e427]: "0"
+              - generic [ref=e429]: "0"
+              - generic [ref=e431]: "0"
+              - generic [ref=e433]: "0"
+            - heading "Panasonic AV Super Wet And Dry Mixer Grinder..." [level=5] [ref=e434]:
+              - link "Panasonic AV Super Wet And Dry Mixer Grinder..." [ref=e435] [cursor=pointer]:
+                - /url: https://www.singersl.com/product/panasonic-av-super-wet-and-dry-mixer-grinder-mx-av425-4-jars-charcoal-black
+            - generic [ref=e437]:
+              - text: Rs 39,899
+              - generic [ref=e438]: Rs 41,999 5% Off
+    - generic [ref=e439]:
+      - heading "Frequently Bought Items" [level=4] [ref=e440]:
+        - strong [ref=e441]: Frequently Bought Items
+      - generic [ref=e443]:
+        - button "←‹" [ref=e444] [cursor=pointer]
+        - generic [ref=e446]:
+          - generic [ref=e448]:
+            - link [ref=e449] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21-60-cm-t-type
+              - img [ref=e450]
+            - generic [ref=e451]: bank offer
+            - generic [ref=e452]:
+              - paragraph [ref=e453]: SBI-SMP60M21
+              - generic [ref=e462]:
+                - generic [ref=e464]: "0"
+                - generic [ref=e466]: "0"
+                - generic [ref=e468]: "0"
+                - generic [ref=e470]: "0"
+                - generic [ref=e472]: "0"
+              - heading [level=5] [ref=e473]:
+                - link [ref=e474] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21-60-cm-t-type
+                  - text: Singer Cooker Hood SMP60M21 - 60 cm T Type
+              - generic [ref=e476]:
+                - text: Rs 53,199
+                - generic [ref=e477]: Rs 55,999 5% Off
+          - generic [ref=e479]:
+            - link [ref=e480] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21ss-60-cm-stainless-steel-t-type
+              - img [ref=e481]
+            - generic [ref=e482]: bank offer
+            - generic [ref=e483]:
+              - paragraph [ref=e484]: SBI-SMP60M21SS
+              - generic [ref=e493]:
+                - generic [ref=e495]: "0"
+                - generic [ref=e497]: "0"
+                - generic [ref=e499]: "0"
+                - generic [ref=e501]: "0"
+                - generic [ref=e503]: "0"
+              - heading [level=5] [ref=e504]:
+                - link [ref=e505] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21ss-60-cm-stainless-steel-t-type
+                  - text: Singer Cooker Hood SMP60M21SS - 60 cm Stainle...
+              - generic [ref=e507]:
+                - text: Rs 55,099
+                - generic [ref=e508]: Rs 57,999 5% Off
+          - generic [ref=e510]:
+            - link [ref=e511] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-jar-rice-cooker-18l
+              - img [ref=e512]
+            - generic [ref=e513]: bank offer
+            - generic [ref=e514]:
+              - paragraph [ref=e515]: SRC-J1018SHS
+              - generic [ref=e524]:
+                - generic [ref=e526]: "0"
+                - generic [ref=e528]: "0"
+                - generic [ref=e530]: "0"
+                - generic [ref=e532]: "0"
+                - generic [ref=e534]: "0"
+              - heading [level=5] [ref=e535]:
+                - link [ref=e536] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-jar-rice-cooker-18l
+                  - text: Singer Jar Rice Cooker 1.8L
+              - generic [ref=e538]:
+                - text: Rs 9,499
+                - generic [ref=e539]: Rs 9,999 5% Off
+          - generic [ref=e541]:
+            - link [ref=e542] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/tefal-g6-unlimited-fry-pan-20cm-tffp2550243
+              - img [ref=e543]
+            - generic [ref=e544]: bank offer
+            - generic [ref=e545]:
+              - paragraph [ref=e546]: TFFP2550243
+              - generic [ref=e555]:
+                - generic [ref=e557]: "0"
+                - generic [ref=e559]: "0"
+                - generic [ref=e561]: "0"
+                - generic [ref=e563]: "0"
+                - generic [ref=e565]: "0"
+              - heading [level=5] [ref=e566]:
+                - link [ref=e567] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/tefal-g6-unlimited-fry-pan-20cm-tffp2550243
+                  - text: Tefal G6 Unlimited - Fry Pan 20cm (TFFP255024...
+              - generic [ref=e569]: Rs. 14,499
+          - generic [ref=e571]:
+            - link "Prestige Fry Pan Without Lid (NCPDG-FP240)" [ref=e572] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/prestige-fry-pan-without-lid-ncpdg-fp240
+              - img "Prestige Fry Pan Without Lid (NCPDG-FP240)" [ref=e573]
+            - generic [ref=e574]: bank offer
+            - generic [ref=e575]:
+              - paragraph [ref=e576]: NCPDG-FP240
+              - generic [ref=e585]:
+                - generic [ref=e587]: "0"
+                - generic [ref=e589]: "0"
+                - generic [ref=e591]: "0"
+                - generic [ref=e593]: "0"
+                - generic [ref=e595]: "0"
+              - heading "Prestige Fry Pan Without Lid (NCPDG-FP240)" [level=5] [ref=e596]:
+                - link "Prestige Fry Pan Without Lid (NCPDG-FP240)" [ref=e597] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/prestige-fry-pan-without-lid-ncpdg-fp240
+              - generic [ref=e599]:
+                - text: Rs 4,369
+                - generic [ref=e600]: Rs 4,599 5% Off
+          - generic [ref=e602]:
+            - link "Singer Cooker Hood SMP60M21 - 60 cm T Type" [ref=e603] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21-60-cm-t-type
+              - img "Singer Cooker Hood SMP60M21 - 60 cm T Type" [ref=e604]
+            - generic [ref=e605]: bank offer
+            - generic [ref=e606]:
+              - paragraph [ref=e607]: SBI-SMP60M21
+              - generic [ref=e616]:
+                - generic [ref=e618]: "0"
+                - generic [ref=e620]: "0"
+                - generic [ref=e622]: "0"
+                - generic [ref=e624]: "0"
+                - generic [ref=e626]: "0"
+              - heading "Singer Cooker Hood SMP60M21 - 60 cm T Type" [level=5] [ref=e627]:
+                - link "Singer Cooker Hood SMP60M21 - 60 cm T Type" [ref=e628] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21-60-cm-t-type
+              - generic [ref=e630]:
+                - text: Rs 53,199
+                - generic [ref=e631]: Rs 55,999 5% Off
+          - generic [ref=e633]:
+            - link "Singer Cooker Hood SMP60M21SS - 60 cm Stainless Steel T Type" [ref=e634] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21ss-60-cm-stainless-steel-t-type
+              - img "Singer Cooker Hood SMP60M21SS - 60 cm Stainless Steel T Type" [ref=e635]
+            - generic [ref=e636]: bank offer
+            - generic [ref=e637]:
+              - paragraph [ref=e638]: SBI-SMP60M21SS
+              - generic [ref=e647]:
+                - generic [ref=e649]: "0"
+                - generic [ref=e651]: "0"
+                - generic [ref=e653]: "0"
+                - generic [ref=e655]: "0"
+                - generic [ref=e657]: "0"
+              - heading "Singer Cooker Hood SMP60M21SS - 60 cm Stainle..." [level=5] [ref=e658]:
+                - link "Singer Cooker Hood SMP60M21SS - 60 cm Stainle..." [ref=e659] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21ss-60-cm-stainless-steel-t-type
+              - generic [ref=e661]:
+                - text: Rs 55,099
+                - generic [ref=e662]: Rs 57,999 5% Off
+          - generic [ref=e664]:
+            - link "Singer Jar Rice Cooker 1.8L" [ref=e665] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-jar-rice-cooker-18l
+              - img "Singer Jar Rice Cooker 1.8L" [ref=e666]
+            - generic [ref=e667]: bank offer
+            - generic [ref=e668]:
+              - paragraph [ref=e669]: SRC-J1018SHS
+              - generic [ref=e678]:
+                - generic [ref=e680]: "0"
+                - generic [ref=e682]: "0"
+                - generic [ref=e684]: "0"
+                - generic [ref=e686]: "0"
+                - generic [ref=e688]: "0"
+              - heading "Singer Jar Rice Cooker 1.8L" [level=5] [ref=e689]:
+                - link "Singer Jar Rice Cooker 1.8L" [ref=e690] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-jar-rice-cooker-18l
+              - generic [ref=e692]:
+                - text: Rs 9,499
+                - generic [ref=e693]: Rs 9,999 5% Off
+          - generic [ref=e695]:
+            - link [ref=e696] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/tefal-g6-unlimited-fry-pan-20cm-tffp2550243
+              - img [ref=e697]
+            - generic [ref=e698]: bank offer
+            - generic [ref=e699]:
+              - paragraph [ref=e700]: TFFP2550243
+              - generic [ref=e709]:
+                - generic [ref=e711]: "0"
+                - generic [ref=e713]: "0"
+                - generic [ref=e715]: "0"
+                - generic [ref=e717]: "0"
+                - generic [ref=e719]: "0"
+              - heading [level=5] [ref=e720]:
+                - link [ref=e721] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/tefal-g6-unlimited-fry-pan-20cm-tffp2550243
+                  - text: Tefal G6 Unlimited - Fry Pan 20cm (TFFP255024...
+              - generic [ref=e723]: Rs. 14,499
+          - generic [ref=e725]:
+            - link [ref=e726] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/prestige-fry-pan-without-lid-ncpdg-fp240
+              - img [ref=e727]
+            - generic [ref=e728]: bank offer
+            - generic [ref=e729]:
+              - paragraph [ref=e730]: NCPDG-FP240
+              - generic [ref=e739]:
+                - generic [ref=e741]: "0"
+                - generic [ref=e743]: "0"
+                - generic [ref=e745]: "0"
+                - generic [ref=e747]: "0"
+                - generic [ref=e749]: "0"
+              - heading [level=5] [ref=e750]:
+                - link [ref=e751] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/prestige-fry-pan-without-lid-ncpdg-fp240
+                  - text: Prestige Fry Pan Without Lid (NCPDG-FP240)
+              - generic [ref=e753]:
+                - text: Rs 4,369
+                - generic [ref=e754]: Rs 4,599 5% Off
+          - generic [ref=e756]:
+            - link [ref=e757] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21-60-cm-t-type
+              - img [ref=e758]
+            - generic [ref=e759]: bank offer
+            - generic [ref=e760]:
+              - paragraph [ref=e761]: SBI-SMP60M21
+              - generic [ref=e770]:
+                - generic [ref=e772]: "0"
+                - generic [ref=e774]: "0"
+                - generic [ref=e776]: "0"
+                - generic [ref=e778]: "0"
+                - generic [ref=e780]: "0"
+              - heading [level=5] [ref=e781]:
+                - link [ref=e782] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21-60-cm-t-type
+                  - text: Singer Cooker Hood SMP60M21 - 60 cm T Type
+              - generic [ref=e784]:
+                - text: Rs 53,199
+                - generic [ref=e785]: Rs 55,999 5% Off
+          - generic [ref=e787]:
+            - link [ref=e788] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21ss-60-cm-stainless-steel-t-type
+              - img [ref=e789]
+            - generic [ref=e790]: bank offer
+            - generic [ref=e791]:
+              - paragraph [ref=e792]: SBI-SMP60M21SS
+              - generic [ref=e801]:
+                - generic [ref=e803]: "0"
+                - generic [ref=e805]: "0"
+                - generic [ref=e807]: "0"
+                - generic [ref=e809]: "0"
+                - generic [ref=e811]: "0"
+              - heading [level=5] [ref=e812]:
+                - link [ref=e813] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-cooker-hood-smp60m21ss-60-cm-stainless-steel-t-type
+                  - text: Singer Cooker Hood SMP60M21SS - 60 cm Stainle...
+              - generic [ref=e815]:
+                - text: Rs 55,099
+                - generic [ref=e816]: Rs 57,999 5% Off
+          - generic [ref=e818]:
+            - link [ref=e819] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/singer-jar-rice-cooker-18l
+              - img [ref=e820]
+            - generic [ref=e821]: bank offer
+            - generic [ref=e822]:
+              - paragraph [ref=e823]: SRC-J1018SHS
+              - generic [ref=e832]:
+                - generic [ref=e834]: "0"
+                - generic [ref=e836]: "0"
+                - generic [ref=e838]: "0"
+                - generic [ref=e840]: "0"
+                - generic [ref=e842]: "0"
+              - heading [level=5] [ref=e843]:
+                - link [ref=e844] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/singer-jar-rice-cooker-18l
+                  - text: Singer Jar Rice Cooker 1.8L
+              - generic [ref=e846]:
+                - text: Rs 9,499
+                - generic [ref=e847]: Rs 9,999 5% Off
+          - generic [ref=e849]:
+            - link [ref=e850] [cursor=pointer]:
+              - /url: https://www.singersl.com/product/tefal-g6-unlimited-fry-pan-20cm-tffp2550243
+              - img [ref=e851]
+            - generic [ref=e852]: bank offer
+            - generic [ref=e853]:
+              - paragraph [ref=e854]: TFFP2550243
+              - generic [ref=e863]:
+                - generic [ref=e865]: "0"
+                - generic [ref=e867]: "0"
+                - generic [ref=e869]: "0"
+                - generic [ref=e871]: "0"
+                - generic [ref=e873]: "0"
+              - heading [level=5] [ref=e874]:
+                - link [ref=e875] [cursor=pointer]:
+                  - /url: https://www.singersl.com/product/tefal-g6-unlimited-fry-pan-20cm-tffp2550243
+                  - text: Tefal G6 Unlimited - Fry Pan 20cm (TFFP255024...
+              - generic [ref=e877]: Rs. 14,499
+        - button "→›" [ref=e878] [cursor=pointer]
+    - text:    
+    - generic [ref=e881]:
+      - generic [ref=e882]:
+        - generic [ref=e883]:
+          - img "Islandwide Delivery"
+        - generic [ref=e884]:
+          - text: Islandwide Delivery
+          - generic [ref=e885]: Fast, reliable delivery
+      - generic [ref=e886]:
+        - generic [ref=e887]:
+          - img "After Sales Service"
+        - generic [ref=e888]:
+          - text: After Sales Service
+          - generic [ref=e889]: Confidence on all your devices
+      - generic [ref=e890]:
+        - generic [ref=e891]:
+          - img "Top-notch Support"
+        - generic [ref=e892]:
+          - text: Top-notch Support
+          - generic [ref=e893]: Here whenever you need us
+      - generic [ref=e894]:
+        - generic [ref=e895]:
+          - img "Trusted Warranty"
+        - generic [ref=e896]:
+          - text: Trusted Warranty
+          - generic [ref=e897]: Warrenty for all products
+    - contentinfo [ref=e898]:
+      - generic [ref=e899]:
+        - generic [ref=e900]:
+          - generic [ref=e901]:
+            - img "Singer Logo" [ref=e903]
+            - generic [ref=e908]:
+              - text: Keep In Touch
+              - list [ref=e909]:
+                - listitem [ref=e910]:
+                  - link "" [ref=e911] [cursor=pointer]:
+                    - /url: https://www.facebook.com/SingerSL
+                    - generic [ref=e912]: 
+                - listitem [ref=e913]:
+                  - link "" [ref=e914] [cursor=pointer]:
+                    - /url: https://www.youtube.com/c/SINGERSriLanka
+                    - generic [ref=e915]: 
+                - listitem [ref=e916]:
+                  - link "" [ref=e917] [cursor=pointer]:
+                    - /url: https://twitter.com/singersl
+                    - generic [ref=e918]: 
+                - listitem [ref=e919]:
+                  - link "" [ref=e920] [cursor=pointer]:
+                    - /url: https://t.me/singersrilanka
+                    - generic [ref=e921]: 
+                - listitem [ref=e922]:
+                  - link "" [ref=e923] [cursor=pointer]:
+                    - /url: https://www.instagram.com/singer_srilanka
+                    - generic [ref=e924]: 
+                - listitem [ref=e925]:
+                  - link "" [ref=e926] [cursor=pointer]:
+                    - /url: https://www.tiktok.com/@singersl
+                    - generic [ref=e927]: 
+                - listitem [ref=e928]:
+                  - link "" [ref=e929] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/singer-sri-lanka-ltd
+                    - generic [ref=e930]: 
+            - generic [ref=e931]:
+              - generic [ref=e934]:
+                - paragraph [ref=e935]: Got questions? Call us
+                - link "+94 115 400 400" [ref=e937] [cursor=pointer]:
+                  - /url: tel:+94115400400
+              - generic [ref=e938]:
+                - paragraph [ref=e939]: Our Mobile App
+                - link "Singer Android App" [ref=e940] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/details?id=com.singersl.androidapp&hl=en
+                  - img "Singer Android App" [ref=e941]
+          - generic [ref=e945]:
+            - generic [ref=e946]:
+              - generic [ref=e947]: About Singer
+              - list [ref=e948]:
+                - listitem [ref=e949]:
+                  - link "About Us" [ref=e950] [cursor=pointer]:
+                    - /url: https://www.singersl.com/about-us
+                - listitem [ref=e951]:
+                  - link "Milestones" [ref=e952] [cursor=pointer]:
+                    - /url: https://www.singersl.com/milestones
+                - listitem [ref=e953]:
+                  - link "Board Of Directors" [ref=e954] [cursor=pointer]:
+                    - /url: https://www.singersl.com/board-of-directors
+                - listitem [ref=e955]:
+                  - link "Senior Management Team" [ref=e956] [cursor=pointer]:
+                    - /url: https://www.singersl.com/senior-management-team
+                - listitem [ref=e957]:
+                  - link "Career Opportunities" [ref=e958] [cursor=pointer]:
+                    - /url: https://www.singersl.com/career-opportunities
+                - listitem [ref=e959]:
+                  - link "Investor Relations" [ref=e960] [cursor=pointer]:
+                    - /url: https://www.singersl.com/investor-relations
+            - generic [ref=e961]:
+              - generic [ref=e962]: Media
+              - list [ref=e963]:
+                - listitem [ref=e964]:
+                  - link "Accolades" [ref=e965] [cursor=pointer]:
+                    - /url: https://www.singersl.com/accolades
+                - listitem [ref=e966]:
+                  - link "Singer Furniture Catalogue 2026" [ref=e967] [cursor=pointer]:
+                    - /url: https://www.singersl.com/singer-furniture-catalogue
+                - listitem [ref=e968]:
+                  - link "Singer Home And Kitchen Appliances Catalogue 2026" [ref=e969] [cursor=pointer]:
+                    - /url: https://www.singersl.com/singer-home-and-kitchen-appliances-catalogue
+                - listitem [ref=e970]:
+                  - link "Like Us On Facebook" [ref=e971] [cursor=pointer]:
+                    - /url: https://www.facebook.com/SingerSL
+                - listitem [ref=e972]:
+                  - link "YouTube - Product Demo Videos" [ref=e973] [cursor=pointer]:
+                    - /url: https://www.youtube.com/c/SINGERSriLanka
+                - listitem [ref=e974]:
+                  - link "Singer Logos" [ref=e975] [cursor=pointer]:
+                    - /url: https://www.singersl.com/singer-logos
+            - generic [ref=e976]:
+              - generic [ref=e977]: Quick Links
+              - list [ref=e978]:
+                - listitem [ref=e979]:
+                  - link "Contact Us" [ref=e980] [cursor=pointer]:
+                    - /url: https://www.singersl.com/contact-us
+                - listitem [ref=e981]:
+                  - link "Locations" [ref=e982] [cursor=pointer]:
+                    - /url: https://www.singersl.com/store-locator
+                - listitem [ref=e983]:
+                  - link "Hot Deals" [ref=e984] [cursor=pointer]:
+                    - /url: https://www.singersl.com/hot-deals
+                - listitem [ref=e985]:
+                  - link "Stock Clearance Sales" [ref=e986] [cursor=pointer]:
+                    - /url: https://www.singersl.com/stock-clearance-sales
+                - listitem [ref=e987]:
+                  - link "HP Installment Payments" [ref=e988] [cursor=pointer]:
+                    - /url: https://www.singersl.com/hp-installment-payments
+                - listitem [ref=e989]:
+                  - link "SINGER Finance (Lanka) PLC" [ref=e990] [cursor=pointer]:
+                    - /url: https://www.singerfinance.com/
+            - generic [ref=e991]:
+              - generic [ref=e992]: Support
+              - list [ref=e993]:
+                - listitem [ref=e994]:
+                  - link "Products" [ref=e995] [cursor=pointer]:
+                    - /url: https://www.singersl.com/products
+                - listitem [ref=e996]:
+                  - link "Brands" [ref=e997] [cursor=pointer]:
+                    - /url: https://www.singersl.com/brands
+                - listitem [ref=e998]:
+                  - link "Product Verification" [ref=e999] [cursor=pointer]:
+                    - /url: https://www.singersl.com/singer-product-verification
+                - listitem [ref=e1000]:
+                  - link "Check Loyalty Card Point Balance" [ref=e1001] [cursor=pointer]:
+                    - /url: https://www.singersl.com/singer-loyalty-card-point-balance
+                - listitem [ref=e1002]:
+                  - link "Privacy Policy" [ref=e1003] [cursor=pointer]:
+                    - /url: https://www.singersl.com/privacy-policy
+                - listitem [ref=e1004]:
+                  - link "Terms And Conditions" [ref=e1005] [cursor=pointer]:
+                    - /url: https://www.singersl.com/order-terms-and-conditions
+        - generic [ref=e1009]:
+          - img "visa-logo.webp" [ref=e1010]
+          - img "mastercard-logo.webp" [ref=e1011]
+          - img "amex-logo.webp" [ref=e1012]
+          - img "sampathvishwa-logo.webp" [ref=e1013]
+          - img "cod-logo.webp" [ref=e1014]
+          - img "sampathbank-logo.webp" [ref=e1015]
+          - img "ntbbank-logo.webp" [ref=e1016]
+          - img "combank-logo.webp" [ref=e1017]
+          - img "globalpayments-logo.webp" [ref=e1018]
+          - img "boc-logo.webp" [ref=e1019]
+          - img "cargillsbank-logo.webp" [ref=e1020]
+          - img "dfccbank-logo.webp" [ref=e1021]
+          - img "hnbbank-logo.webp" [ref=e1022]
+          - img "hsbcbank-logo.webp" [ref=e1023]
+          - img "ndb-logo.webp" [ref=e1024]
+          - img "panasiabank-logo.webp" [ref=e1025]
+          - img "peoplesbank-logo.webp" [ref=e1026]
+          - img "standardchartedbank-logo.webp" [ref=e1027]
+          - img "seylanbank-logo.webp" [ref=e1028]
+          - img "unionbank-logo.webp" [ref=e1029]
+          - img "sampath-cards-logo.webp" [ref=e1030]
+          - img "unionpaybank-logo.webp" [ref=e1031]
+          - img "mintpay.png" [ref=e1032]
+        - generic [ref=e1034]:
+          - text: Copyright © 2026 Singer (Sri Lanka Colmbo) PLC All Rights Reserved. Solution by
+          - link "Xiteb" [ref=e1035] [cursor=pointer]:
+            - /url: https://xiteb.com/
+  - status [ref=e1036]
+  - status [ref=e1037]
+  - status [ref=e1038]

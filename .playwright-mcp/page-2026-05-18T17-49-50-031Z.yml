@@ -1,0 +1,595 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e14]:
+    - banner [ref=e18]:
+      - generic "Browse Flipkart" [ref=e20]:
+        - generic [ref=e21]:
+          - link "Flipkart marketplace dropdown" [ref=e22] [cursor=pointer]:
+            - /url: /
+            - img "FLIPKART" [ref=e23]
+          - img "Chevron" [ref=e24]
+      - generic [ref=e28]:
+        - button "Search for Products, Brands and More" [ref=e29] [cursor=pointer]:
+          - img "Search Icon" [ref=e30]
+        - textbox "Search for Products, Brands and More" [ref=e34]
+      - generic [ref=e35]:
+        - generic [ref=e40]:
+          - link "Login" [ref=e41] [cursor=pointer]:
+            - /url: /account/login?ret=/
+            - img "Login" [ref=e42]
+            - generic [ref=e43]: Login
+          - img "Chevron" [ref=e44]
+        - generic [ref=e49]:
+          - link "More" [ref=e50] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e51]: More
+          - img "Chevron" [ref=e52]
+        - link "Cart Cart" [ref=e55] [cursor=pointer]:
+          - /url: /viewcart?marketplace=FLIPKART
+          - img "Cart" [ref=e56]
+          - generic [ref=e57]: Cart
+    - generic [ref=e59]:
+      - generic [ref=e71]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e76]:
+              - link "Home" [ref=e77] [cursor=pointer]:
+                - /url: /
+              - generic [ref=e78]: /
+            - generic [ref=e80]:
+              - link "Home & Kitchen" [ref=e81] [cursor=pointer]:
+                - /url: /home-kitchen/pr?sid=j9e&marketplace=FLIPKART
+              - generic [ref=e82]: /
+            - generic [ref=e84]:
+              - link "Kitchen Appliances" [ref=e85] [cursor=pointer]:
+                - /url: /home-kitchen/kitchen-appliances/pr?sid=j9e,m38&marketplace=FLIPKART
+              - generic [ref=e86]: /
+            - generic [ref=e88]:
+              - link "Mixer Juicer Grinder" [ref=e89] [cursor=pointer]:
+                - /url: /mixerjuicergrinders/pr?sid=j9e,m38,7ek&marketplace=FLIPKART
+              - generic [ref=e90]: /
+            - generic [ref=e92]:
+              - link "Greenchef Mixer Juicer Grinder" [ref=e93] [cursor=pointer]:
+                - /url: /mixerjuicergrinders/greenchef~brand/pr?sid=j9e,m38,7ek&marketplace=FLIPKART
+              - generic [ref=e94]: /
+          - button [ref=e95]:
+            - img [ref=e96]
+        - generic [ref=e98]: pink 600 W Mixer Grinder
+      - generic [ref=e102]:
+        - generic [ref=e104]:
+          - generic [ref=e114]:
+            - generic [ref=e117]:
+              - img "Image" [ref=e120]
+              - generic [ref=e122]: Key Highlights
+            - generic [ref=e123]:
+              - generic [ref=e125]:
+                - img "Image" [ref=e128]
+                - generic [ref=e130]: Key Highlights
+              - generic [ref=e132]:
+                - img [ref=e136]
+                - img [ref=e139]
+            - generic [ref=e144]:
+              - img "Image" [ref=e147]
+              - generic [ref=e149]: Key Highlights
+            - generic [ref=e152]:
+              - img "Image" [ref=e155]
+              - generic [ref=e157]: Key Highlights
+          - generic [ref=e159]:
+            - generic [ref=e170]:
+              - link "Image Butterfly Rapid 750 W Juicer Mixer Grinder 45% 5,499 ₹2,999 AD" [ref=e175] [cursor=pointer]:
+                - /url: /butterfly-rapid-750-w-juicer-mixer-grinder/p/itm9202a2047fd97?pid=MIXF5D4KPARAZNZA&lid=LSTMIXF5D4KPARAZNZA7ANKMG&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJhZHZlcnRpc2VtZW50IiwicHJwdCI6InBwIiwibWlkIjoicGxhL3AycHNpbWlsYXIifQ%3D%3D
+                - generic [ref=e176]:
+                  - img "Image" [ref=e179]
+                  - generic [ref=e180]:
+                    - generic [ref=e181]: Butterfly Rapid 750 W Juicer Mixer Grinder
+                    - generic [ref=e182]:
+                      - img [ref=e183]
+                      - generic [ref=e185]: 45%
+                      - generic [ref=e186]: 5,499
+                      - generic [ref=e187]: ₹2,999
+                - generic [ref=e189]: AD
+              - link "Image Butterfly Rapid 750 W Juicer Mixer Grinder 40% 5,499 ₹3,299 AD" [ref=e194] [cursor=pointer]:
+                - /url: /butterfly-rapid-750-w-juicer-mixer-grinder/p/itm2c47e8e4b257c?pid=MIXHCJXKXG9JYCZF&lid=LSTMIXHCJXKXG9JYCZFP1BKLK&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJhZHZlcnRpc2VtZW50IiwicHJwdCI6InBwIiwibWlkIjoicGxhL3AycHNpbWlsYXIifQ%3D%3D
+                - generic [ref=e195]:
+                  - img "Image" [ref=e198]
+                  - generic [ref=e199]:
+                    - generic [ref=e200]: Butterfly Rapid 750 W Juicer Mixer Grinder
+                    - generic [ref=e201]:
+                      - img [ref=e202]
+                      - generic [ref=e204]: 40%
+                      - generic [ref=e205]: 5,499
+                      - generic [ref=e206]: ₹3,299
+                - generic [ref=e208]: AD
+              - link "Image BAJAJ GX-75 750 W Mixer Grinder 42% 5,990 ₹3,499 AD" [ref=e213] [cursor=pointer]:
+                - /url: /bajaj-gx-75-750-w-mixer-grinder/p/itm6fe9cf1c705ea?pid=MIXG9YJ6WNESFHMG&lid=LSTMIXG9YJ6WNESFHMGGBJUDH&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJhZHZlcnRpc2VtZW50IiwicHJwdCI6InBwIiwibWlkIjoicGxhL3AycHNpbWlsYXIifQ%3D%3D
+                - generic [ref=e214]:
+                  - img "Image" [ref=e217]
+                  - generic [ref=e218]:
+                    - generic [ref=e219]: BAJAJ GX-75 750 W Mixer Grinder
+                    - generic [ref=e220]:
+                      - img [ref=e221]
+                      - generic [ref=e223]: 42%
+                      - generic [ref=e224]: 5,990
+                      - generic [ref=e225]: ₹3,499
+                - generic [ref=e227]: AD
+            - heading "Greenchef pink 600 W Mixer Grinder (Focal | 3 Jars | Pink)" [level=1] [ref=e239]
+            - generic [ref=e251]:
+              - generic [ref=e253]:
+                - generic [ref=e255]: 3,599
+                - generic [ref=e257]: ₹3,587
+              - link "+₹26 Protect Promise Fee" [ref=e258] [cursor=pointer]:
+                - /url: /pp-protect-promise-fee?pid=MIXH3BNJA2NYCK2K&lid=LSTMIXH3BNJA2NYCK2KPWWGKU
+                - generic [ref=e259]: +₹26 Protect Promise Fee
+                - img [ref=e260]
+            - generic [ref=e269]:
+              - generic [ref=e273]:
+                - img [ref=e274]
+                - generic [ref=e286]:
+                  - generic [ref=e288]: Buy at ₹3,407
+                  - generic [ref=e290]: Apply offers for maximum savings
+                - img [ref=e292]
+              - generic [ref=e298]:
+                - img [ref=e300]
+                - generic [ref=e308]:
+                  - generic [ref=e310]:
+                    - generic [ref=e311]: ₹3,407
+                    - generic [ref=e312]: Lowest price for you
+                  - generic [ref=e314]: OR
+                  - generic [ref=e316]:
+                    - generic [ref=e317]: ₹127 x 36m
+                    - generic [ref=e318]: Pay ₹4,540
+                - generic [ref=e319]:
+                  - generic [ref=e326] [cursor=pointer]:
+                    - generic [ref=e328]:
+                      - generic [ref=e332]:
+                        - generic [ref=e333]: Exchange offer
+                        - generic [ref=e334]: Not available at this Pincode
+                      - generic [ref=e336]:
+                        - img [ref=e338]
+                        - generic [ref=e342]:
+                          - generic [ref=e345]: Up to ₹120
+                          - generic [ref=e347]:
+                            - generic [ref=e349]: Change pincode to exchange item
+                            - img [ref=e350]
+                    - img [ref=e353]
+                    - generic [ref=e358]:
+                      - generic [ref=e359]: Exchange offer
+                      - generic [ref=e360]: Up to ₹120
+                  - generic [ref=e366]:
+                    - generic [ref=e373] [cursor=pointer]: Bank offers
+                    - img [ref=e379]
+                    - generic [ref=e384] [cursor=pointer]:
+                      - generic [ref=e385]: Bank offers
+                      - generic [ref=e386]: ₹180 off
+                    - generic [ref=e390] [cursor=pointer]: View EMI offers
+            - generic [ref=e400]:
+              - generic [ref=e403] [cursor=pointer]:
+                - generic [ref=e404]: Apply for Card, EMI and Pay Later
+                - img [ref=e406]
+              - link "Image Activate Flipkart EMI, Save ₹1,000* No Cost EMI* | Credit up to ₹1 lakh Check Limit" [ref=e420] [cursor=pointer]:
+                - /url: https://www.flipkart.com/rv/fpg/cfa/ntb/ce?emiType=cfa-term-loan&productCode=CREDIT_MARKETPLACE&utmSource=PP_FINTECH&utmContext=Line_Acqui
+                - generic [ref=e421]:
+                  - img "Image" [ref=e425]
+                  - generic [ref=e426]:
+                    - generic [ref=e427]: Activate Flipkart EMI, Save ₹1,000*
+                    - generic [ref=e428]: No Cost EMI* | Credit up to ₹1 lakh
+                    - generic [ref=e429]: Check Limit
+            - generic [ref=e437]:
+              - generic [ref=e439]: Delivery details
+              - generic [ref=e440]:
+                - generic [ref=e446]:
+                  - generic [ref=e447]:
+                    - img [ref=e448]
+                    - generic [ref=e450]: Location not set
+                  - generic [ref=e452]:
+                    - generic [ref=e453]: Select delivery location
+                    - img [ref=e455]
+                - generic [ref=e462]:
+                  - img [ref=e464]
+                  - generic [ref=e467]:
+                    - generic [ref=e468]:
+                      - generic [ref=e471]: "Seller: Greenchef Ltd."
+                      - link "See other sellers" [ref=e472] [cursor=pointer]:
+                        - /url: /sellers?pid=MIXH3BNJA2NYCK2K
+                        - generic [ref=e473]: See other sellers
+                    - generic [ref=e474]:
+                      - img [ref=e475]
+                      - generic [ref=e477]: 7 years with Flipkart
+            - generic [ref=e486]:
+              - generic [ref=e488] [cursor=pointer]:
+                - generic [ref=e490]: Shop with peace of mind
+                - img [ref=e492]
+              - generic [ref=e498]:
+                - 'link "Image 2 Years Warranty on the Motor, manufacturing defects will be covered Customer support number: 08049407477(Terms and conditions appliacable)" [ref=e500] [cursor=pointer]':
+                  - /url: https://www.flipkart.com/item/product-warranty/itemId?pageKey=product-warranty&marketplace=FLIPKART&pin=&lid=LSTMIXH3BNJA2NYCK2KPWWGKU&pid=MIXH3BNJA2NYCK2K
+                  - generic [ref=e505]:
+                    - img "Image" [ref=e509]
+                    - generic [ref=e511]: "2 Years Warranty on the Motor, manufacturing defects will be covered Customer support number: 08049407477(Terms and conditions appliacable)"
+                - generic [ref=e513]:
+                  - link "7 Days Replacement" [ref=e518] [cursor=pointer]:
+                    - /url: https://www.flipkart.com/replacement-only-store?marketplace=FLIPKART
+                    - generic [ref=e519]:
+                      - img [ref=e520]
+                      - generic [ref=e528]: 7 Days Replacement
+                  - link "No cash on delivery" [ref=e533] [cursor=pointer]:
+                    - /url: https://www.flipkart.com/item/payments-callout/itemId?pageKey=payments-callout&marketplace=Flipkart&pin=-1&lid=LSTMIXH3BNJA2NYCK2KPWWGKU&pid=MIXH3BNJA2NYCK2K?marketplace=FLIPKART
+                    - generic [ref=e534]:
+                      - img [ref=e535]
+                      - generic [ref=e543]: No cash on delivery
+                  - link "Flipkart Assured" [ref=e548] [cursor=pointer]:
+                    - /url: http://www.flipkart.com/flipkart-plus-assured-store?marketplace=FLIPKART
+                    - generic [ref=e549]:
+                      - img [ref=e550]
+                      - generic [ref=e555]: Flipkart Assured
+            - generic [ref=e574]:
+              - generic [ref=e577] [cursor=pointer]:
+                - generic [ref=e578]:
+                  - generic [ref=e579]: All details
+                  - generic [ref=e580]: Features, description and more
+                - img [ref=e582]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic: Specifications
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic: Description
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic: Warranty
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic: Manufacturer info
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic: Show More
+                                      - generic:
+                                        - img
+            - generic [ref=e595]:
+              - generic [ref=e597] [cursor=pointer]:
+                - generic [ref=e598]:
+                  - generic [ref=e599]: Questions and Answers
+                  - img [ref=e601]
+                - generic [ref=e605]: No questions and answers available
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Be the first to ask about this product
+                        - link "Ask a question":
+                          - /url: /greenchef-pink-600-w-mixer-grinder/write-question/itm2d50edca5fb7a?pid=MIXH3BNJA2NYCK2K&source=pp
+                          - generic: Ask a question
+            - generic [ref=e628]: Notify Me
+        - generic [ref=e636]:
+          - link "Similar Products" [ref=e637] [cursor=pointer]:
+            - /url: /products/similar-products?screen=dynamic&pk=stores%3Dj9e%2Fm38%2F7ek%2F~pIds%3DMIXH3BNJA2NYCK2K~marketplace%3DFLIPKART~widgetType%3DproductCard~contentType%3DproductRecommendation%2Fsimilar&marketplace=FLIPKART
+            - generic [ref=e639]:
+              - generic [ref=e642]: Similar Products
+              - img [ref=e644]
+          - generic [ref=e648]:
+            - generic [ref=e649]:
+              - link "Image AD 4.3 Atomberg Xiana | Coarse Mode for Silbatta-like Textures | 750 W Mixer Grinder Powerful Intelligent Motor | Easy Fault LED Indication | 3 Jars | Fiery Red 52% OFF ₹8,349 ₹3,999 ₹3,549 with Bank offer" [ref=e652] [cursor=pointer]:
+                - /url: /atomberg-xiana-coarse-mode-silbatta-like-textures-750-w-mixer-grinder/p/itm7079dda8f68b8?pid=MIXHB4QQBDBBU3GA&lid=LSTMIXHB4QQBDBBU3GA4V29LJ&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e655]:
+                  - img "Image" [ref=e659]
+                  - generic [ref=e668]: AD
+                  - generic [ref=e669]:
+                    - generic [ref=e670]: "4.3"
+                    - img [ref=e671]
+                  - generic [ref=e673]:
+                    - generic [ref=e674]: Atomberg Xiana | Coarse Mode for Silbatta-like Textures | 750 W Mixer Grinder Powerful Intelligent Motor | Easy Fault LED Indication | 3 Jars | Fiery Red
+                    - generic [ref=e675]: 52% OFF
+                    - generic [ref=e676]:
+                      - generic [ref=e677]: ₹8,349
+                      - generic [ref=e678]: ₹3,999
+                    - generic [ref=e679]: ₹3,549 with Bank offer
+              - link "Image AD 4.3 BAJAJ Rex Ninja Series 500 W Mixer Grinder 410660 | 4 Jars | Black and Grey 48% OFF ₹5,390 ₹2,799 ₹2,659 with Bank offer" [ref=e682] [cursor=pointer]:
+                - /url: /bajaj-rex-ninja-series-500-w-mixer-grinder/p/itme8d6c943c1546?pid=MIXH5MPUGHEDZD2Z&lid=LSTMIXH5MPUGHEDZD2ZWT7F5L&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e685]:
+                  - img "Image" [ref=e689]
+                  - generic [ref=e698]: AD
+                  - generic [ref=e699]:
+                    - generic [ref=e700]: "4.3"
+                    - img [ref=e701]
+                  - generic [ref=e703]:
+                    - generic [ref=e704]: BAJAJ Rex Ninja Series 500 W Mixer Grinder 410660 | 4 Jars | Black and Grey
+                    - generic [ref=e705]: 48% OFF
+                    - generic [ref=e706]:
+                      - generic [ref=e707]: ₹5,390
+                      - generic [ref=e708]: ₹2,799
+                    - generic [ref=e709]: ₹2,659 with Bank offer
+              - link "Image AD 4.2 Butterfly Rapid 750 W Juicer Mixer Grinder RAPID 4J | 4 Jars | GARLIC GREY 40% OFF ₹5,499 ₹3,299 ₹3,040 with 2 offers" [ref=e712] [cursor=pointer]:
+                - /url: /butterfly-rapid-750-w-juicer-mixer-grinder/p/itm2c47e8e4b257c?pid=MIXHCJXKXG9JYCZF&lid=LSTMIXHCJXKXG9JYCZFP1BKLK&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e715]:
+                  - img "Image" [ref=e719]
+                  - generic [ref=e728]: AD
+                  - generic [ref=e729]:
+                    - generic [ref=e730]: "4.2"
+                    - img [ref=e731]
+                  - generic [ref=e733]:
+                    - generic [ref=e734]: Butterfly Rapid 750 W Juicer Mixer Grinder RAPID 4J | 4 Jars | GARLIC GREY
+                    - generic [ref=e735]: 40% OFF
+                    - generic [ref=e736]:
+                      - generic [ref=e737]: ₹5,499
+                      - generic [ref=e738]: ₹3,299
+                    - generic [ref=e739]: ₹3,040 with 2 offers
+              - link "Image AD Bestseller 4.3 BAJAJ GX-75 750 W Mixer Grinder GX-75 | 4 Jars | White, Red 42% OFF ₹5,990 ₹3,499 ₹3,224 with 2 offers" [ref=e742] [cursor=pointer]:
+                - /url: /bajaj-gx-75-750-w-mixer-grinder/p/itm6fe9cf1c705ea?pid=MIXG9YJ6WNESFHMG&lid=LSTMIXG9YJ6WNESFHMGGBJUDH&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e745]:
+                  - img "Image" [ref=e749]
+                  - generic [ref=e758]: AD
+                  - generic [ref=e765]: Bestseller
+                  - generic [ref=e766]:
+                    - generic [ref=e767]: "4.3"
+                    - img [ref=e768]
+                  - generic [ref=e770]:
+                    - generic [ref=e771]: BAJAJ GX-75 750 W Mixer Grinder GX-75 | 4 Jars | White, Red
+                    - generic [ref=e772]: 42% OFF
+                    - generic [ref=e773]:
+                      - generic [ref=e774]: ₹5,990
+                      - generic [ref=e775]: ₹3,499
+                    - generic [ref=e776]: ₹3,224 with 2 offers
+              - link "Image AD 4.3 Atomberg Xiana | Coarse Mode for Silbatta-like Textures | 750 W Mixer Grinder Powerful Intelligent Motor | Easy Fault LED Indication | 3 Jars | Snow White 52% OFF ₹8,349 ₹3,999 ₹3,429 with 2 offers" [ref=e779] [cursor=pointer]:
+                - /url: /atomberg-xiana-coarse-mode-silbatta-like-textures-750-w-mixer-grinder/p/itm6f5d5d6d83446?pid=MIXHB4QQTKCFHPQQ&lid=LSTMIXHB4QQTKCFHPQQTX6KAB&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e782]:
+                  - img "Image" [ref=e786]
+                  - generic [ref=e795]: AD
+                  - generic [ref=e796]:
+                    - generic [ref=e797]: "4.3"
+                    - img [ref=e798]
+                  - generic [ref=e800]:
+                    - generic [ref=e801]: Atomberg Xiana | Coarse Mode for Silbatta-like Textures | 750 W Mixer Grinder Powerful Intelligent Motor | Easy Fault LED Indication | 3 Jars | Snow White
+                    - generic [ref=e802]: 52% OFF
+                    - generic [ref=e803]:
+                      - generic [ref=e804]: ₹8,349
+                      - generic [ref=e805]: ₹3,999
+                    - generic [ref=e806]: ₹3,429 with 2 offers
+              - link "Image AD 4.3 Atomberg Xiana | Coarse Mode for Silbatta-like Textures | 750 W Mixer Grinder Powerful Intelligent Motor | Easy Fault LED Indication | 3 Jars | Peach Blossom 52% OFF ₹8,349 ₹3,999 ₹3,429 with 2 offers" [ref=e809] [cursor=pointer]:
+                - /url: /atomberg-xiana-coarse-mode-silbatta-like-textures-750-w-mixer-grinder/p/itm0fff4ad1b0075?pid=MIXHB4QQ6CJPSE9N&lid=LSTMIXHB4QQ6CJPSE9NTEYUPO&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e812]:
+                  - img "Image" [ref=e816]
+                  - generic [ref=e825]: AD
+                  - generic [ref=e826]:
+                    - generic [ref=e827]: "4.3"
+                    - img [ref=e828]
+                  - generic [ref=e830]:
+                    - generic [ref=e831]: Atomberg Xiana | Coarse Mode for Silbatta-like Textures | 750 W Mixer Grinder Powerful Intelligent Motor | Easy Fault LED Indication | 3 Jars | Peach Blossom
+                    - generic [ref=e832]: 52% OFF
+                    - generic [ref=e833]:
+                      - generic [ref=e834]: ₹8,349
+                      - generic [ref=e835]: ₹3,999
+                    - generic [ref=e836]: ₹3,429 with 2 offers
+              - link "Image AD 4.1 Vidiem Eva 750 W Mixer Grinder Eva Rose 750w | 3 Jars | Pink 10% OFF ₹5,723 ₹5,167 ₹4,650 with 2 offers" [ref=e839] [cursor=pointer]:
+                - /url: /vidiem-eva-750-w-mixer-grinder/p/itm1b6ce385bc3be?pid=MIXF9VFJG7VSNXHW&lid=LSTMIXF9VFJG7VSNXHWY3RUVJ&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e842]:
+                  - img "Image" [ref=e846]
+                  - generic [ref=e855]: AD
+                  - generic [ref=e856]:
+                    - generic [ref=e857]: "4.1"
+                    - img [ref=e858]
+                  - generic [ref=e860]:
+                    - generic [ref=e861]: Vidiem Eva 750 W Mixer Grinder Eva Rose 750w | 3 Jars | Pink
+                    - generic [ref=e862]: 10% OFF
+                    - generic [ref=e863]:
+                      - generic [ref=e864]: ₹5,723
+                      - generic [ref=e865]: ₹5,167
+                    - generic [ref=e866]: ₹4,650 with 2 offers
+              - link "Image AD 4.2 Vidiem Vision 650 W 650 W Mixer Grinder MG 580 A | 3 Jars | Pink 21% OFF ₹5,730 ₹4,499 ₹4,274 with 2 offers" [ref=e869] [cursor=pointer]:
+                - /url: /vidiem-vision-650-w-mixer-grinder/p/itm937cd289856e3?pid=MIXFVYYN8RFQKFTW&lid=LSTMIXFVYYN8RFQKFTWU91TJO&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJyZWNvIiwicHJwdCI6InBwIiwibWlkIjoicHJvZHVjdFJlY29tbWVuZGF0aW9uL3NpbWlsYXIifQ%3D%3D
+                - generic [ref=e872]:
+                  - img "Image" [ref=e876]
+                  - generic [ref=e885]: AD
+                  - generic [ref=e886]:
+                    - generic [ref=e887]: "4.2"
+                    - img [ref=e888]
+                  - generic [ref=e890]:
+                    - generic [ref=e891]: Vidiem Vision 650 W 650 W Mixer Grinder MG 580 A | 3 Jars | Pink
+                    - generic [ref=e892]: 21% OFF
+                    - generic [ref=e893]:
+                      - generic [ref=e894]: ₹5,730
+                      - generic [ref=e895]: ₹4,499
+                    - generic [ref=e896]: ₹4,274 with 2 offers
+            - button [ref=e897]:
+              - img [ref=e898]
+      - generic [ref=e904]: Hang on, loading content
+      - contentinfo [ref=e915]:
+        - generic [ref=e916]:
+          - generic [ref=e917]:
+            - generic [ref=e918]:
+              - text: "Top Stories :"
+              - link "Brand Directory" [ref=e919] [cursor=pointer]:
+                - /url: /brands
+            - generic [ref=e920]:
+              - generic [ref=e921]: "MOST SEARCHED IN Home & Kitchen:"
+              - link "BP CHECK MACHINE" [ref=e922] [cursor=pointer]:
+                - /url: /beauty-and-personal-care/health-care/health-care-devices/blood-pressure-monitors/pr?sid=t06,nyl,bvv,kbk&otracker=undefined_footer
+              - link "NIKON DSLR PRICE" [ref=e923] [cursor=pointer]:
+                - /url: /cameras/dslr-mirrorless/nikon~brand/pr?sid=jek,p31,trv&otracker=undefined_footer
+              - link "CAMERAS" [ref=e924] [cursor=pointer]:
+                - /url: /cameras/pr?sid=jek,p31&otracker=undefined_footer
+              - link "CANON 1200D" [ref=e925] [cursor=pointer]:
+                - /url: /canon-eos-1200d-dslr-camera-body-8-gb-card-bag-ef-s18-55-ii-55-250mm-ii/p/itmdugsshxq9fdhm?otracker=undefined_footer
+              - link "3D TV PRICE" [ref=e926] [cursor=pointer]:
+                - /url: /home-entertainment/televisions/3d-tv~features/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "LED TELEVISION" [ref=e927] [cursor=pointer]:
+                - /url: /home-entertainment/televisions/led~screen-type/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "LG TV 32 INCH" [ref=e928] [cursor=pointer]:
+                - /url: /home-entertainment/televisions/lg~brand/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "PANASONIC LED TV 32 INCH PRICE" [ref=e929] [cursor=pointer]:
+                - /url: /home-entertainment/televisions/panasonic~brand/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "PHILIPS TV INDIA" [ref=e930] [cursor=pointer]:
+                - /url: /home-entertainment/televisions/philips~brand/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "SONY LED 32 INCH PRICE IN INDIA" [ref=e931] [cursor=pointer]:
+                - /url: /home-entertainment/televisions/sony~brand/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "HAVELLS FAN PRICE" [ref=e932] [cursor=pointer]:
+                - /url: /home-kitchen/home-appliances/fans/havells~brand/pr?sid=j9e,abm,lbz&otracker=undefined_footer
+              - link "ELECTRIC IRON" [ref=e933] [cursor=pointer]:
+                - /url: /home-kitchen/home-appliances/iron/pr?sid=j9e,abm,a0u&otracker=undefined_footer
+              - link "LG HOME APPLIANCES" [ref=e934] [cursor=pointer]:
+                - /url: /home-kitchen/home-appliances/lg~brand/pr?sid=j9e,abm&otracker=undefined_footer
+              - link "FRIDGE" [ref=e935] [cursor=pointer]:
+                - /url: /home-kitchen/home-appliances/refrigerators/pr?sid=j9e,abm,hzg&otracker=undefined_footer
+              - link "LG FULLY AUTOMATIC WASHING MACHINE PRICE" [ref=e936] [cursor=pointer]:
+                - /url: /home-kitchen/home-appliances/washing-machines/lg~brand/pr?sid=j9e,abm,8qx&otracker=undefined_footer
+              - link "AIR FRYER" [ref=e937] [cursor=pointer]:
+                - /url: /home-kitchen/kitchen-appliances/air-fryers/pr?sid=j9e,m38,j1e&otracker=undefined_footer
+              - link "PHILIPS MIXER GRINDER" [ref=e938] [cursor=pointer]:
+                - /url: /home-kitchen/kitchen-appliances/mixerjuicergrinders/philips~brand/pr?sid=j9e,m38,7ek&otracker=undefined_footer
+              - link "PREETHI MIXIE" [ref=e939] [cursor=pointer]:
+                - /url: /home-kitchen/kitchen-appliances/mixerjuicergrinders/preethi~brand/pr?sid=j9e,m38,7ek&otracker=undefined_footer
+              - link "INTEX LED TV PRICE" [ref=e940] [cursor=pointer]:
+                - /url: /intex-100cm-40-full-hd-led-tv/p/itme343xny7rwnaf?otracker=undefined_footer
+              - link "MOUSE PAD ONLINE" [ref=e941] [cursor=pointer]:
+                - /url: /laptop-accessories/mouse-pads/pr?sid=6bo,ai3,siy&otracker=undefined_footer
+              - link "LG 32LB5820" [ref=e942] [cursor=pointer]:
+                - /url: /lg-80cm-32-full-hd-smart-led-tv/p/itmdvjnvtsy2ftru?otracker=undefined_footer
+              - link "MICROMAX LED TV REVIEW" [ref=e943] [cursor=pointer]:
+                - /url: /micromax-canvas-101cm-40-full-hd-smart-led-tv/p/itmeh8c7tg93eqy3?otracker=undefined_footer
+              - link "PHILIPS AQUATOUCH" [ref=e944] [cursor=pointer]:
+                - /url: /philips-aquatouch-at610-14-shaver-men/p/itmdhrz8mgrafgun?otracker=undefined_footer
+              - link "SAMSUNG 32 INCH LED TV PRICE" [ref=e945] [cursor=pointer]:
+                - /url: /samsung-80cm-32-hd-ready-led-tv/p/itme68bczreq6fgy?otracker=undefined_footer
+              - link "SONY BRAVIA ANDROID TV" [ref=e946] [cursor=pointer]:
+                - /url: /sony-bravia-kdl-43w800c-108cm-43-full-hd-3d-led-android-tv/p/itme8ahfbty4kzuh?otracker=undefined_footer
+              - link "USHA SEWING MACHINE PRICE" [ref=e947] [cursor=pointer]:
+                - /url: /usha-dream-stitch-electric-sewing-machine/p/itme2y74hkbnjfk3?otracker=undefined_footer
+              - link "O GENERAL WINDOW AC" [ref=e948] [cursor=pointer]:
+                - /url: https://www.flipkart.com/air-conditioners/~o-general-window-acs/pr?sid=j9e,abm,c54&otracker=undefined_footer
+              - link "BEST HOME COFFEE MAKERS" [ref=e949] [cursor=pointer]:
+                - /url: https://www.flipkart.com/coffee-makers/~best-home-coffee-makers/pr?sid=j9e,m38,wqo&otracker=undefined_footer
+              - link "BEST LED SMART TV IN INDIA" [ref=e950] [cursor=pointer]:
+                - /url: https://www.flipkart.com/televisions/~best-led-smart-tv-in-india/pr?sid=ckf,czl&otracker=undefined_footer
+              - link "BOSCH WASHING MACHINE" [ref=e951] [cursor=pointer]:
+                - /url: https://www.flipkart.com/washing-machines/bosch~brand/pr?sid=j9e,abm,8qx&otracker=undefined_footer
+          - generic [ref=e952]:
+            - generic [ref=e953]:
+              - generic [ref=e954]:
+                - generic [ref=e955]: ABOUT
+                - link "Contact Us" [ref=e956] [cursor=pointer]:
+                  - /url: /helpcentre?otracker=footer_navlinks
+                - link "About Us" [ref=e957] [cursor=pointer]:
+                  - /url: https://corporate.flipkart.net/corporate-home
+                - link "Careers" [ref=e958] [cursor=pointer]:
+                  - /url: https://www.flipkartcareers.com/?otracker=footer_navlinks
+                - link "Flipkart Stories" [ref=e959] [cursor=pointer]:
+                  - /url: http://stories.flipkart.com/?otracker=footer_navlinks
+                - link "Press" [ref=e960] [cursor=pointer]:
+                  - /url: http://stories.flipkart.com/category/top-stories/news/
+                - link "Corporate Information" [ref=e961] [cursor=pointer]:
+                  - /url: /corporate-information
+              - generic [ref=e962]:
+                - generic [ref=e963]: GROUP COMPANIES
+                - link "Myntra" [ref=e964] [cursor=pointer]:
+                  - /url: https://www.myntra.com/
+                - link "Cleartrip" [ref=e965] [cursor=pointer]:
+                  - /url: https://www.cleartrip.com/
+                - link "Shopsy" [ref=e966] [cursor=pointer]:
+                  - /url: https://www.shopsy.in
+              - generic [ref=e967]:
+                - generic [ref=e968]: HELP
+                - link "Payments" [ref=e969] [cursor=pointer]:
+                  - /url: /pages/payments
+                - link "Shipping" [ref=e970] [cursor=pointer]:
+                  - /url: /pages/shipping
+                - link "Cancellation & Returns" [ref=e971] [cursor=pointer]:
+                  - /url: /helpcentre?catalog=55c9c6edb000002e002c1701&view=CATALOG
+                - link "FAQ" [ref=e972] [cursor=pointer]:
+                  - /url: /helpcentre?catalog=55c9c8e2b0000023002c1702&view=CATALOG
+              - generic [ref=e973]:
+                - generic [ref=e974]: CONSUMER POLICY
+                - link "Cancellation & Returns" [ref=e975] [cursor=pointer]:
+                  - /url: /pages/returnpolicy?otracker=footer_navlinks
+                - link "Terms Of Use" [ref=e976] [cursor=pointer]:
+                  - /url: /pages/terms?otracker=footer_navlinks
+                - link "Security" [ref=e977] [cursor=pointer]:
+                  - /url: /pages/paymentsecurity?otracker=footer_navlinks
+                - link "Privacy" [ref=e978] [cursor=pointer]:
+                  - /url: /pages/privacypolicy?otracker=footer_navlinks
+                - link "Sitemap" [ref=e979] [cursor=pointer]:
+                  - /url: /sitemap?otracker=footer_navlinks
+                - link "Grievance Redressal" [ref=e980] [cursor=pointer]:
+                  - /url: /pages/grievance-redressal-mechanism?otracker=footer_navlinks
+                - link "EPR Compliance" [ref=e981] [cursor=pointer]:
+                  - /url: /pages/ewaste-compliance-tnc?otracker=footer_navlinks
+                - link "FSSAI Food Safety Connect App" [ref=e982] [cursor=pointer]:
+                  - /url: https://fssai.gov.in/cms/food-safety-connect.php
+              - generic [ref=e983]:
+                - generic [ref=e984]: "Mail Us:"
+                - generic [ref=e985]:
+                  - paragraph [ref=e986]: Flipkart Internet Private Limited,
+                  - paragraph [ref=e987]: Buildings Alyssa, Begonia &
+                  - paragraph [ref=e988]: Clove Embassy Tech Village,
+                  - paragraph [ref=e989]: Outer Ring Road, Devarabeesanahalli Village,
+                  - paragraph [ref=e990]: Bengaluru, 560103,
+                  - paragraph [ref=e991]: Karnataka, India
+                - generic [ref=e992]: "Social:"
+                - generic [ref=e993]:
+                  - link "Facebook" [ref=e995] [cursor=pointer]:
+                    - /url: https://www.facebook.com/flipkart
+                    - img "Facebook" [ref=e996]
+                  - link "Twitter" [ref=e998] [cursor=pointer]:
+                    - /url: https://www.twitter.com/flipkart
+                    - img "Twitter" [ref=e999]
+                  - link "YouTube" [ref=e1001] [cursor=pointer]:
+                    - /url: https://www.youtube.com/flipkart
+                    - img "YouTube" [ref=e1002]
+                  - link "Instagram" [ref=e1004] [cursor=pointer]:
+                    - /url: https://www.instagram.com/flipkart
+                    - img "Instagram" [ref=e1005]
+              - generic [ref=e1006]:
+                - generic [ref=e1007]: "Registered Office Address:"
+                - generic [ref=e1008]:
+                  - paragraph [ref=e1009]: Flipkart Internet Private Limited,
+                  - paragraph [ref=e1010]: Buildings Alyssa, Begonia &
+                  - paragraph [ref=e1011]: Clove Embassy Tech Village,
+                  - paragraph [ref=e1012]: Outer Ring Road, Devarabeesanahalli Village,
+                  - paragraph [ref=e1013]: Bengaluru, 560103,
+                  - paragraph [ref=e1014]: Karnataka, India
+                  - paragraph [ref=e1015]: "CIN : U51109KA2012PTC066107"
+                  - paragraph
+                  - paragraph [ref=e1016]:
+                    - text: "Telephone:"
+                    - link "044-45614700" [ref=e1017] [cursor=pointer]:
+                      - /url: tel:044-45614700
+                    - text: /
+                    - link "044-67415800" [ref=e1018] [cursor=pointer]:
+                      - /url: tel:044-67415800
+            - generic [ref=e1019]:
+              - generic [ref=e1020]:
+                - img "Become a Seller" [ref=e1021]
+                - link "Become a Seller" [ref=e1022] [cursor=pointer]:
+                  - /url: https://seller.flipkart.com/?utm_source=fkwebsite&utm_medium=websitedirect
+              - generic [ref=e1023]:
+                - img "Advertise" [ref=e1024]
+                - generic "Advertise" [ref=e1025]
+              - generic [ref=e1026]:
+                - img "Gift Cards" [ref=e1027]
+                - link "Gift Cards" [ref=e1028] [cursor=pointer]:
+                  - /url: /the-gift-card-store?otracker=footer_navlinks
+              - generic [ref=e1029]:
+                - img "Help Center" [ref=e1030]
+                - link "Help Center" [ref=e1031] [cursor=pointer]:
+                  - /url: /helpcentre?otracker=footer_navlinks
+              - generic [ref=e1032]: © 2007-2026 Flipkart.com
+              - img "Payment methods"
+  - contentinfo

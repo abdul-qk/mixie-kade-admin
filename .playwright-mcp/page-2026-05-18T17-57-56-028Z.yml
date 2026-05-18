@@ -1,0 +1,232 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - list
+  - generic:
+    - generic [ref=e2]:
+      - generic [ref=e4]:
+        - text: 
+        - generic [ref=e5]: Order Summary
+        - generic [ref=e6] [cursor=pointer]: 
+      - generic [ref=e8]:
+        - generic [ref=e9]: Your cart is empty
+        - link "Return to Shop" [ref=e10] [cursor=pointer]:
+          - /url: https://tns-go.com/shop/
+      - link "Add Items" [ref=e13] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e15]: 
+    - generic [ref=e16]:  
+  - link "Skip to main content" [ref=e17] [cursor=pointer]:
+    - /url: "#brx-content"
+  - link "Skip to footer" [ref=e18] [cursor=pointer]:
+    - /url: "#brx-footer"
+  - banner [ref=e19]:
+    - generic [ref=e21]:
+      - img [ref=e22] [cursor=pointer]
+      - link "TNS Go" [ref=e24] [cursor=pointer]:
+        - /url: https://tns-go.com
+        - img "TNS Go" [ref=e25]
+      - search [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]: Products search
+          - searchbox "Products search" [ref=e31]
+          - button "Search":
+            - img
+      - generic [ref=e33]:
+        - link [ref=e34] [cursor=pointer]:
+          - /url: https://tns-go.com/my-account/
+          - img [ref=e35]
+        - generic [ref=e40] [cursor=pointer]:
+          - img [ref=e42]
+          - generic [ref=e43]: "0"
+  - main [ref=e44]:
+    - generic [ref=e46]:
+      - navigation [ref=e48]:
+        - generic [ref=e49]:
+          - link "Home" [ref=e50] [cursor=pointer]:
+            - /url: https://tns-go.com
+          - generic [ref=e51]: 
+          - link "Kitchenware" [ref=e52] [cursor=pointer]:
+            - /url: https://tns-go.com/collection/kitchenware/
+          - generic [ref=e53]: 
+          - link "Electrical Appliances" [ref=e54] [cursor=pointer]:
+            - /url: https://tns-go.com/collection/kitchenware/electrical-appliances/
+          - generic [ref=e55]: 
+          - text: National Mixer Grinder 550W (1 Year Warranty)
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - heading "National Mixer Grinder 550W (1 Year Warranty)" [level=1] [ref=e58]
+          - generic [ref=e59]:
+            - 'link "Brand: National" [ref=e61] [cursor=pointer]':
+              - /url: https://tns-go.com/brand/national/
+            - paragraph [ref=e63]: ✓ In Stock
+            - generic [ref=e64]: "SKU: 3963"
+          - paragraph [ref=e66]:
+            - generic [ref=e68]: Rs.8,900.00
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - img "cash logo" [ref=e73]
+                - img "webxpay logo" [ref=e74]
+                - img "bank_deposit logo" [ref=e75]
+              - generic [ref=e76]:
+                - text: "Discounted Price:"
+                - strong [ref=e77]:
+                  - generic [ref=e78]: Rs.8,054.50
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - img "koko logo" [ref=e81]
+                - img "mintpay logo" [ref=e82]
+              - generic [ref=e83]:
+                - text: Pay in 3 Installments of
+                - strong [ref=e84]:
+                  - generic [ref=e85]: Rs.2,966.67
+            - generic [ref=e86]: "* Discounts will be applied at checkout"
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: National Mixer Grinder 550W (1 Year Warranty) quantity
+              - spinbutton "Product quantity" [ref=e91]: "1"
+              - generic [ref=e92] [cursor=pointer]:
+                - img
+              - generic [ref=e93] [cursor=pointer]:
+                - img
+            - button "Add to cart" [ref=e94] [cursor=pointer]:
+              - generic [ref=e95]: Add to cart
+            - link "Buy now" [ref=e96] [cursor=pointer]:
+              - /url: https://tns-go.com/checkout/?add-to-cart=17169
+          - generic [ref=e104]: Free Delivery for Orders over Rs.5000
+        - link "National Mixer Grinder 550W (1 Year Warranty)" [ref=e110] [cursor=pointer]:
+          - /url: https://i0.wp.com/tns-go.com/wp-content/uploads/3963.webp?fit=800%2C800&ssl=1
+          - img "National Mixer Grinder 550W (1 Year Warranty)" [ref=e111]
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - button "Delivery Information " [expanded] [ref=e114] [cursor=pointer]:
+              - heading "Delivery Information" [level=3] [ref=e115]
+              - generic [ref=e116]: 
+            - region [ref=e117]:
+              - generic [ref=e118]:
+                - paragraph [ref=e119]:
+                  - strong [ref=e120]: Colombo & Suburbs
+                  - text: Same day delivery for orders placed before 2pm. Next day delivery for orders placed after 2pm.
+                - paragraph [ref=e121]:
+                  - strong [ref=e122]: Rest of Sri lanka
+                  - text: Delivery within 1 to 3 working days.
+          - button "Refund & Returns " [ref=e124] [cursor=pointer]:
+            - heading "Refund & Returns" [level=3] [ref=e125]
+            - generic [ref=e126]: 
+        - generic [ref=e128]:
+          - text: "Categories:"
+          - link "Electrical Appliances" [ref=e129] [cursor=pointer]:
+            - /url: https://tns-go.com/collection/kitchenware/electrical-appliances/
+      - generic [ref=e130]:
+        - heading "Related Products" [level=3] [ref=e131]
+        - generic [ref=e132]:
+          - generic [ref=e133]: 
+          - generic [ref=e134]: 
+        - region [ref=e136]:
+          - generic [ref=e137]:
+            - group "1 of 5" [ref=e138]
+            - group "2 of 5" [ref=e140]
+            - group "3 of 5" [ref=e142]
+            - group "4 of 5" [ref=e144]
+            - group "5 of 5" [ref=e146]
+  - contentinfo [ref=e148]:
+    - text: Search 
+    - generic [ref=e149]:
+      - generic [ref=e150]:
+        - generic [ref=e151]:
+          - link "MobileStore" [ref=e152] [cursor=pointer]:
+            - /url: https://tns-go.com
+            - img "MobileStore" [ref=e153]
+          - generic [ref=e154]:
+            - generic [ref=e155]: 
+            - link "Got Questions? Call Us Right Now 077 500 6556" [ref=e156] [cursor=pointer]:
+              - /url: tel:077 500 6556
+              - generic [ref=e157]: Got Questions? Call Us Right Now
+              - text: 077 500 6556
+          - generic [ref=e158]:
+            - generic [ref=e159]: Address
+            - text: "#5, Nandimithra Place, Off Balapokuna Road, Colombo 6"
+          - generic [ref=e160]:
+            - link "" [ref=e161] [cursor=pointer]:
+              - /url: https://facebook.com/tnsgoshop/
+              - generic [ref=e162]: 
+            - link "" [ref=e163] [cursor=pointer]:
+              - /url: https://www.instagram.com/tnsgoshop/
+              - generic [ref=e164]: 
+        - generic [ref=e165]:
+          - heading "Customer Care" [level=5] [ref=e166]
+          - generic [ref=e167]:
+            - link "Refunds & Exchanges" [ref=e169] [cursor=pointer]:
+              - /url: https://tns-go.com/refunds-exchanges/
+            - link "About Us" [ref=e171] [cursor=pointer]:
+              - /url: https://tns-go.com/about-us/
+            - link "Contact Us" [ref=e173] [cursor=pointer]:
+              - /url: https://tns-go.com/contact-us/
+            - link "My account" [ref=e175] [cursor=pointer]:
+              - /url: https://tns-go.com/my-account/
+            - link "Privacy Policy" [ref=e177] [cursor=pointer]:
+              - /url: https://tns-go.com/privacy-policy/
+        - generic [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]: Colombo 6
+            - generic [ref=e181]:
+              - figure [ref=e182]:
+                - link [ref=e183] [cursor=pointer]:
+                  - /url: https://www.ubereats.com/store/tns-go-colombo-06/Y3IjcJSNU7GAz3HFayOAPQ
+              - figure [ref=e184]:
+                - link [ref=e185] [cursor=pointer]:
+                  - /url: https://a.pickme.lk/8mE58T2NzHb
+            - generic [ref=e186]:
+              - link "5, Nandimithra Place, Off Balapokuna Road, Colombo 6" [ref=e187] [cursor=pointer]:
+                - /url: https://maps.app.goo.gl/TQEFjvnLKEHzLVne7?g_st=ic
+              - generic [ref=e188]: 9am to 9pm
+          - generic [ref=e189]:
+            - generic [ref=e190]: Pelawatte
+            - generic [ref=e191]:
+              - figure [ref=e192]:
+                - link [ref=e193] [cursor=pointer]:
+                  - /url: https://www.ubereats.com/store/tns-go-pelawatta/f_tf1ZvZUuuwE24Nv3QnPQ
+              - figure [ref=e194]:
+                - link [ref=e195] [cursor=pointer]:
+                  - /url: https://a.pickme.lk/1glqWJ6NzHb
+            - generic [ref=e196]:
+              - link "988/A/1/A, Thalangama South, Pelawatte" [ref=e197] [cursor=pointer]:
+                - /url: https://maps.app.goo.gl/57P5dnsmVCq8T3kG7?g_st=ic
+              - generic [ref=e198]: 9am to 9pm
+          - generic [ref=e199]:
+            - generic [ref=e200]: Wattala
+            - generic [ref=e201]:
+              - figure [ref=e202]:
+                - link [ref=e203] [cursor=pointer]:
+                  - /url: https://www.ubereats.com/store/tns-go-wattala/WMWbWHWbV4Cc_7ptGQ_PVw
+              - figure [ref=e204]:
+                - link [ref=e205] [cursor=pointer]:
+                  - /url: https://a.pickme.lk/qvMKZ8dOzHb
+            - generic [ref=e206]:
+              - link "54A, Station Road, Wattala" [ref=e207] [cursor=pointer]:
+                - /url: https://maps.app.goo.gl/Fo6G6nRV54zg6i6y8
+              - generic [ref=e208]: 9am to 9pm
+          - generic [ref=e209]:
+            - generic [ref=e210]: Colombo 13
+            - generic [ref=e211]:
+              - figure [ref=e212]:
+                - link [ref=e213] [cursor=pointer]:
+                  - /url: https://www.ubereats.com/store/tns-go-colombo-13/XEiRlU0qU5ygXiRA91JwbA
+              - figure [ref=e214]:
+                - link [ref=e215] [cursor=pointer]:
+                  - /url: https://a.pickme.lk/qvMKZ8dOzHb
+            - generic [ref=e216]:
+              - link "92, A.G. Hinniappuhamy Mawatha, Colombo 13" [ref=e217] [cursor=pointer]:
+                - /url: https://maps.app.goo.gl/qrJN65oZbjKonfb59?g_st=ic
+              - generic [ref=e218]: 9am to 6pm
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - text: Copyright © 2026 TNS Go. All Rights Reserved. Designed & Developed by
+          - link "Pomegranberry" [ref=e221] [cursor=pointer]:
+            - /url: https://pomegranberry.com
+        - paragraph [ref=e223]
+    - link "":
+      - /url: https://api.whatsapp.com/send?phone=94775006556&text=https://tns-go.com/p/national-mixer-grinder-550w-1-year-warranty/
+      - generic [ref=e224] [cursor=pointer]: 
+  - status [ref=e225]

@@ -1,0 +1,578 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "home page" [ref=e10] [cursor=pointer]:
+            - /url: https://bigdeals.lk
+            - img "Bigdeals Logo" [ref=e11]
+          - generic:
+            - form "search form" [ref=e13]:
+              - generic [ref=e15]:
+                - textbox "search box" [ref=e16]
+                - textbox "search box" [ref=e17]:
+                  - /placeholder: What are you looking for today?
+              - button "search product" [ref=e18] [cursor=pointer]
+            - generic [ref=e19]:
+              - link:
+                - /url: https://bigdeals.lk/cart/order/summery
+              - generic [ref=e20]:
+                - link "0":
+                  - /url: https://bigdeals.lk/cart/order/summery
+                  - generic [ref=e21] [cursor=pointer]: "0"
+              - list [ref=e22]:
+                - listitem [ref=e23]:
+                  - link "Join as a seller":
+                    - /url: https://seller.bigdeals.lk/login
+                    - generic [ref=e24] [cursor=pointer]: Join as a seller
+                - listitem [ref=e25]:
+                  - link "Login":
+                    - /url: https://bigdeals.lk/login
+                    - generic [ref=e26] [cursor=pointer]: Login
+        - generic [ref=e27]:
+          - link "call to buy":
+            - /url: tel:+94112008008
+            - img "call to buy" [ref=e28] [cursor=pointer]
+      - generic [ref=e29]:
+        - navigation [ref=e33]:
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - text: 
+              - link "Electronics" [ref=e36] [cursor=pointer]:
+                - /url: https://bigdeals.lk/electronics
+                - text: Electronics
+            - listitem [ref=e37]:
+              - text: 
+              - link "Phones & Tabs" [ref=e38] [cursor=pointer]:
+                - /url: https://bigdeals.lk/phones-tablets
+                - text: Phones & Tabs
+            - listitem [ref=e39]:
+              - text: 
+              - link "Home & Kitchen" [ref=e40] [cursor=pointer]:
+                - /url: https://bigdeals.lk/homeneeds
+                - text: Home & Kitchen
+            - listitem [ref=e41]:
+              - text: 
+              - link "Health & Beauty" [ref=e42] [cursor=pointer]:
+                - /url: https://bigdeals.lk/health-beauty
+                - text: Health & Beauty
+            - listitem [ref=e43]:
+              - text: 
+              - link "Baby & Kids" [ref=e44] [cursor=pointer]:
+                - /url: https://bigdeals.lk/baby-kids
+                - text: Baby & Kids
+            - listitem [ref=e45]:
+              - text: 
+              - link "Groceries" [ref=e46] [cursor=pointer]:
+                - /url: https://bigdeals.lk/Groceries
+                - text: Groceries
+            - listitem [ref=e47]:
+              - text: 
+              - link "Fashion & Lifestyle" [ref=e48] [cursor=pointer]:
+                - /url: https://bigdeals.lk/Fashion
+                - text: Fashion & Lifestyle
+            - listitem [ref=e49]:
+              - text: 
+              - link "Other" [ref=e50] [cursor=pointer]:
+                - /url: https://bigdeals.lk/Other
+                - text: Other
+            - listitem [ref=e51]:
+              - text: 
+              - link "Services" [ref=e52] [cursor=pointer]:
+                - /url: https://bigdeals.lk/services
+                - text: Services
+        - text:         
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - link "Home" [ref=e55] [cursor=pointer]:
+          - /url: /
+        - text: 
+        - link "Kitchen Appliances" [ref=e56] [cursor=pointer]:
+          - /url: "  /Cookingappliances "
+        - text: 
+        - link "Blenders & Grinders" [ref=e57] [cursor=pointer]:
+          - /url: "  /blendersngrinders "
+        - text: 
+        - link "Orange Mixer Grinder 550W - Turbo" [ref=e58] [cursor=pointer]:
+          - /url: " "
+        - text: 
+        - link "BDLPTURBO" [ref=e59] [cursor=pointer]:
+          - /url: ""
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: 9%
+              - generic [ref=e67]: "Off"
+            - img "discount-tag" [ref=e68]
+          - generic:
+            - 'link "Orange Mixer Grinder 550W - Turbo: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e71] [cursor=pointer]':
+              - /url: https://bigdeals.lk/uploads/product/normal/bdlpturbon.webp
+              - 'img "Orange Mixer Grinder 550W - Turbo: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e72]'
+            - 'link "Orange Mixer Grinder 550W - Turbo: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e79] [cursor=pointer]':
+              - /url: https://bigdeals.lk/uploads/product/normal/bdlpturbon.webp
+              - 'img "Orange Mixer Grinder 550W - Turbo: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e80]'
+        - generic [ref=e81]:
+          - heading "Orange Mixer Grinder 550W - Turbo" [level=1] [ref=e82]
+          - generic [ref=e83]: "Model : TURBO - Sold by : MUFFADDAL ENTERPRISE"
+          - generic [ref=e85]:
+            - generic [ref=e86]: Rs. 13,000
+            - generic [ref=e87]: Rs. 11,850
+          - generic [ref=e89] [cursor=pointer]:
+            - img [ref=e91]
+            - generic [ref=e92]:
+              - text: Monthly Installment Starting from
+              - strong [ref=e93]: Rs.494
+            - generic [ref=e94]: (view details)
+          - generic [ref=e96]:
+            - text: or 3 installments of Rs. 3,950 with
+            - img [ref=e97]
+          - generic [ref=e99]:
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - text: Warranty
+                - generic [ref=e104]: ":"
+              - generic [ref=e105]: 12 Months
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - text: Delivery Time
+                - generic [ref=e110]: ":"
+              - generic [ref=e111]: 4 - 5 Working Days.
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - text: Delivery Fee
+                - generic [ref=e116]: ":"
+              - combobox [ref=e117]
+              - combobox "Select Town" [ref=e120] [cursor=pointer]:
+                - generic [ref=e121]: Select Town
+              - text: Rs. 0
+            - generic [ref=e123]:
+              - generic [ref=e124]:
+                - generic [ref=e125]:
+                  - text: Quantity
+                  - generic [ref=e126]: ":"
+                - generic [ref=e127]:
+                  - link "" [ref=e129] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e130]: 
+                  - textbox [ref=e132]: "1"
+                  - link "" [ref=e134] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e135]: 
+              - generic [ref=e136]:
+                - link "Buy Now" [ref=e137] [cursor=pointer]:
+                  - /url: "#add"
+                - link "Add To Cart" [ref=e138] [cursor=pointer]:
+                  - /url: "#add"
+      - text:  
+      - generic [ref=e140]:
+        - heading "Explore Our Premium Deals" [level=2] [ref=e142]
+        - list [ref=e146]:
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - link "37% Off Abans Table Blender - Black Rs. 18,990 Rs 12,000":
+                - /url: https://bigdeals.lk/blendersngrinders/abanstable-blender
+                - listitem [ref=e150] [cursor=pointer]:
+                  - generic [ref=e151]:
+                    - generic [ref=e152]:
+                      - generic [ref=e153]: 37%
+                      - generic [ref=e154]: "Off"
+                    - img [ref=e155]
+                  - img [ref=e157]
+                  - generic [ref=e158]:
+                    - generic [ref=e159]: Abans Table Blender - Black
+                    - generic:
+                      - generic:
+                        - generic [ref=e160]: Rs. 18,990
+                        - generic [ref=e161]: Rs 12,000
+            - generic [ref=e162]:
+              - link "52% Off Bardefu Multifunctional 3 in 1 Blender Rs. 25,000 Rs 11,999":
+                - /url: https://bigdeals.lk/blendersngrinders/bardefu-multifunctional-3-in-1-blender-bdlpd0833-h620
+                - listitem [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]:
+                    - generic [ref=e165]:
+                      - generic [ref=e166]: 52%
+                      - generic [ref=e167]: "Off"
+                    - img [ref=e168]
+                  - img [ref=e170]
+                  - generic [ref=e171]:
+                    - generic [ref=e172]: Bardefu Multifunctional 3 in 1 Blender
+                    - generic:
+                      - generic:
+                        - generic [ref=e173]: Rs. 25,000
+                        - generic [ref=e174]: Rs 11,999
+            - generic [ref=e175]:
+              - link "37% Off Morphy Richards Tresta Duo Mixer Grinder - 500w Rs. 18,990 Rs 11,990":
+                - /url: https://bigdeals.lk/blendersngrinders/morphy-richards-tresta-duo-500w-mixer-grinder
+                - listitem [ref=e176] [cursor=pointer]:
+                  - generic [ref=e177]:
+                    - generic [ref=e178]:
+                      - generic [ref=e179]: 37%
+                      - generic [ref=e180]: "Off"
+                    - img [ref=e181]
+                  - img [ref=e183]
+                  - generic [ref=e184]:
+                    - generic [ref=e185]: Morphy Richards Tresta Duo Mixer Grinder - 500w
+                    - generic:
+                      - generic:
+                        - generic [ref=e186]: Rs. 18,990
+                        - generic [ref=e187]: Rs 11,990
+            - generic [ref=e188]:
+              - link "33% Off Abans 1.6L Glass Jar Blender Rs. 17,990 Rs 12,000":
+                - /url: https://bigdeals.lk/blendersngrinders/abans-16l-glass-jar-blender
+                - listitem [ref=e189] [cursor=pointer]:
+                  - generic [ref=e190]:
+                    - generic [ref=e191]:
+                      - generic [ref=e192]: 33%
+                      - generic [ref=e193]: "Off"
+                    - img [ref=e194]
+                  - img [ref=e196]
+                  - generic [ref=e197]:
+                    - generic [ref=e198]: Abans 1.6L Glass Jar Blender
+                    - generic:
+                      - generic:
+                        - generic [ref=e199]: Rs. 17,990
+                        - generic [ref=e200]: Rs 12,000
+            - generic [ref=e201]:
+              - link "37% Off Abans Table Blender - Black Rs. 18,990 Rs 12,000":
+                - /url: https://bigdeals.lk/blendersngrinders/abanstable-blender
+                - listitem [ref=e202] [cursor=pointer]:
+                  - generic [ref=e203]:
+                    - generic [ref=e204]:
+                      - generic [ref=e205]: 37%
+                      - generic [ref=e206]: "Off"
+                    - img [ref=e207]
+                  - img [ref=e209]
+                  - generic [ref=e210]:
+                    - generic [ref=e211]: Abans Table Blender - Black
+                    - generic:
+                      - generic:
+                        - generic [ref=e212]: Rs. 18,990
+                        - generic [ref=e213]: Rs 12,000
+            - generic [ref=e214]:
+              - link "52% Off Bardefu Multifunctional 3 in 1 Blender Rs. 25,000 Rs 11,999":
+                - /url: https://bigdeals.lk/blendersngrinders/bardefu-multifunctional-3-in-1-blender-bdlpd0833-h620
+                - listitem [ref=e215] [cursor=pointer]:
+                  - generic [ref=e216]:
+                    - generic [ref=e217]:
+                      - generic [ref=e218]: 52%
+                      - generic [ref=e219]: "Off"
+                    - img [ref=e220]
+                  - img [ref=e222]
+                  - generic [ref=e223]:
+                    - generic [ref=e224]: Bardefu Multifunctional 3 in 1 Blender
+                    - generic:
+                      - generic:
+                        - generic [ref=e225]: Rs. 25,000
+                        - generic [ref=e226]: Rs 11,999
+            - generic [ref=e227]:
+              - link "37% Off Morphy Richards Tresta Duo Mixer Grinder - 500w Rs. 18,990 Rs 11,990":
+                - /url: https://bigdeals.lk/blendersngrinders/morphy-richards-tresta-duo-500w-mixer-grinder
+                - listitem [ref=e228] [cursor=pointer]:
+                  - generic [ref=e229]:
+                    - generic [ref=e230]:
+                      - generic [ref=e231]: 37%
+                      - generic [ref=e232]: "Off"
+                    - img [ref=e233]
+                  - img [ref=e235]
+                  - generic [ref=e236]:
+                    - generic [ref=e237]: Morphy Richards Tresta Duo Mixer Grinder - 500w
+                    - generic:
+                      - generic:
+                        - generic [ref=e238]: Rs. 18,990
+                        - generic [ref=e239]: Rs 11,990
+            - generic [ref=e240]:
+              - link "33% Off Abans 1.6L Glass Jar Blender Rs. 17,990 Rs 12,000":
+                - /url: https://bigdeals.lk/blendersngrinders/abans-16l-glass-jar-blender
+                - listitem [ref=e241] [cursor=pointer]:
+                  - generic [ref=e242]:
+                    - generic [ref=e243]:
+                      - generic [ref=e244]: 33%
+                      - generic [ref=e245]: "Off"
+                    - img [ref=e246]
+                  - img [ref=e248]
+                  - generic [ref=e249]:
+                    - generic [ref=e250]: Abans 1.6L Glass Jar Blender
+                    - generic:
+                      - generic:
+                        - generic [ref=e251]: Rs. 17,990
+                        - generic [ref=e252]: Rs 12,000
+            - generic [ref=e253]:
+              - link "37% Off Abans Table Blender - Black Rs. 18,990 Rs 12,000":
+                - /url: https://bigdeals.lk/blendersngrinders/abanstable-blender
+                - listitem [ref=e254] [cursor=pointer]:
+                  - generic [ref=e255]:
+                    - generic [ref=e256]:
+                      - generic [ref=e257]: 37%
+                      - generic [ref=e258]: "Off"
+                    - img [ref=e259]
+                  - img [ref=e261]
+                  - generic [ref=e262]:
+                    - generic [ref=e263]: Abans Table Blender - Black
+                    - generic:
+                      - generic:
+                        - generic [ref=e264]: Rs. 18,990
+                        - generic [ref=e265]: Rs 12,000
+            - generic [ref=e266]:
+              - link "52% Off Bardefu Multifunctional 3 in 1 Blender Rs. 25,000 Rs 11,999":
+                - /url: https://bigdeals.lk/blendersngrinders/bardefu-multifunctional-3-in-1-blender-bdlpd0833-h620
+                - listitem [ref=e267] [cursor=pointer]:
+                  - generic [ref=e268]:
+                    - generic [ref=e269]:
+                      - generic [ref=e270]: 52%
+                      - generic [ref=e271]: "Off"
+                    - img [ref=e272]
+                  - img [ref=e274]
+                  - generic [ref=e275]:
+                    - generic [ref=e276]: Bardefu Multifunctional 3 in 1 Blender
+                    - generic:
+                      - generic:
+                        - generic [ref=e277]: Rs. 25,000
+                        - generic [ref=e278]: Rs 11,999
+          - generic:
+            - button " " [ref=e279] [cursor=pointer]:
+              - generic [ref=e280]:
+                - generic [ref=e281]: 
+                - generic [ref=e282]: 
+            - button " " [ref=e283] [cursor=pointer]:
+              - generic [ref=e284]:
+                - generic [ref=e285]: 
+                - generic [ref=e286]: 
+      - generic [ref=e288]:
+        - heading "Frequently purchased together" [level=2] [ref=e290]
+        - list [ref=e294]:
+          - generic [ref=e296]:
+            - listitem [ref=e298]:
+              - generic [ref=e299]:
+                - generic [ref=e300]:
+                  - generic [ref=e301]: 14%
+                  - generic [ref=e302]: "Off"
+                - img "discount-tag" [ref=e303]
+              - link "cross-selling-product Kochchi Sweet Hot Sauce – 260ml" [ref=e304] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/kochchi-sweet-hot-sauce-260ml-bdlpxg143-a625
+                - img "cross-selling-product" [ref=e305]
+                - generic [ref=e306]: Kochchi Sweet Hot Sauce – 260ml
+              - generic [ref=e308]:
+                - generic [ref=e309]: Rs. 875
+                - text: Rs 750
+              - link "Buy Now" [ref=e311] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/kochchi-sweet-hot-sauce-260ml-bdlpxg143-a625
+            - listitem [ref=e313]:
+              - link "cross-selling-product Finch Basil Leaves - 20g" [ref=e314] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-basil-leaves-20g-bdlpah202-i560
+                - img "cross-selling-product" [ref=e315]
+                - generic [ref=e316]: Finch Basil Leaves - 20g
+              - generic [ref=e318]:
+                - generic [ref=e319]: Rs. 490
+                - text: Rs 490
+              - link "Buy Now" [ref=e321] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-basil-leaves-20g-bdlpah202-i560
+            - listitem [ref=e323]:
+              - link "cross-selling-product Finch Black Pepper Powder - 50g" [ref=e324] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-black-pepper-powder-50g-bdlpnd662-i560
+                - img "cross-selling-product" [ref=e325]
+                - generic [ref=e326]: Finch Black Pepper Powder - 50g
+              - generic [ref=e328]:
+                - generic [ref=e329]: Rs. 690
+                - text: Rs 690
+              - link "Buy Now" [ref=e331] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-black-pepper-powder-50g-bdlpnd662-i560
+            - listitem [ref=e333]:
+              - link "cross-selling-product Finch Cinnamon Sticks (Alba Grade) – 50g" [ref=e334] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-cinnamon-sticks-alba-grade-50g-bdlp3v328-i560
+                - img "cross-selling-product" [ref=e335]
+                - generic [ref=e336]: Finch Cinnamon Sticks (Alba Grade) – 50g
+              - generic [ref=e338]:
+                - generic [ref=e339]: Rs. 890
+                - text: Rs 890
+              - link "Buy Now" [ref=e341] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-cinnamon-sticks-alba-grade-50g-bdlp3v328-i560
+            - listitem [ref=e343]:
+              - generic [ref=e344]:
+                - generic [ref=e345]:
+                  - generic [ref=e346]: 10%
+                  - generic [ref=e347]: "Off"
+                - img "discount-tag" [ref=e348]
+              - link "cross-selling-product Naimiris Level Dynamite Sauce - 260ml" [ref=e349] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/bdllevel-dynamite
+                - img "cross-selling-product" [ref=e350]
+                - generic [ref=e351]: Naimiris Level Dynamite Sauce - 260ml
+              - generic [ref=e353]:
+                - generic [ref=e354]: Rs. 1,460
+                - text: Rs 1,310
+              - link "Buy Now" [ref=e356] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/bdllevel-dynamite
+          - text:    
+      - generic [ref=e359]:
+        - list [ref=e360]:
+          - listitem [ref=e361]:
+            - link "Product Details" [ref=e362] [cursor=pointer]:
+              - /url: "#product-detail"
+          - listitem [ref=e363]:
+            - link "Payment Methods" [expanded] [ref=e364] [cursor=pointer]:
+              - /url: "#paymentmethods"
+        - generic [ref=e366]:
+          - list [ref=e367]:
+            - listitem [ref=e368]: "Model : Turbo"
+            - listitem [ref=e369]:
+              - paragraph [ref=e370]: 230V.Ac. only 50Hz
+            - listitem [ref=e371]:
+              - paragraph [ref=e372]: 30 mins. rating
+            - listitem [ref=e373]:
+              - paragraph [ref=e374]: 18000 R.P.M. (No Load)
+            - listitem [ref=e375]:
+              - paragraph [ref=e376]: 3 Stainless Steel
+          - paragraph [ref=e377]
+          - paragraph [ref=e378]:
+            - emphasis [ref=e379]:
+              - strong [ref=e380]: "*Note : Product colors are subject to availability"
+    - text:   
+  - generic [ref=e383]:
+    - paragraph [ref=e385]: This website uses cookies to ensure you get the best experience on our website. By continuing to browse the site, you agree to our use of cookies.
+    - button "OK" [ref=e387] [cursor=pointer]
+  - generic [ref=e392]:
+    - img "brands-41" [ref=e395]
+    - img "brands-42" [ref=e398]
+    - img "brands-43" [ref=e401]
+    - img "brands-44" [ref=e404]
+    - img "brands-45" [ref=e407]
+    - img "brands-46" [ref=e410]
+    - img "brands-47" [ref=e413]
+    - img "brands-48" [ref=e416]
+    - img "brands-49" [ref=e419]
+    - img "brands-50" [ref=e422]
+    - img "brands-0" [ref=e425]
+    - img "brands-1" [ref=e428]
+    - img "brands-2" [ref=e431]
+    - img "brands-3" [ref=e434]
+    - img "brands-4" [ref=e437]
+    - img "brands-5" [ref=e440]
+    - img "brands-6" [ref=e443]
+    - img "brands-7" [ref=e446]
+    - img "brands-8" [ref=e449]
+    - img "brands-9" [ref=e452]
+    - img "brands-10" [ref=e455]
+    - img "brands-11" [ref=e458]
+    - img "brands-12" [ref=e461]
+    - img "brands-13" [ref=e464]
+    - img "brands-14" [ref=e467]
+    - img "brands-15" [ref=e470]
+    - img "brands-16" [ref=e473]
+    - img "brands-17" [ref=e476]
+    - img "brands-18" [ref=e479]
+    - img "brands-19" [ref=e482]
+    - img "brands-20" [ref=e485]
+    - img "brands-21" [ref=e488]
+    - img "brands-22" [ref=e491]
+    - img "brands-23" [ref=e494]
+    - img "brands-24" [ref=e497]
+    - img "brands-25" [ref=e500]
+    - img "brands-26" [ref=e503]
+    - img "brands-27" [ref=e506]
+    - img "brands-28" [ref=e509]
+    - img "brands-29" [ref=e512]
+    - img "brands-30" [ref=e515]
+    - img "brands-31" [ref=e518]
+    - img "brands-32" [ref=e521]
+    - img "brands-33" [ref=e524]
+    - img "brands-34" [ref=e527]
+    - img "brands-35" [ref=e530]
+    - img "brands-36" [ref=e533]
+    - img "brands-37" [ref=e536]
+    - img "brands-38" [ref=e539]
+    - img "brands-39" [ref=e542]
+    - img "brands-40" [ref=e545]
+    - img "brands-41" [ref=e548]
+    - img "brands-42" [ref=e551]
+    - img "brands-43" [ref=e554]
+    - img "brands-44" [ref=e557]
+    - img "brands-45" [ref=e560]
+    - img "brands-46" [ref=e563]
+    - img "brands-47" [ref=e566]
+    - img "brands-48" [ref=e569]
+    - img "brands-49" [ref=e572]
+    - img "brands-50" [ref=e575]
+    - img "brands-0" [ref=e578]
+    - img "brands-1" [ref=e581]
+    - img "brands-2" [ref=e584]
+    - img "brands-3" [ref=e587]
+    - img "brands-4" [ref=e590]
+    - img "brands-5" [ref=e593]
+    - img "brands-6" [ref=e596]
+    - img "brands-7" [ref=e599]
+    - img "brands-8" [ref=e602]
+    - img "brands-9" [ref=e605]
+  - contentinfo [ref=e606]:
+    - generic [ref=e608]:
+      - generic [ref=e609]:
+        - generic [ref=e610]: Contact Us
+        - list [ref=e611]:
+          - listitem [ref=e612]:
+            - generic [ref=e613]: 
+            - text: No 11, Nimalka Gardens
+          - listitem [ref=e614]: Colombo 03, Sri Lanka
+          - listitem [ref=e615]:
+            - generic [ref=e616]: 
+            - text: info@bigdeals.lk
+          - listitem [ref=e617]:
+            - generic [ref=e618]: 
+            - text: 011 2008008
+      - generic [ref=e619]:
+        - generic [ref=e620]: Company
+        - list [ref=e621]:
+          - listitem [ref=e622]:
+            - link "About Us" [ref=e623] [cursor=pointer]:
+              - /url: https://bigdeals.lk/about
+          - listitem [ref=e624]:
+            - link "Refund policy" [ref=e625] [cursor=pointer]:
+              - /url: https://bigdeals.lk/policy
+          - listitem [ref=e626]:
+            - link "Terms & Conditions" [ref=e627] [cursor=pointer]:
+              - /url: https://bigdeals.lk/terms
+          - listitem [ref=e628]:
+            - link "Privacy Policy" [ref=e629] [cursor=pointer]:
+              - /url: https://bigdeals.lk/privacy-policy
+      - generic [ref=e630]:
+        - generic [ref=e631]: Quick Links
+        - list [ref=e632]:
+          - listitem [ref=e633]:
+            - link "Login" [ref=e634] [cursor=pointer]:
+              - /url: https://bigdeals.lk/login
+          - listitem [ref=e635]:
+            - link "My Orders" [ref=e636] [cursor=pointer]:
+              - /url: https://bigdeals.lk/my/profile/details
+          - listitem [ref=e637]:
+            - link "Mall" [ref=e638] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e639]:
+            - link "Pay Your Balance" [ref=e640] [cursor=pointer]:
+              - /url: https://bigdeals.lk/balance/payment/details
+      - generic [ref=e641]:
+        - generic [ref=e642]: Support
+        - list [ref=e643]:
+          - listitem [ref=e644]:
+            - link "Contact" [ref=e645] [cursor=pointer]:
+              - /url: https://bigdeals.lk/contact
+          - listitem [ref=e646]:
+            - link "Sitemap" [ref=e647] [cursor=pointer]:
+              - /url: https://bigdeals.lk/sitemap
+          - listitem [ref=e648]:
+            - link "Help/FAQ" [ref=e649] [cursor=pointer]:
+              - /url: https://bigdeals.lk/help-faq
+      - generic [ref=e651]:
+        - generic [ref=e652]: Stay Connected
+        - generic [ref=e653]:
+          - link "facebook.com/www.bigdeals.lk" [ref=e654] [cursor=pointer]:
+            - /url: https://www.facebook.com/www.bigdeals.lk
+            - generic [ref=e655]: 
+          - link "instagram.com/bigdealslk" [ref=e656] [cursor=pointer]:
+            - /url: https://www.instagram.com/bigdealslk/
+            - generic [ref=e657]: 
+          - link "twitter.com/bigdeals_lk" [ref=e658] [cursor=pointer]:
+            - /url: https://twitter.com/bigdeals_lk
+            - generic [ref=e659]: 
+          - link "linkedin.com/company/bigdeals-lk" [ref=e660] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/bigdeals-lk
+            - generic [ref=e661]: 
+  - link " Scroll" [ref=e662] [cursor=pointer]:
+    - /url: "#"

@@ -1,0 +1,610 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "home page" [ref=e10] [cursor=pointer]:
+            - /url: https://bigdeals.lk
+            - img "Bigdeals Logo" [ref=e11]
+          - generic:
+            - form "search form" [ref=e13]:
+              - generic [ref=e15]:
+                - textbox "search box" [ref=e16]
+                - textbox "search box" [ref=e17]:
+                  - /placeholder: What are you looking for today?
+              - button "search product" [ref=e18] [cursor=pointer]
+            - generic [ref=e19]:
+              - link:
+                - /url: https://bigdeals.lk/cart/order/summery
+              - generic [ref=e20]:
+                - link "0":
+                  - /url: https://bigdeals.lk/cart/order/summery
+                  - generic [ref=e21] [cursor=pointer]: "0"
+              - list [ref=e22]:
+                - listitem [ref=e23]:
+                  - link "Join as a seller":
+                    - /url: https://seller.bigdeals.lk/login
+                    - generic [ref=e24] [cursor=pointer]: Join as a seller
+                - listitem [ref=e25]:
+                  - link "Login":
+                    - /url: https://bigdeals.lk/login
+                    - generic [ref=e26] [cursor=pointer]: Login
+        - generic [ref=e27]:
+          - link "call to buy":
+            - /url: tel:+94112008008
+            - img "call to buy" [ref=e28] [cursor=pointer]
+      - generic [ref=e29]:
+        - navigation [ref=e33]:
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - text: 
+              - link "Electronics" [ref=e36] [cursor=pointer]:
+                - /url: https://bigdeals.lk/electronics
+                - text: Electronics
+            - listitem [ref=e37]:
+              - text: 
+              - link "Phones & Tabs" [ref=e38] [cursor=pointer]:
+                - /url: https://bigdeals.lk/phones-tablets
+                - text: Phones & Tabs
+            - listitem [ref=e39]:
+              - text: 
+              - link "Home & Kitchen" [ref=e40] [cursor=pointer]:
+                - /url: https://bigdeals.lk/homeneeds
+                - text: Home & Kitchen
+            - listitem [ref=e41]:
+              - text: 
+              - link "Health & Beauty" [ref=e42] [cursor=pointer]:
+                - /url: https://bigdeals.lk/health-beauty
+                - text: Health & Beauty
+            - listitem [ref=e43]:
+              - text: 
+              - link "Baby & Kids" [ref=e44] [cursor=pointer]:
+                - /url: https://bigdeals.lk/baby-kids
+                - text: Baby & Kids
+            - listitem [ref=e45]:
+              - text: 
+              - link "Groceries" [ref=e46] [cursor=pointer]:
+                - /url: https://bigdeals.lk/Groceries
+                - text: Groceries
+            - listitem [ref=e47]:
+              - text: 
+              - link "Fashion & Lifestyle" [ref=e48] [cursor=pointer]:
+                - /url: https://bigdeals.lk/Fashion
+                - text: Fashion & Lifestyle
+            - listitem [ref=e49]:
+              - text: 
+              - link "Other" [ref=e50] [cursor=pointer]:
+                - /url: https://bigdeals.lk/Other
+                - text: Other
+            - listitem [ref=e51]:
+              - text: 
+              - link "Services" [ref=e52] [cursor=pointer]:
+                - /url: https://bigdeals.lk/services
+                - text: Services
+        - text:         
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - link "Home" [ref=e55] [cursor=pointer]:
+          - /url: /
+        - text: 
+        - link "Kitchen Appliances" [ref=e56] [cursor=pointer]:
+          - /url: "  /Cookingappliances "
+        - text: 
+        - link "Blenders & Grinders" [ref=e57] [cursor=pointer]:
+          - /url: "  /blendersngrinders "
+        - text: 
+        - link "Orange 750W Mixer Grinder - Victus" [ref=e58] [cursor=pointer]:
+          - /url: " "
+        - text: 
+        - link "BDLPVICTUS" [ref=e59] [cursor=pointer]:
+          - /url: ""
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: 10%
+              - generic [ref=e67]: "Off"
+            - img "discount-tag" [ref=e68]
+          - generic:
+            - 'link "Orange 750W Mixer Grinder - Victus: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e71] [cursor=pointer]':
+              - /url: https://bigdeals.lk/uploads/product/normal/bdlpvictusn.webp
+              - 'img "Orange 750W Mixer Grinder - Victus: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e72]'
+            - 'link "Orange 750W Mixer Grinder - Victus: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e79] [cursor=pointer]':
+              - /url: https://bigdeals.lk/uploads/product/normal/bdlpvictusn.webp
+              - 'img "Orange 750W Mixer Grinder - Victus: Best Orange Kitchen Appliances for Sale | Best Price in Sri Lanka 2026 1" [ref=e80]'
+        - generic [ref=e81]:
+          - heading "Orange 750W Mixer Grinder - Victus" [level=1] [ref=e82]
+          - generic [ref=e83]: "Model : VICTUS - Sold by : MUFFADDAL ENTERPRISE"
+          - generic [ref=e85]:
+            - generic [ref=e86]: Rs. 21,500
+            - generic [ref=e87]: Rs. 19,250
+          - generic [ref=e89] [cursor=pointer]:
+            - img [ref=e91]
+            - generic [ref=e92]:
+              - text: Monthly Installment Starting from
+              - strong [ref=e93]: Rs.802
+            - generic [ref=e94]: (view details)
+          - generic [ref=e96]:
+            - text: or 3 installments of Rs. 6,417 with
+            - img [ref=e97]
+          - generic [ref=e99]:
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - text: Warranty
+                - generic [ref=e104]: ":"
+              - generic [ref=e105]: 12 Months
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - text: Delivery Time
+                - generic [ref=e110]: ":"
+              - generic [ref=e111]: 4 - 5 Working Days.
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - text: Delivery Fee
+                - generic [ref=e116]: ":"
+              - combobox [ref=e117]
+              - combobox "Select Town" [ref=e120] [cursor=pointer]:
+                - generic [ref=e121]: Select Town
+              - text: Rs. 0
+            - generic [ref=e123]:
+              - generic [ref=e124]:
+                - generic [ref=e125]:
+                  - text: Quantity
+                  - generic [ref=e126]: ":"
+                - generic [ref=e127]:
+                  - link "" [ref=e129] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e130]: 
+                  - textbox [ref=e132]: "1"
+                  - link "" [ref=e134] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e135]: 
+              - generic [ref=e136]:
+                - link "Buy Now" [ref=e137] [cursor=pointer]:
+                  - /url: "#add"
+                - link "Add To Cart" [ref=e138] [cursor=pointer]:
+                  - /url: "#add"
+      - text:  
+      - generic [ref=e140]:
+        - heading "Explore Our Premium Deals" [level=2] [ref=e142]
+        - list [ref=e146]:
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - link "13% Off Bajaj Military Series Finesse Mixer Grinder - 750W Rs. 22,899 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/bajaj-military-series-finesse-mixer-grinder-750w-bdlpj0220-t020
+                - listitem [ref=e150] [cursor=pointer]:
+                  - generic [ref=e151]:
+                    - generic [ref=e152]:
+                      - generic [ref=e153]: 13%
+                      - generic [ref=e154]: "Off"
+                    - img [ref=e155]
+                  - img [ref=e157]
+                  - generic [ref=e158]:
+                    - generic [ref=e159]: Bajaj Military Series Finesse Mixer Grinder - 750W
+                    - generic:
+                      - generic:
+                        - generic [ref=e160]: Rs. 22,899
+                        - generic [ref=e161]: Rs 19,900
+            - generic [ref=e162]:
+              - link "36% Off Panasonic Blender with 2 Dry Mills - MX-EX1021 Rs. 31,000 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/bdlpanasonic-blender-with-2-dry-mills-mxex1021
+                - listitem [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]:
+                    - generic [ref=e165]:
+                      - generic [ref=e166]: 36%
+                      - generic [ref=e167]: "Off"
+                    - img [ref=e168]
+                  - img [ref=e170]
+                  - generic [ref=e171]:
+                    - generic [ref=e172]: Panasonic Blender with 2 Dry Mills - MX-EX1021
+                    - generic:
+                      - generic:
+                        - generic [ref=e173]: Rs. 31,000
+                        - generic [ref=e174]: Rs 19,900
+            - generic [ref=e175]:
+              - link "23% Off Philips Mixer Grinder 500W -HL7506/00 Rs. 25,900 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/philips-mixer-grinder-500w-hl750600-bdlppx584-t020
+                - listitem [ref=e176] [cursor=pointer]:
+                  - generic [ref=e177]:
+                    - generic [ref=e178]:
+                      - generic [ref=e179]: 23%
+                      - generic [ref=e180]: "Off"
+                    - img [ref=e181]
+                  - img [ref=e183]
+                  - generic [ref=e184]:
+                    - generic [ref=e185]: Philips Mixer Grinder 500W -HL7506/00
+                    - generic:
+                      - generic:
+                        - generic [ref=e186]: Rs. 25,900
+                        - generic [ref=e187]: Rs 19,900
+            - generic [ref=e188]:
+              - link "31% Off Abans 1200w 4 In 1 Mixer Grinder - Turbo Rs. 28,990 Rs 19,990":
+                - /url: https://bigdeals.lk/blendersngrinders/abans4-in-1-mixer-grinder-1200w-turbo
+                - listitem [ref=e189] [cursor=pointer]:
+                  - generic [ref=e190]:
+                    - generic [ref=e191]:
+                      - generic [ref=e192]: 31%
+                      - generic [ref=e193]: "Off"
+                    - img [ref=e194]
+                  - img [ref=e196]
+                  - generic [ref=e197]:
+                    - generic [ref=e198]: Abans 1200w 4 In 1 Mixer Grinder - Turbo
+                    - generic:
+                      - generic:
+                        - generic [ref=e199]: Rs. 28,990
+                        - generic [ref=e200]: Rs 19,990
+            - generic [ref=e201]:
+              - link "20% Off Innovex 750W Mixer Grinder (3 Jar) Rs. 24,950 Rs 19,950":
+                - /url: https://bigdeals.lk/blendersngrinders/innovex-750w-mixer-grinder-3-jar-bdlp2j203-t020
+                - listitem [ref=e202] [cursor=pointer]:
+                  - generic [ref=e203]:
+                    - generic [ref=e204]:
+                      - generic [ref=e205]: 20%
+                      - generic [ref=e206]: "Off"
+                    - img [ref=e207]
+                  - img [ref=e209]
+                  - generic [ref=e210]:
+                    - generic [ref=e211]: Innovex 750W Mixer Grinder (3 Jar)
+                    - generic:
+                      - generic:
+                        - generic [ref=e212]: Rs. 24,950
+                        - generic [ref=e213]: Rs 19,950
+            - generic [ref=e214]:
+              - link "13% Off Bajaj Military Series Finesse Mixer Grinder - 750W Rs. 22,899 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/bajaj-military-series-finesse-mixer-grinder-750w-bdlpj0220-t020
+                - listitem [ref=e215] [cursor=pointer]:
+                  - generic [ref=e216]:
+                    - generic [ref=e217]:
+                      - generic [ref=e218]: 13%
+                      - generic [ref=e219]: "Off"
+                    - img [ref=e220]
+                  - img [ref=e222]
+                  - generic [ref=e223]:
+                    - generic [ref=e224]: Bajaj Military Series Finesse Mixer Grinder - 750W
+                    - generic:
+                      - generic:
+                        - generic [ref=e225]: Rs. 22,899
+                        - generic [ref=e226]: Rs 19,900
+            - generic [ref=e227]:
+              - link "36% Off Panasonic Blender with 2 Dry Mills - MX-EX1021 Rs. 31,000 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/bdlpanasonic-blender-with-2-dry-mills-mxex1021
+                - listitem [ref=e228] [cursor=pointer]:
+                  - generic [ref=e229]:
+                    - generic [ref=e230]:
+                      - generic [ref=e231]: 36%
+                      - generic [ref=e232]: "Off"
+                    - img [ref=e233]
+                  - img [ref=e235]
+                  - generic [ref=e236]:
+                    - generic [ref=e237]: Panasonic Blender with 2 Dry Mills - MX-EX1021
+                    - generic:
+                      - generic:
+                        - generic [ref=e238]: Rs. 31,000
+                        - generic [ref=e239]: Rs 19,900
+            - generic [ref=e240]:
+              - link "23% Off Philips Mixer Grinder 500W -HL7506/00 Rs. 25,900 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/philips-mixer-grinder-500w-hl750600-bdlppx584-t020
+                - listitem [ref=e241] [cursor=pointer]:
+                  - generic [ref=e242]:
+                    - generic [ref=e243]:
+                      - generic [ref=e244]: 23%
+                      - generic [ref=e245]: "Off"
+                    - img [ref=e246]
+                  - img [ref=e248]
+                  - generic [ref=e249]:
+                    - generic [ref=e250]: Philips Mixer Grinder 500W -HL7506/00
+                    - generic:
+                      - generic:
+                        - generic [ref=e251]: Rs. 25,900
+                        - generic [ref=e252]: Rs 19,900
+            - generic [ref=e253]:
+              - link "31% Off Abans 1200w 4 In 1 Mixer Grinder - Turbo Rs. 28,990 Rs 19,990":
+                - /url: https://bigdeals.lk/blendersngrinders/abans4-in-1-mixer-grinder-1200w-turbo
+                - listitem [ref=e254] [cursor=pointer]:
+                  - generic [ref=e255]:
+                    - generic [ref=e256]:
+                      - generic [ref=e257]: 31%
+                      - generic [ref=e258]: "Off"
+                    - img [ref=e259]
+                  - img [ref=e261]
+                  - generic [ref=e262]:
+                    - generic [ref=e263]: Abans 1200w 4 In 1 Mixer Grinder - Turbo
+                    - generic:
+                      - generic:
+                        - generic [ref=e264]: Rs. 28,990
+                        - generic [ref=e265]: Rs 19,990
+            - generic [ref=e266]:
+              - link "20% Off Innovex 750W Mixer Grinder (3 Jar) Rs. 24,950 Rs 19,950":
+                - /url: https://bigdeals.lk/blendersngrinders/innovex-750w-mixer-grinder-3-jar-bdlp2j203-t020
+                - listitem [ref=e267] [cursor=pointer]:
+                  - generic [ref=e268]:
+                    - generic [ref=e269]:
+                      - generic [ref=e270]: 20%
+                      - generic [ref=e271]: "Off"
+                    - img [ref=e272]
+                  - img [ref=e274]
+                  - generic [ref=e275]:
+                    - generic [ref=e276]: Innovex 750W Mixer Grinder (3 Jar)
+                    - generic:
+                      - generic:
+                        - generic [ref=e277]: Rs. 24,950
+                        - generic [ref=e278]: Rs 19,950
+            - generic [ref=e279]:
+              - link "13% Off Bajaj Military Series Finesse Mixer Grinder - 750W Rs. 22,899 Rs 19,900":
+                - /url: https://bigdeals.lk/blendersngrinders/bajaj-military-series-finesse-mixer-grinder-750w-bdlpj0220-t020
+                - listitem [ref=e280] [cursor=pointer]:
+                  - generic [ref=e281]:
+                    - generic [ref=e282]:
+                      - generic [ref=e283]: 13%
+                      - generic [ref=e284]: "Off"
+                    - img [ref=e285]
+                  - img [ref=e287]
+                  - generic [ref=e288]:
+                    - generic [ref=e289]: Bajaj Military Series Finesse Mixer Grinder - 750W
+                    - generic:
+                      - generic:
+                        - generic [ref=e290]: Rs. 22,899
+                        - generic [ref=e291]: Rs 19,900
+          - generic:
+            - button " " [ref=e292] [cursor=pointer]:
+              - generic [ref=e293]:
+                - generic [ref=e294]: 
+                - generic [ref=e295]: 
+            - button " " [ref=e296] [cursor=pointer]:
+              - generic [ref=e297]:
+                - generic [ref=e298]: 
+                - generic [ref=e299]: 
+      - generic [ref=e301]:
+        - heading "Frequently purchased together" [level=2] [ref=e303]
+        - list [ref=e307]:
+          - generic [ref=e309]:
+            - listitem [ref=e311]:
+              - link "cross-selling-product Finch Caraway Seeds - 50g" [ref=e312] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-caraway-seeds-50g-bdlpa9595-i560
+                - img "cross-selling-product" [ref=e313]
+                - generic [ref=e314]: Finch Caraway Seeds - 50g
+              - generic [ref=e316]:
+                - generic [ref=e317]: Rs. 690
+                - text: Rs 690
+              - link "Buy Now" [ref=e319] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-caraway-seeds-50g-bdlpa9595-i560
+            - listitem [ref=e321]:
+              - generic [ref=e322]:
+                - generic [ref=e323]:
+                  - generic [ref=e324]: 14%
+                  - generic [ref=e325]: "Off"
+                - img "discount-tag" [ref=e326]
+              - link "cross-selling-product දයියා Xtra Hot Sauce (Xtra Hot Sauce) - 260ml" [ref=e327] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/xtra-hot-sauce-xtra-hot-sauce-260ml-bdlpmf585-a625
+                - img "cross-selling-product" [ref=e328]
+                - generic [ref=e329]: දයියා Xtra Hot Sauce (Xtra Hot Sauce) - 260ml
+              - generic [ref=e331]:
+                - generic [ref=e332]: Rs. 875
+                - text: Rs 750
+              - link "Buy Now" [ref=e334] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/xtra-hot-sauce-xtra-hot-sauce-260ml-bdlpmf585-a625
+            - listitem [ref=e336]:
+              - link "cross-selling-product Finch Lemongrass Powder - 40g" [ref=e337] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-lemongrass-powder-40g-bdlprk366-i560
+                - img "cross-selling-product" [ref=e338]
+                - generic [ref=e339]: Finch Lemongrass Powder - 40g
+              - generic [ref=e341]:
+                - generic [ref=e342]: Rs. 690
+                - text: Rs 690
+              - link "Buy Now" [ref=e344] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/finch-lemongrass-powder-40g-bdlprk366-i560
+            - listitem [ref=e346]:
+              - generic [ref=e347]:
+                - generic [ref=e348]:
+                  - generic [ref=e349]: 34%
+                  - generic [ref=e350]: "Off"
+                - img "discount-tag" [ref=e351]
+              - link "cross-selling-product AKBAR Green Grade (7-8mm) Cardamom (1Kg)" [ref=e352] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/akbar-green-grade-7-8mm-cardamom-1kg-bdlpin679-e395
+                - img "cross-selling-product" [ref=e353]
+                - generic [ref=e354]: AKBAR Green Grade (7-8mm) Cardamom (1Kg)
+              - generic [ref=e356]:
+                - generic [ref=e357]: Rs. 28,500
+                - text: Rs 18,925
+              - link "Buy Now" [ref=e359] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/akbar-green-grade-7-8mm-cardamom-1kg-bdlpin679-e395
+            - listitem [ref=e361]:
+              - generic [ref=e362]:
+                - generic [ref=e363]:
+                  - generic [ref=e364]: 10%
+                  - generic [ref=e365]: "Off"
+                - img "discount-tag" [ref=e366]
+              - link "cross-selling-product Naimiris Level Hot Sauce - 260ml" [ref=e367] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/bdllevel-hot
+                - img "cross-selling-product" [ref=e368]
+                - generic [ref=e369]: Naimiris Level Hot Sauce - 260ml
+              - generic [ref=e371]:
+                - generic [ref=e372]: Rs. 1,370
+                - text: Rs 1,230
+              - link "Buy Now" [ref=e374] [cursor=pointer]:
+                - /url: https://bigdeals.lk/spices-and-sauce/bdllevel-hot
+          - text:    
+      - generic [ref=e377]:
+        - list [ref=e378]:
+          - listitem [ref=e379]:
+            - link "Product Details" [ref=e380] [cursor=pointer]:
+              - /url: "#product-detail"
+          - listitem [ref=e381]:
+            - link "Payment Methods" [expanded] [ref=e382] [cursor=pointer]:
+              - /url: "#paymentmethods"
+        - generic [ref=e384]:
+          - list [ref=e385]:
+            - listitem [ref=e386]: "Brand: Orange"
+            - listitem [ref=e387]:
+              - paragraph [ref=e388]: "Model: VICTUS"
+            - listitem [ref=e389]:
+              - paragraph [ref=e390]: "Watts: 750"
+            - listitem [ref=e391]: Comes with 3 Jars (2 wet Jars and 1 small dry Jar)
+            - listitem [ref=e392]:
+              - paragraph [ref=e393]: Jars - 750g, 500g, 250g
+            - listitem [ref=e394]:
+              - paragraph [ref=e395]: Copper Motor
+            - listitem [ref=e396]:
+              - paragraph [ref=e397]: Ideal for heavy duty grinding purpose
+            - listitem [ref=e398]:
+              - paragraph [ref=e399]: 3 variable speed with incher
+            - listitem [ref=e400]:
+              - paragraph [ref=e401]: Water drain system
+            - listitem [ref=e402]:
+              - paragraph [ref=e403]: Heavy ABS body
+            - listitem [ref=e404]:
+              - paragraph [ref=e405]: Shard-balanced food-grade SS blade
+          - paragraph [ref=e406]
+          - paragraph [ref=e407]:
+            - emphasis [ref=e408]:
+              - strong [ref=e409]: "*Note : Product colors are subject to availability"
+    - text:   
+  - generic [ref=e412]:
+    - paragraph [ref=e414]: This website uses cookies to ensure you get the best experience on our website. By continuing to browse the site, you agree to our use of cookies.
+    - button "OK" [ref=e416] [cursor=pointer]
+  - generic [ref=e421]:
+    - img "brands-41" [ref=e424]
+    - img "brands-42" [ref=e427]
+    - img "brands-43" [ref=e430]
+    - img "brands-44" [ref=e433]
+    - img "brands-45" [ref=e436]
+    - img "brands-46" [ref=e439]
+    - img "brands-47" [ref=e442]
+    - img "brands-48" [ref=e445]
+    - img "brands-49" [ref=e448]
+    - img "brands-50" [ref=e451]
+    - img "brands-0" [ref=e454]
+    - img "brands-1" [ref=e457]
+    - img "brands-2" [ref=e460]
+    - img "brands-3" [ref=e463]
+    - img "brands-4" [ref=e466]
+    - img "brands-5" [ref=e469]
+    - img "brands-6" [ref=e472]
+    - img "brands-7" [ref=e475]
+    - img "brands-8" [ref=e478]
+    - img "brands-9" [ref=e481]
+    - img "brands-10" [ref=e484]
+    - img "brands-11" [ref=e487]
+    - img "brands-12" [ref=e490]
+    - img "brands-13" [ref=e493]
+    - img "brands-14" [ref=e496]
+    - img "brands-15" [ref=e499]
+    - img "brands-16" [ref=e502]
+    - img "brands-17" [ref=e505]
+    - img "brands-18" [ref=e508]
+    - img "brands-19" [ref=e511]
+    - img "brands-20" [ref=e514]
+    - img "brands-21" [ref=e517]
+    - img "brands-22" [ref=e520]
+    - img "brands-23" [ref=e523]
+    - img "brands-24" [ref=e526]
+    - img "brands-25" [ref=e529]
+    - img "brands-26" [ref=e532]
+    - img "brands-27" [ref=e535]
+    - img "brands-28" [ref=e538]
+    - img "brands-29" [ref=e541]
+    - img "brands-30" [ref=e544]
+    - img "brands-31" [ref=e547]
+    - img "brands-32" [ref=e550]
+    - img "brands-33" [ref=e553]
+    - img "brands-34" [ref=e556]
+    - img "brands-35" [ref=e559]
+    - img "brands-36" [ref=e562]
+    - img "brands-37" [ref=e565]
+    - img "brands-38" [ref=e568]
+    - img "brands-39" [ref=e571]
+    - img "brands-40" [ref=e574]
+    - img "brands-41" [ref=e577]
+    - img "brands-42" [ref=e580]
+    - img "brands-43" [ref=e583]
+    - img "brands-44" [ref=e586]
+    - img "brands-45" [ref=e589]
+    - img "brands-46" [ref=e592]
+    - img "brands-47" [ref=e595]
+    - img "brands-48" [ref=e598]
+    - img "brands-49" [ref=e601]
+    - img "brands-50" [ref=e604]
+    - img "brands-0" [ref=e607]
+    - img "brands-1" [ref=e610]
+    - img "brands-2" [ref=e613]
+    - img "brands-3" [ref=e616]
+    - img "brands-4" [ref=e619]
+    - img "brands-5" [ref=e622]
+    - img "brands-6" [ref=e625]
+    - img "brands-7" [ref=e628]
+    - img "brands-8" [ref=e631]
+    - img "brands-9" [ref=e634]
+  - contentinfo [ref=e635]:
+    - generic [ref=e637]:
+      - generic [ref=e638]:
+        - generic [ref=e639]: Contact Us
+        - list [ref=e640]:
+          - listitem [ref=e641]:
+            - generic [ref=e642]: 
+            - text: No 11, Nimalka Gardens
+          - listitem [ref=e643]: Colombo 03, Sri Lanka
+          - listitem [ref=e644]:
+            - generic [ref=e645]: 
+            - text: info@bigdeals.lk
+          - listitem [ref=e646]:
+            - generic [ref=e647]: 
+            - text: 011 2008008
+      - generic [ref=e648]:
+        - generic [ref=e649]: Company
+        - list [ref=e650]:
+          - listitem [ref=e651]:
+            - link "About Us" [ref=e652] [cursor=pointer]:
+              - /url: https://bigdeals.lk/about
+          - listitem [ref=e653]:
+            - link "Refund policy" [ref=e654] [cursor=pointer]:
+              - /url: https://bigdeals.lk/policy
+          - listitem [ref=e655]:
+            - link "Terms & Conditions" [ref=e656] [cursor=pointer]:
+              - /url: https://bigdeals.lk/terms
+          - listitem [ref=e657]:
+            - link "Privacy Policy" [ref=e658] [cursor=pointer]:
+              - /url: https://bigdeals.lk/privacy-policy
+      - generic [ref=e659]:
+        - generic [ref=e660]: Quick Links
+        - list [ref=e661]:
+          - listitem [ref=e662]:
+            - link "Login" [ref=e663] [cursor=pointer]:
+              - /url: https://bigdeals.lk/login
+          - listitem [ref=e664]:
+            - link "My Orders" [ref=e665] [cursor=pointer]:
+              - /url: https://bigdeals.lk/my/profile/details
+          - listitem [ref=e666]:
+            - link "Mall" [ref=e667] [cursor=pointer]:
+              - /url: "#"
+          - listitem [ref=e668]:
+            - link "Pay Your Balance" [ref=e669] [cursor=pointer]:
+              - /url: https://bigdeals.lk/balance/payment/details
+      - generic [ref=e670]:
+        - generic [ref=e671]: Support
+        - list [ref=e672]:
+          - listitem [ref=e673]:
+            - link "Contact" [ref=e674] [cursor=pointer]:
+              - /url: https://bigdeals.lk/contact
+          - listitem [ref=e675]:
+            - link "Sitemap" [ref=e676] [cursor=pointer]:
+              - /url: https://bigdeals.lk/sitemap
+          - listitem [ref=e677]:
+            - link "Help/FAQ" [ref=e678] [cursor=pointer]:
+              - /url: https://bigdeals.lk/help-faq
+      - generic [ref=e680]:
+        - generic [ref=e681]: Stay Connected
+        - generic [ref=e682]:
+          - link "facebook.com/www.bigdeals.lk" [ref=e683] [cursor=pointer]:
+            - /url: https://www.facebook.com/www.bigdeals.lk
+            - generic [ref=e684]: 
+          - link "instagram.com/bigdealslk" [ref=e685] [cursor=pointer]:
+            - /url: https://www.instagram.com/bigdealslk/
+            - generic [ref=e686]: 
+          - link "twitter.com/bigdeals_lk" [ref=e687] [cursor=pointer]:
+            - /url: https://twitter.com/bigdeals_lk
+            - generic [ref=e688]: 
+          - link "linkedin.com/company/bigdeals-lk" [ref=e689] [cursor=pointer]:
+            - /url: https://www.linkedin.com/company/bigdeals-lk
+            - generic [ref=e690]: 
+  - link " Scroll" [ref=e691] [cursor=pointer]:
+    - /url: "#"
