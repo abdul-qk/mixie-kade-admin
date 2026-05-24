@@ -12,7 +12,8 @@
       "Bash(node --env-file=.env --import tsx/esm -e ' *)",
       "Bash(node --env-file=.env --import tsx/esm scripts/add-3-products.ts)",
       "mcp__plugin_playwright_playwright__browser_tabs",
-      "Bash(node --env-file=.env --import tsx/esm scripts/add-batch-2.ts)"
+      "Bash(node --env-file=.env --import tsx/esm scripts/add-batch-2.ts)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

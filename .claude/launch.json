@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Next.js Dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--no-deprecation", "node_modules/.pnpm/next@16.2.1_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom@19.2.4_react@19.2.4/node_modules/next/dist/bin/next", "dev", "--no-server-fast-refresh"],
+      "port": 3000
+    },
+    {
+      "name": "Stripe Webhook Listener",
+      "runtimeExecutable": "stripe",
+      "runtimeArgs": ["listen", "--forward-to", "localhost:3000/api/payments/stripe/webhooks"],
+      "port": 4242
+    }
+  ]
+}
