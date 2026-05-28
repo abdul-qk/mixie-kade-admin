@@ -6,7 +6,13 @@ import { Media } from '@/components/Media'
 import { GridTileImage } from '@/components/Grid/tile'
 import React from 'react'
 
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 
 type Props = {
   slides: ProductImageSlide[]
@@ -35,11 +41,11 @@ export const ProductUrlGallery: React.FC<Props> = ({ slides }) => {
       </div>
 
       {slides.length > 1 ? (
-        <Carousel className="w-full" opts={{ align: 'start', loop: false }}>
+        <Carousel className="w-full px-8" opts={{ align: 'start', loop: false }}>
           <CarouselContent>
             {slides.map((slide, i) => (
               <CarouselItem
-                className="basis-1/5"
+                className="basis-1/3 md:basis-1/5"
                 key={`${slide.url}-${i}`}
                 onClick={() => setCurrent(i)}
               >
@@ -51,6 +57,12 @@ export const ProductUrlGallery: React.FC<Props> = ({ slides }) => {
               </CarouselItem>
             ))}
           </CarouselContent>
+          {slides.length > 5 ? (
+            <>
+              <CarouselPrevious className="left-0 top-1/2 -translate-y-1/2" />
+              <CarouselNext className="right-0 top-1/2 -translate-y-1/2" />
+            </>
+          ) : null}
         </Carousel>
       ) : null}
     </div>
