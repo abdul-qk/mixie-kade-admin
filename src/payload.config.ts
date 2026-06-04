@@ -1,4 +1,5 @@
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import {
   BoldFeature,
   EXPERIMENTAL_TableFeature,
@@ -88,7 +89,19 @@ export default buildConfig({
   //email: nodemailerAdapter(),
   endpoints: [...domexOrderEndpoints],
   globals: [Header, Footer, ReviewSettings, DomexSettings],
-  plugins,
+  plugins: [
+    ...(process.env.BLOB_READ_WRITE_TOKEN
+      ? [
+          vercelBlobStorage({
+            collections: {
+              media: true,
+            },
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+          }),
+        ]
+      : []),
+    ...plugins,
+  ],
   cors: allowedOrigins,
   csrf: allowedOrigins,
   secret: process.env.PAYLOAD_SECRET || '',

@@ -9,6 +9,7 @@ import React from 'react'
 import type { Props as MediaProps } from '../types'
 
 import { cssVariables } from '@/cssVariables'
+import { isPayloadMediaFilePath } from '@/utilities/productImages'
 
 const { breakpoints } = cssVariables
 
@@ -36,11 +37,15 @@ export const Image: React.FC<MediaProps> = (props) => {
 
   if (!src && resource && typeof resource === 'string') {
     const trimmed = resource.trim()
-    src = trimmed
-      ? /^https?:\/\//i.test(trimmed)
-        ? trimmed
-        : `${process.env.NEXT_PUBLIC_SERVER_URL}${trimmed.startsWith('/') ? trimmed : `/${trimmed}`}`
-      : ''
+    if (!trimmed) {
+      src = ''
+    } else if (isPayloadMediaFilePath(trimmed)) {
+      src = trimmed.startsWith('/') ? trimmed : `/${trimmed}`
+    } else if (/^https?:\/\//i.test(trimmed)) {
+      src = trimmed
+    } else {
+      src = `${process.env.NEXT_PUBLIC_SERVER_URL}${trimmed.startsWith('/') ? trimmed : `/${trimmed}`}`
+    }
   }
 
   if (!src && resource && typeof resource === 'object') {
@@ -55,16 +60,29 @@ export const Image: React.FC<MediaProps> = (props) => {
     height = heightFromProps ?? fullHeight
     alt = altFromResource
 
-    src = `${process.env.NEXT_PUBLIC_SERVER_URL}${url}`
+    const mediaUrl = (url || '').trim()
+    if (isPayloadMediaFilePath(mediaUrl)) {
+      src = mediaUrl.startsWith('/') ? mediaUrl : `/${mediaUrl}`
+    } else {
+      src = `${process.env.NEXT_PUBLIC_SERVER_URL}${mediaUrl.startsWith('/') ? mediaUrl : `/${mediaUrl}`}`
+    }
+  }
+
+  if (typeof src === 'string' && src && !/^https?:\/\//i.test(src) && isPayloadMediaFilePath(src)) {
+    src = src.startsWith('/') ? src : `/${src}`
   }
 
   let unoptimized = false
-  if (typeof src === 'string' && /^https?:\/\//i.test(src)) {
-    try {
-      const serverBase = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
-      unoptimized = new URL(src).origin !== new URL(serverBase).origin
-    } catch {
+  if (typeof src === 'string' && src) {
+    if (isPayloadMediaFilePath(src)) {
       unoptimized = true
+    } else if (/^https?:\/\//i.test(src)) {
+      try {
+        const serverBase = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+        unoptimized = new URL(src).origin !== new URL(serverBase).origin
+      } catch {
+        unoptimized = true
+      }
     }
   }
 

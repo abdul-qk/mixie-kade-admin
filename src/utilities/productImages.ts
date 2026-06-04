@@ -5,10 +5,46 @@ export type ProductImageSlide = {
   url: string
 }
 
+/** Payload upload URLs served from `/api/media/file/…` on the same app. */
+export function isPayloadMediaFilePath(url: string): boolean {
+  const trimmed = (url || '').trim()
+  if (!trimmed) return false
+  if (/^\/api\/media\/file\//i.test(trimmed)) return true
+  try {
+    return /^\/api\/media\/file\//i.test(new URL(trimmed).pathname)
+  } catch {
+    return false
+  }
+}
+
 /**
- * Turn a stored URL (absolute or site-relative) into a full URL for `<img>` / `next/image`.
+ * Storefront URL for `<img>` / `next/image`.
+ * Keeps Payload media paths relative so Next does not proxy-fetch via `_next/image`.
  */
 export function normalizeProductImageUrl(url: string, siteBaseUrl?: string): string {
+  const trimmed = (url || '').trim()
+  if (!trimmed) return ''
+
+  if (/^https?:\/\//i.test(trimmed)) {
+    if (isPayloadMediaFilePath(trimmed)) {
+      try {
+        return new URL(trimmed).pathname
+      } catch {
+        return trimmed
+      }
+    }
+    return trimmed
+  }
+
+  const path = trimmed.startsWith('/') ? trimmed : `/${trimmed}`
+  if (isPayloadMediaFilePath(path)) return path
+
+  const base = (siteBaseUrl || process.env.NEXT_PUBLIC_SERVER_URL || '').replace(/\/$/, '')
+  return base ? `${base}${path}` : path
+}
+
+/** Absolute URL for Open Graph, JSON-LD, and sitemaps. */
+export function toAbsoluteProductImageUrl(url: string, siteBaseUrl?: string): string {
   const trimmed = (url || '').trim()
   if (!trimmed) return ''
   if (/^https?:\/\//i.test(trimmed)) return trimmed

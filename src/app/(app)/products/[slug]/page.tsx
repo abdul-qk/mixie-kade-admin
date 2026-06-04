@@ -23,6 +23,7 @@ import {
   getProductImageSlides,
   getUrlFieldImageSlides,
   hasUrlFieldImageRows,
+  toAbsoluteProductImageUrl,
 } from '@/utilities/productImages'
 
 type Args = {
@@ -49,6 +50,8 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const canIndex = product._status === 'published'
   const ogFromMeta = absoluteMediaUrl(metaImage?.url ?? undefined)
   const ogFromSlides = slides[0]?.url
+    ? toAbsoluteProductImageUrl(slides[0].url, siteBase)
+    : undefined
   const ogUrl = ogFromMeta || ogFromSlides
 
   const title = product.meta?.title || product.title
@@ -107,7 +110,9 @@ export default async function ProductPage({ params }: Args) {
       : `${product.title} — mixer grinders & kitchen products from Mixie Kadai, Sri Lanka.`
 
   const imageSlides = getProductImageSlides(product, siteBase)
-  const imageUrls = imageSlides.map((s) => s.url).filter(Boolean)
+  const imageUrls = imageSlides
+    .map((s) => toAbsoluteProductImageUrl(s.url, siteBase))
+    .filter(Boolean)
   const primaryImage =
     absoluteMediaUrl(
       typeof product.meta?.image === 'object' && product.meta?.image?.url
