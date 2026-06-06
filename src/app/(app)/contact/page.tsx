@@ -18,12 +18,12 @@ const contactInfo = [
   },
   {
     label: 'Email',
-    value: 'hello@mixiekadai.lk',
+    value: 'mixiekadai@gmail.com',
     icon: <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline strokeLinecap="round" strokeLinejoin="round" points="22,6 12,13 2,6"/></svg>,
   },
   {
     label: 'Hours',
-    value: 'Mon–Sat 9am–7pm · Sunday 10am–4pm',
+    value: 'Mon–Sat 9am–6:30pm',
     icon: <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><polyline strokeLinecap="round" strokeLinejoin="round" points="12,6 12,12 16,14"/></svg>,
   },
 ]
