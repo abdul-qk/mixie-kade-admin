@@ -18,6 +18,7 @@
     "reset:password": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" node ./scripts/reset-user-password.ts",
     "audit:gallery-media": "node ./scripts/audit-broken-gallery-media.mjs",
     "sync:media-blob": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" node ./scripts/sync-local-media-to-blob.mjs",
+    "sync:media-prod": "node ./scripts/sync-local-media-via-prod.mjs --url https://www.mixiekadai.lk",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "stripe-webhooks": "stripe listen --forward-to localhost:3000/api/payments/stripe/webhooks",

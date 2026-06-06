@@ -47,6 +47,24 @@ export default function SparePartsHubPage() {
             Ask about compatibility
           </Link>
         </div>
+        <div className="pt-4">
+          <h2 className="font-display text-xl font-semibold text-brand-navy mb-4">
+            Parts catalogue
+          </h2>
+          <iframe
+            className="w-full border border-brand-navy/20"
+            height={800}
+            src="/spare-parts.pdf"
+            title="Spare parts catalogue"
+          />
+          <a
+            className="inline-block mt-3 font-body text-sm text-brand-navy underline underline-offset-2 hover:text-brand-gold transition-colors"
+            download
+            href="/spare-parts.pdf"
+          >
+            Download PDF
+          </a>
+        </div>
       </div>
     </div>
   )

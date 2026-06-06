@@ -2,6 +2,7 @@ import { Hero } from '@/components/storefront/Hero'
 import { USPStrip } from '@/components/storefront/USPStrip'
 import { CategoryGrid } from '@/components/storefront/CategoryGrid'
 import { AboutSnippet } from '@/components/storefront/AboutSnippet'
+import { ReviewsCarousel } from '@/components/storefront/ReviewsCarousel'
 import { canonicalUrl } from '@/utilities/canonicalUrl'
 import type { Metadata } from 'next'
 import React from 'react'
@@ -25,6 +26,7 @@ export default function HomePage() {
       <USPStrip />
       <CategoryGrid />
       <AboutSnippet />
+      <ReviewsCarousel />
     </>
   )
 }

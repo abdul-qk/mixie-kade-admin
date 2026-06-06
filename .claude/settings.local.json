@@ -17,7 +17,8 @@
       "Bash(pnpm --version)",
       "Bash(node --import \"node_modules/.pnpm/tsx@4.21.0/node_modules/tsx/dist/esm/index.mjs\" scripts/add-batch-3.ts)",
       "PowerShell(Set-Location \"C:\\\\webroot\\\\Qadir Studios\\\\mixie-kade-admin\"; Get-ChildItem \"node_modules\\\\tsx\\\\dist\\\\\" -ErrorAction SilentlyContinue | Select-Object Name; Write-Host \"---\"; Get-Item \"node_modules\\\\tsx\" | Select-Object FullName, LinkType, @{N='Target';E={$_.Target}})",
-      "PowerShell(Set-Location \"C:\\\\webroot\\\\Qadir Studios\\\\mixie-kade-admin\"; $env:CI = \"true\"; pnpm install --frozen-lockfile 2>&1)"
+      "PowerShell(Set-Location \"C:\\\\webroot\\\\Qadir Studios\\\\mixie-kade-admin\"; $env:CI = \"true\"; pnpm install --frozen-lockfile 2>&1)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot"
     ]
   }
 }

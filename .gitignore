@@ -46,3 +46,5 @@ public/media
 seed.mjs
 
 .vercel
+
+.env*.local
