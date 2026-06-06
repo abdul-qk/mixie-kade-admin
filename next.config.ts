@@ -10,6 +10,7 @@ import { redirects } from './redirects'
 const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['@libsql/client', 'libsql', '@payloadcms/db-sqlite', 'drizzle-orm'],
   images: {
     dangerouslyAllowLocalIP: process.env.NODE_ENV !== 'production',
     localPatterns: [

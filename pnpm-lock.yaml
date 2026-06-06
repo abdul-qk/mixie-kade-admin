@@ -8,6 +8,9 @@ onlyBuiltDependencies:
   - sharp
 
 dependencies:
+  '@libsql/client':
+    specifier: 0.14.0
+    version: 0.14.0
   '@payloadcms/admin-bar':
     specifier: 3.80.0
     version: 3.80.0(react-dom@19.2.4)(react@19.2.4)
@@ -98,6 +101,9 @@ dependencies:
   jsonwebtoken:
     specifier: 9.0.1
     version: 9.0.1
+  libsql:
+    specifier: 0.4.7
+    version: 0.4.7
   lucide-react:
     specifier: 0.563.0
     version: 0.563.0(react@19.2.4)
