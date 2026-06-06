@@ -90,16 +90,15 @@ export default buildConfig({
   endpoints: [...domexOrderEndpoints],
   globals: [Header, Footer, ReviewSettings, DomexSettings],
   plugins: [
-    ...(process.env.BLOB_READ_WRITE_TOKEN
-      ? [
-          vercelBlobStorage({
-            collections: {
-              media: true,
-            },
-            token: process.env.BLOB_READ_WRITE_TOKEN,
-          }),
-        ]
-      : []),
+    // Always register so importMap includes blob upload handlers at build time.
+    // Token is only available on Vercel at runtime; omitting the plugin when unset
+    // causes getFromImportMap errors in production admin.
+    vercelBlobStorage({
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
     ...plugins,
   ],
   cors: allowedOrigins,
