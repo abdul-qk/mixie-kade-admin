@@ -16,6 +16,7 @@ import { adminOnlyFieldAccess } from '@/access/adminOnlyFieldAccess'
 import { customerOnlyFieldAccess } from '@/access/customerOnlyFieldAccess'
 import { isAdmin } from '@/access/isAdmin'
 import { isDocumentOwner } from '@/access/isDocumentOwner'
+import { domexOrderCollectionEndpoints } from '@/endpoints/orders/domex'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | ${SITE_NAME}` : SITE_NAME
@@ -96,6 +97,10 @@ export const plugins: Plugin[] = [
     orders: {
       ordersCollectionOverride: ({ defaultCollection }) => ({
         ...defaultCollection,
+        endpoints: [
+          ...(Array.isArray(defaultCollection.endpoints) ? defaultCollection.endpoints : []),
+          ...domexOrderCollectionEndpoints,
+        ],
         // Allow unauthenticated POSTs so the Vite frontend can submit COD orders
         access: {
           ...defaultCollection.access,

@@ -46,7 +46,7 @@ const getOrderIDFromRoute = (req: PayloadRequest): string | number | null => {
 }
 
 const dispatchDomex: Endpoint = {
-  path: '/orders/:id/domex/dispatch',
+  path: '/:id/domex/dispatch',
   method: 'post',
   handler: async (req) => {
     if (!isAdminRequest(req)) {
@@ -168,7 +168,7 @@ const dispatchDomex: Endpoint = {
 }
 
 const syncDomex: Endpoint = {
-  path: '/orders/:id/domex/sync',
+  path: '/:id/domex/sync',
   method: 'post',
   handler: async (req) => {
     if (!isAdminRequest(req)) {
@@ -284,7 +284,7 @@ const syncDomex: Endpoint = {
 }
 
 const publicTrackDomex: Endpoint = {
-  path: '/orders/domex/track',
+  path: '/domex/track',
   method: 'get',
   handler: async (req) => {
     const trackingNo = String(req.query?.trackingNo || '').trim()
@@ -313,4 +313,4 @@ const publicTrackDomex: Endpoint = {
   },
 }
 
-export const domexOrderEndpoints: Endpoint[] = [dispatchDomex, syncDomex, publicTrackDomex]
+export const domexOrderCollectionEndpoints: Endpoint[] = [dispatchDomex, syncDomex, publicTrackDomex]
