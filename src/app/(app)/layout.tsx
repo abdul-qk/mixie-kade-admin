@@ -49,6 +49,14 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     type: 'website',
     url: '/',
+    images: [
+      {
+        url: '/og-default.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Mixie Kadai — Mixer Grinders & Spare Parts Sri Lanka',
+      },
+    ],
   },
   robots: {
     follow: true,
@@ -58,15 +66,11 @@ export const metadata: Metadata = {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
-  ...(twitterCreator && twitterSite
-    ? {
-        twitter: {
-          card: 'summary_large_image',
-          creator: twitterCreator,
-          site: twitterSite,
-        },
-      }
-    : {}),
+  twitter: {
+    card: 'summary_large_image' as const,
+    ...(twitterCreator ? { creator: twitterCreator } : {}),
+    ...(twitterSite ? { site: twitterSite } : {}),
+  },
 }
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
@@ -80,6 +84,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
       </head>
       <body>
         <SiteJsonLd />
