@@ -4,13 +4,16 @@
 /node_modules
 /.pnp
 .pnp.js
+package-lock.json
 
 # testing
 /coverage
-.playwright
-playwright-report/
-.playwright-mcp/
+test.env
 test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.playwright-mcp/
 
 # next.js
 /.next/
@@ -18,10 +21,23 @@ test-results/
 
 # production
 /build
+/dist
+
+# payload / database
+*.db
+*.db-shm
+*.db-wal
+public/media
+seed.mjs
 
 # misc
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 *.pem
+logs.txt
+*.log
 
 # debug
 npm-debug.log*
@@ -36,15 +52,14 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
+# typescript / tooling
 *.tsbuildinfo
 next-env.d.ts
+.eslintcache
+.turbo
+.tmp/
+tmp/
 
-public/media
-
-*.db
-seed.mjs
-
-.vercel
-
-.env*.local
+# editor / agent local settings
+.idea/
+.claude/settings.local.json

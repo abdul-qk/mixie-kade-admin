@@ -15,9 +15,39 @@ export const metadata: Metadata = {
   title: 'How to Choose a Mixer Grinder in Sri Lanka',
 }
 
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How to Choose a Mixer Grinder in Sri Lanka',
+  description:
+    'Choose the right mixer grinder for your family: wattage, jar set, wet vs dry grinding, and spare parts availability in Sri Lanka.',
+  url: 'https://www.mixiekadai.lk/guides/how-to-choose-mixer-grinder-sri-lanka',
+  datePublished: '2025-06-01',
+  dateModified: '2025-06-01',
+  author: {
+    '@type': 'Person',
+    name: 'Hashim Huzefa',
+    url: 'https://www.mixiekadai.lk/about',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Mixie Kadai',
+    url: 'https://www.mixiekadai.lk',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.mixiekadai.lk/guides/how-to-choose-mixer-grinder-sri-lanka',
+  },
+}
+
 export default function ChooseMixerGrinderGuidePage() {
   return (
-    <article className="min-h-screen bg-white">
+    <>
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        type="application/ld+json"
+      />
+      <article className="min-h-screen bg-white">
       <div className="bg-brand-navy text-white py-14 px-6">
         <div className="max-w-3xl mx-auto">
           <p className="font-body text-brand-gold text-xs font-semibold tracking-widest uppercase mb-3">
@@ -68,5 +98,6 @@ export default function ChooseMixerGrinderGuidePage() {
         </div>
       </div>
     </article>
+    </>
   )
 }

@@ -55,7 +55,9 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const ogUrl = ogFromMeta || ogFromSlides
 
   const title = product.meta?.title || product.title
-  const description = product.meta?.description || ''
+  const description =
+    product.meta?.description?.trim() ||
+    `${product.title} — mixer grinder from Mixie Kadai, Sri Lanka. Islandwide delivery, COD available.`
 
   return {
     alternates: {
@@ -120,30 +122,6 @@ export default async function ProductPage({ params }: Args) {
         : undefined,
     ) || imageUrls[0]
 
-  const productJsonLd = {
-    '@context': 'https://schema.org',
-    '@id': `${productPageUrl}#product`,
-    '@type': 'Product',
-    brand: {
-      '@type': 'Brand',
-      name: 'Mixie Kadai',
-    },
-    description: metaDesc,
-    image: imageUrls.length ? imageUrls : primaryImage ? [primaryImage] : undefined,
-    name: product.title,
-    offers: {
-      '@type': 'Offer',
-      availability:
-        (product.inventory ?? 0) > 0
-          ? 'https://schema.org/InStock'
-          : 'https://schema.org/OutOfStock',
-      price: displayPrice,
-      priceCurrency: typeof (product as any).price === 'number' ? 'LKR' : 'USD',
-      url: productPageUrl,
-    },
-    url: productPageUrl,
-  }
-
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -194,6 +172,53 @@ export default async function ProductPage({ params }: Args) {
   const reviewSettings = await payload.findGlobal({
     slug: 'review-settings',
   })
+
+  const approvedReviewDocs = (reviewsData.docs as any[]) ?? []
+  const reviewCount = approvedReviewDocs.length
+  const avgRating =
+    reviewCount > 0
+      ? approvedReviewDocs.reduce((sum: number, r: any) => sum + (r.rating ?? 5), 0) / reviewCount
+      : null
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@id': `${productPageUrl}#product`,
+    '@type': 'Product',
+    brand: {
+      '@type': 'Brand',
+      name: 'Mixie Kadai',
+    },
+    description: metaDesc,
+    image: imageUrls.length ? imageUrls : primaryImage ? [primaryImage] : undefined,
+    name: product.title,
+    offers: {
+      '@type': 'Offer',
+      availability:
+        (product.inventory ?? 0) > 0
+          ? 'https://schema.org/InStock'
+          : 'https://schema.org/OutOfStock',
+      price: displayPrice,
+      priceCurrency:
+        typeof (product as any).price === 'number'
+          ? 'LKR'
+          : typeof product.priceInUSD === 'number'
+            ? 'USD'
+            : 'LKR',
+      url: productPageUrl,
+    },
+    url: productPageUrl,
+    ...(avgRating !== null && reviewCount >= 1
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: avgRating.toFixed(1),
+            reviewCount,
+            bestRating: 5,
+            worstRating: 1,
+          },
+        }
+      : {}),
+  }
 
   const { user } = await payload.auth({ headers: await headers() })
   const allowGuestReviews = reviewSettings?.allowGuestReviews !== false
