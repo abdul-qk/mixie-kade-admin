@@ -4,9 +4,7 @@ const shopLinks = [
   { label: 'Mixer Grinders', href: '/shop/mixer-grinders' },
   { label: 'Blenders & Juicers', href: '/shop/blenders-juicers' },
   { label: 'Coconut Scrapers & Hand Mixers', href: '/shop/coconut-scrapers' },
-  { label: 'Jars', href: '/shop/jars' },
   { label: 'Spare Parts', href: '/shop/spare-parts' },
-  { label: 'Accessories', href: '/shop/accessories' },
   { label: 'Offers', href: '/shop' },
 ]
 

@@ -45,6 +45,7 @@ export function AboutSnippet() {
               alt="Mixie Kadai showroom — mixer grinders and kitchen appliances in Jaffna"
               className="object-cover"
               fill
+              priority
               sizes="(max-width: 1024px) 100vw, 448px"
               src={shopPhotos.homeAbout}
             />

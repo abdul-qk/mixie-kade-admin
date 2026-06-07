@@ -8,9 +8,7 @@ const categories = [
   { name: 'Mixer Grinders', slug: 'mixer-grinders', bg: 'bg-brand-navy', text: 'text-white' },
   { name: 'Blenders & Juicers', slug: 'blenders-juicers', bg: 'bg-brand-gold', text: 'text-white' },
   { name: 'Coconut Scrapers & Hand Mixers', slug: 'coconut-scrapers', bg: 'bg-brand-navy-light', text: 'text-white' },
-  { name: 'Jars', slug: 'jars', bg: 'bg-brand-gold-light', text: 'text-brand-navy' },
   { name: 'Spare Parts', slug: 'spare-parts', bg: 'bg-brand-surface', text: 'text-brand-navy' },
-  { name: 'Accessories', slug: 'accessories', bg: 'bg-brand-navy-dark', text: 'text-white' },
   { name: 'Offers', slug: '', bg: 'bg-brand-gold', text: 'text-white' },
 ]
 
