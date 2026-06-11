@@ -13,6 +13,7 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { SITE_NAME } from '@/utilities/site'
 import { ensureStartsWith } from '@/utilities/ensureStartsWith'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import React from 'react'
 import './globals.css'
@@ -104,6 +105,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <Footer />
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
