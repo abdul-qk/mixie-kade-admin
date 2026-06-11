@@ -43,6 +43,16 @@ const twitterSite = process.env.TWITTER_SITE
 export const metadata: Metadata = {
   description:
     'Shop mixer grinders, genuine spare parts, and kitchen accessories. Islandwide delivery from Jaffna, Sri Lanka.',
+  icons: {
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.png', sizes: '274x274', type: 'image/png' },
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+  },
   metadataBase: new URL(baseUrl),
   openGraph: {
     locale: 'en_LK',
@@ -82,9 +92,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     >
       <head>
         <InitTheme />
-        <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-        <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
       </head>
       <body>
         <SiteJsonLd />
