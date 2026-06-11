@@ -27,8 +27,8 @@ const usps = [
     ),
   },
   {
-    label: 'Free Delivery Over Rs. 5,000',
-    sub: 'Island-wide shipping',
+    label: 'Island wide shipping',
+    sub: 'Delivery within 2-3 days',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17H3.5A1.5 1.5 0 0 1 2 15.5v-9A1.5 1.5 0 0 1 3.5 5H15a1.5 1.5 0 0 1 1.5 1.5V9" />

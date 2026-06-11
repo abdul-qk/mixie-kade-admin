@@ -49,9 +49,9 @@ export function resolveCompareAtPrice(
   return null
 }
 
-export function resolveShippingPerUnit(product: Partial<Product>): number {
+export function resolveShippingPerUnit(product: Partial<Product>, globalDefault = 400): number {
   const s = (product as Product).shippingCost
-  return typeof s === 'number' ? s : 0
+  return typeof s === 'number' ? s : globalDefault
 }
 
 /** Format a single amount using the same rules as the product grid (LKR vs USD). */
@@ -62,7 +62,10 @@ export function formatStorefrontMoney(amount: number, product: Partial<Product>)
   return `$${amount.toFixed(2)}`
 }
 
-export function computeCartOrderTotals(items: CartLineItem[]): {
+export function computeCartOrderTotals(
+  items: CartLineItem[],
+  globalShippingDefault = 400,
+): {
   itemSubtotal: number
   shippingTotal: number
   grandTotal: number
@@ -74,7 +77,7 @@ export function computeCartOrderTotals(items: CartLineItem[]): {
       const variant = item.variant && typeof item.variant === 'object' ? item.variant : null
       const qty = item.quantity ?? 1
       const unit = resolveUnitPrice(product, variant)
-      const ship = resolveShippingPerUnit(product)
+      const ship = resolveShippingPerUnit(product, globalShippingDefault)
       return {
         itemSubtotal: acc.itemSubtotal + unit * qty,
         shippingTotal: acc.shippingTotal + ship * qty,

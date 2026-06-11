@@ -7,6 +7,7 @@ import {
   resolveUnitPrice,
 } from '@/lib/productPrice'
 import type { Product } from '@/payload-types'
+import { useShopSettings } from '@/hooks/useShopSettings'
 import { useAuth } from '@/providers/Auth'
 import { useCart } from '@payloadcms/plugin-ecommerce/client/react'
 import Link from 'next/link'
@@ -26,9 +27,10 @@ export default function CheckoutPage() {
   const { cart, clearCart } = useCart()
   const { user }            = useAuth()
   const router              = useRouter()
+  const { defaultShippingCost } = useShopSettings()
 
   const items = cart?.items ?? []
-  const orderTotals = computeCartOrderTotals(items)
+  const orderTotals = computeCartOrderTotals(items, defaultShippingCost)
   const grandTotal = orderTotals.grandTotal
 
   const [form, setForm] = useState<FormState>({
@@ -83,7 +85,7 @@ export default function CheckoutPage() {
           const product = item.product as Product
           const variant = item.variant && typeof item.variant === 'object' ? item.variant : null
           const unitPrice = resolveUnitPrice(product, variant)
-          const shippingCost = resolveShippingPerUnit(product)
+          const shippingCost = resolveShippingPerUnit(product, defaultShippingCost)
           const quantity = item.quantity ?? 1
 
           return {
@@ -336,7 +338,7 @@ export default function CheckoutPage() {
                   const variant = item.variant && typeof item.variant === 'object' ? item.variant : null
                   const price = resolveUnitPrice(product, variant)
                   const compareAtPrice = resolveCompareAtPrice(product, variant)
-                  const shippingCost = resolveShippingPerUnit(product)
+                  const shippingCost = resolveShippingPerUnit(product, defaultShippingCost)
                   const qty     = item.quantity ?? 1
                   const lineTotal = price * qty
                   const compareLineTotal =

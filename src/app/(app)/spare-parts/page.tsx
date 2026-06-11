@@ -58,14 +58,54 @@ export default function SparePartsHubPage() {
           <h2 className="font-display text-xl font-semibold text-brand-navy mb-4">
             Parts catalogue
           </h2>
-          <iframe
-            className="w-full border border-brand-navy/20"
-            height={800}
-            src="/spare-parts.pdf"
-            title="Spare parts catalogue"
-          />
+
+          {/* Desktop / large tablet — inline iframe */}
+          <div className="hidden lg:block">
+            <iframe
+              className="w-full border border-brand-navy/20"
+              height={800}
+              src="/spare-parts.pdf"
+              title="Spare parts catalogue"
+            />
+          </div>
+
+          {/* Mobile — iframe unsupported; show open/download card */}
+          <div className="lg:hidden bg-white border border-brand-navy/20 rounded-lg px-6 py-8 flex flex-col items-center text-center gap-4">
+            <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.4" className="text-brand-navy/40" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v6h6" />
+            </svg>
+            <p className="font-body text-sm text-brand-muted">
+              PDF preview is not supported in mobile browsers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 w-full">
+              <a
+                href="/spare-parts.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 font-body text-sm font-semibold bg-brand-navy text-white px-5 py-3 hover:bg-brand-gold transition-colors"
+              >
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                Open PDF
+              </a>
+              <a
+                href="/spare-parts.pdf"
+                download
+                className="flex-1 inline-flex items-center justify-center gap-2 font-body text-sm font-semibold border border-brand-navy text-brand-navy px-5 py-3 hover:bg-brand-navy hover:text-white transition-colors"
+              >
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          {/* Download link always visible on desktop too */}
           <a
-            className="inline-block mt-3 font-body text-sm text-brand-navy underline underline-offset-2 hover:text-brand-gold transition-colors"
+            className="hidden lg:inline-block mt-3 font-body text-sm text-brand-navy underline underline-offset-2 hover:text-brand-gold transition-colors"
             download
             href="/spare-parts.pdf"
           >

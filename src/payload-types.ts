@@ -137,12 +137,14 @@ export interface Config {
     footer: Footer;
     'review-settings': ReviewSetting;
     'domex-settings': DomexSetting;
+    'shop-settings': ShopSetting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'review-settings': ReviewSettingsSelect<false> | ReviewSettingsSelect<true>;
     'domex-settings': DomexSettingsSelect<false> | DomexSettingsSelect<true>;
+    'shop-settings': ShopSettingsSelect<false> | ShopSettingsSelect<true>;
   };
   locale: null;
   widgets: {
@@ -370,7 +372,7 @@ export interface Product {
    */
   price?: number | null;
   /**
-   * Fixed shipping fee per unit for this product.
+   * Per-unit shipping fee for this product. Leave empty to use the global default (Shop Settings). Set 0 for free shipping on this product.
    */
   shippingCost?: number | null;
   /**
@@ -2098,6 +2100,19 @@ export interface DomexSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "shop-settings".
+ */
+export interface ShopSetting {
+  id: number;
+  /**
+   * Applied to any product that does not have a per-product shipping cost set. Set to 0 for free shipping by default.
+   */
+  defaultShippingCost?: number | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -2165,6 +2180,16 @@ export interface DomexSettingsSelect<T extends boolean = true> {
   apiKey?: T;
   baseUrl?: T;
   senderContactNo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "shop-settings_select".
+ */
+export interface ShopSettingsSelect<T extends boolean = true> {
+  defaultShippingCost?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

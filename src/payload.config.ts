@@ -21,6 +21,7 @@ import { Media } from '@/collections/Media'
 import { Pages } from '@/collections/Pages'
 import { ProductReviews } from '@/collections/ProductReviews'
 import { DomexSettings } from '@/globals/DomexSettings'
+import { ShopSettings } from '@/globals/ShopSettings'
 import { Users } from '@/collections/Users'
 import { Footer } from '@/globals/Footer'
 import { Header } from '@/globals/Header'
@@ -86,7 +87,7 @@ export default buildConfig({
     },
   }),
   //email: nodemailerAdapter(),
-  globals: [Header, Footer, ReviewSettings, DomexSettings],
+  globals: [Header, Footer, ReviewSettings, DomexSettings, ShopSettings],
   plugins: [
     // Always register so importMap includes blob upload handlers at build time.
     // Token is only available on Vercel at runtime; omitting the plugin when unset

@@ -27,6 +27,7 @@ import {
   resolveUnitPrice,
 } from '@/lib/productPrice'
 import { getProductPrimarySlide } from '@/utilities/productImages'
+import { useShopSettings } from '@/hooks/useShopSettings'
 
 function formatCartTotal(grand: number, sampleProduct: Partial<Product> | undefined): string {
   if (sampleProduct && typeof (sampleProduct as Product).price === 'number') {
@@ -37,6 +38,7 @@ function formatCartTotal(grand: number, sampleProduct: Partial<Product> | undefi
 
 export function CartModal() {
   const { cart } = useCart()
+  const { defaultShippingCost } = useShopSettings()
   const [isOpen, setIsOpen] = useState(false)
 
   const pathname = usePathname()
@@ -52,8 +54,8 @@ export function CartModal() {
 
   const orderTotals = useMemo(() => {
     if (!cart?.items?.length) return null
-    return computeCartOrderTotals(cart.items)
-  }, [cart?.items])
+    return computeCartOrderTotals(cart.items, defaultShippingCost)
+  }, [cart?.items, defaultShippingCost])
 
   const sampleProductForTotal = useMemo(() => {
     const first = cart?.items?.find((i) => i.product && typeof i.product === 'object')?.product

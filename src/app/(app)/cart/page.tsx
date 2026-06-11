@@ -11,6 +11,7 @@ import {
   resolveCompareAtPrice,
   resolveUnitPrice,
 } from '@/lib/productPrice'
+import { useShopSettings } from '@/hooks/useShopSettings'
 import { Media } from '@/components/Media'
 import { getProductPrimarySlide } from '@/utilities/productImages'
 import Link from 'next/link'
@@ -41,9 +42,10 @@ function resolveItemDisplay(item: CartItem) {
 
 export default function CartPage() {
   const { cart } = useCart()
+  const { defaultShippingCost } = useShopSettings()
   const items = cart?.items ?? []
 
-  const orderTotals = computeCartOrderTotals(items)
+  const orderTotals = computeCartOrderTotals(items, defaultShippingCost)
 
   const sampleProduct = items.find((i) => i.product && typeof i.product === 'object')?.product as
     | Product

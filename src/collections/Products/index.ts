@@ -273,10 +273,10 @@ export const ProductsCollection: CollectionOverride = ({ defaultCollection }) =>
       name: 'shippingCost',
       type: 'number',
       label: 'Shipping Cost (Rs.)',
-      defaultValue: 0,
       admin: {
         position: 'sidebar',
-        description: 'Fixed shipping fee per unit for this product.',
+        description:
+          'Per-unit shipping fee for this product. Leave empty to use the global default (Shop Settings). Set 0 for free shipping on this product.',
       },
     },
     {

@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 const shopLinks = [
   { label: 'Mixer Grinders', href: '/shop/mixer-grinders' },
-  { label: 'Blenders & Juicers', href: '/shop/blenders-juicers' },
+  { label: 'Blenders & Juicers', href: '/shop/juice-blenders' },
   { label: 'Coconut Scrapers & Hand Mixers', href: '/shop/coconut-scrapers' },
-  { label: 'Spare Parts', href: '/shop/spare-parts' },
+  { label: 'Spare Parts', href: '/spare-parts' },
   { label: 'Offers', href: '/shop' },
 ]
 
@@ -19,6 +19,7 @@ const companyLinks = [
 const policyLinks: { label: string; href: string }[] = [
   { label: 'Shipping & Returns', href: '/shipping-returns' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms & Conditions', href: '/terms' },
 ]
 
 export async function Footer() {
