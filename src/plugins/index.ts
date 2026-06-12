@@ -17,6 +17,10 @@ import { customerOnlyFieldAccess } from '@/access/customerOnlyFieldAccess'
 import { isAdmin } from '@/access/isAdmin'
 import { isDocumentOwner } from '@/access/isDocumentOwner'
 import { domexOrderCollectionEndpoints } from '@/endpoints/orders/domex'
+import {
+  sendOrderConfirmationToCustomer,
+  sendOrderNotificationToAdmin,
+} from '@/utilities/sendOrderConfirmationEmail'
 
 const generateTitle: GenerateTitle<Product | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | ${SITE_NAME}` : SITE_NAME
@@ -97,6 +101,21 @@ export const plugins: Plugin[] = [
     orders: {
       ordersCollectionOverride: ({ defaultCollection }) => ({
         ...defaultCollection,
+        hooks: {
+          ...(defaultCollection.hooks || {}),
+          afterChange: [
+            ...(Array.isArray(defaultCollection.hooks?.afterChange)
+              ? defaultCollection.hooks.afterChange
+              : []),
+            async ({ doc, operation, req }) => {
+              if (operation !== 'create') return
+              await Promise.allSettled([
+                sendOrderConfirmationToCustomer({ payload: req.payload, order: doc }),
+                sendOrderNotificationToAdmin({ payload: req.payload, order: doc }),
+              ])
+            },
+          ],
+        },
         endpoints: [
           ...(Array.isArray(defaultCollection.endpoints) ? defaultCollection.endpoints : []),
           ...domexOrderCollectionEndpoints,

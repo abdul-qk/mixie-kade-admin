@@ -1,3 +1,4 @@
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import {
@@ -86,7 +87,18 @@ export default buildConfig({
       ]
     },
   }),
-  //email: nodemailerAdapter(),
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.EMAIL_FROM_ADDRESS || 'orders@mixiekadai.lk',
+    defaultFromName: process.env.EMAIL_FROM_NAME || 'Mixie Kade',
+    transportOptions: {
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    },
+  }),
   globals: [Header, Footer, ReviewSettings, DomexSettings, ShopSettings],
   plugins: [
     // Always register so importMap includes blob upload handlers at build time.
