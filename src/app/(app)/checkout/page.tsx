@@ -16,6 +16,7 @@ import React, { useEffect, useState } from 'react'
 
 type FormState = {
   customerName: string
+  email: string
   phone: string
   address: string
   city: string
@@ -34,11 +35,12 @@ export default function CheckoutPage() {
   const grandTotal = orderTotals.grandTotal
 
   const [form, setForm] = useState<FormState>({
-    customerName: '',
-    phone:        '',
-    address:      '',
-    city:         '',
-    notes:        '',
+    customerName:  '',
+    email:         '',
+    phone:         '',
+    address:       '',
+    city:          '',
+    notes:         '',
     paymentMethod: 'cod',
   })
   const [submitting, setSubmitting] = useState(false)
@@ -49,10 +51,11 @@ export default function CheckoutPage() {
     if (user) {
       setForm(f => ({
         ...f,
-        customerName: f.customerName || user.name || '',
-        phone: f.phone || user.phone || '',
-        city: f.city || user.deliveryCity || '',
-        address: f.address || user.deliveryAddress || '',
+        customerName: f.customerName || user.name  || '',
+        email:        f.email        || user.email || '',
+        phone:        f.phone        || user.phone || '',
+        city:         f.city         || user.deliveryCity    || '',
+        address:      f.address      || user.deliveryAddress || '',
       }))
     }
   }, [user])
@@ -89,9 +92,10 @@ export default function CheckoutPage() {
           const quantity = item.quantity ?? 1
 
           return {
-            product:  product.id,
+            product:     product.id,
+            productName: product.title,
             quantity,
-            price:    unitPrice,
+            price:       unitPrice,
             shippingCost,
             shippingTotal: shippingCost * quantity,
           }
@@ -106,6 +110,7 @@ export default function CheckoutPage() {
         body: JSON.stringify({
           customer:        user?.id ?? null,
           customerName:    form.customerName,
+          customerEmail:   form.email || null,
           customerPhone:   form.phone,
           deliveryAddress: form.address,
           deliveryCity:    form.city,
@@ -113,7 +118,7 @@ export default function CheckoutPage() {
           codItemsJson:    JSON.stringify(orderItems),
           paymentMethod:   form.paymentMethod,
           items:           orderItems,
-          total,
+          amount:          total,
         }),
       })
 
@@ -163,6 +168,23 @@ export default function CheckoutPage() {
                 required
                 placeholder="Your full name"
                 autoComplete="name"
+                className={inputClass}
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="field-email" className="block font-body text-sm font-medium text-brand-navy mb-1">
+                Email <span className="font-normal text-brand-muted">(for order confirmation)</span>
+              </label>
+              <input
+                id="field-email"
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                autoComplete="email"
                 className={inputClass}
               />
             </div>

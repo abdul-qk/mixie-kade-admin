@@ -8,31 +8,57 @@ type OrderEmailArgs = {
   order: any
 }
 
+type CartItem = {
+  productName?: string
+  name?: string
+  title?: string
+  quantity?: number
+  price?: number
+}
+
+function buildItemsHtml(order: any): string {
+  if (!order.codItemsJson) return ''
+  try {
+    const items: CartItem[] = JSON.parse(order.codItemsJson)
+    if (!Array.isArray(items) || items.length === 0) return ''
+    const rows = items
+      .map((item) => {
+        const name = item.productName || item.name || item.title || 'Item'
+        const qty = item.quantity || 1
+        const lineTotal = Number(item.price || 0) * qty
+        return `<tr>
+          <td style="padding:6px 8px;border-bottom:1px solid #eee;">${name}</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #eee;text-align:center;">${qty}</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #eee;text-align:right;">LKR ${lineTotal.toLocaleString()}</td>
+        </tr>`
+      })
+      .join('')
+    return `
+      <h3 style="margin-top:20px;margin-bottom:8px;color:#1a1a1a;">Items Ordered</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="background:#f5f5f5;">
+            <th style="padding:6px 8px;text-align:left;border-bottom:2px solid #ddd;">Product</th>
+            <th style="padding:6px 8px;text-align:center;border-bottom:2px solid #ddd;">Qty</th>
+            <th style="padding:6px 8px;text-align:right;border-bottom:2px solid #ddd;">Price</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>`
+  } catch {
+    return ''
+  }
+}
+
 export async function sendOrderConfirmationToCustomer({ payload, order }: OrderEmailArgs) {
   const email = order.customerEmail
   if (!email) return
 
   const serverURL = getServerSideURL()
   const orderURL = `${serverURL}/orders/${order.id}?email=${encodeURIComponent(email)}&accessToken=${order.accessToken}`
-
-  let itemsHtml = ''
-  if (order.codItemsJson) {
-    try {
-      const items = JSON.parse(order.codItemsJson)
-      if (Array.isArray(items) && items.length > 0) {
-        itemsHtml = `
-          <h3 style="margin-top:16px;">Items Ordered</h3>
-          <ul style="padding-left:20px;">
-            ${items.map((item: { title?: string; name?: string; quantity?: number }) => `<li>${item.title || item.name || 'Item'} × ${item.quantity || 1}</li>`).join('')}
-          </ul>`
-      }
-    } catch {
-      // codItemsJson malformed — skip items list
-    }
-  }
-
   const paymentLabel =
     order.paymentMethod === 'bank_transfer' ? 'Online Bank Transfer' : 'Cash on Delivery'
+  const itemsHtml = buildItemsHtml(order)
 
   await payload.sendEmail({
     to: email,
@@ -46,7 +72,7 @@ export async function sendOrderConfirmationToCustomer({ payload, order }: OrderE
         <table style="width:100%;border-collapse:collapse;margin:16px 0;">
           <tr><td style="padding:6px 0;color:#555;">Order #</td><td><strong>${order.id}</strong></td></tr>
           <tr><td style="padding:6px 0;color:#555;">Payment</td><td>${paymentLabel}</td></tr>
-          <tr><td style="padding:6px 0;color:#555;">Total</td><td><strong>LKR ${Number(order.amount || 0).toFixed(2)}</strong></td></tr>
+          <tr><td style="padding:6px 0;color:#555;">Total</td><td><strong>LKR ${Number(order.amount || 0).toLocaleString()}</strong></td></tr>
         </table>
 
         ${itemsHtml}
@@ -75,6 +101,7 @@ export async function sendOrderNotificationToAdmin({ payload, order }: OrderEmai
   const adminOrderURL = `${serverURL}/admin/collections/orders/${order.id}`
   const paymentLabel =
     order.paymentMethod === 'bank_transfer' ? 'Bank Transfer' : 'Cash on Delivery'
+  const itemsHtml = buildItemsHtml(order)
 
   await payload.sendEmail({
     to: adminEmail,
@@ -90,8 +117,10 @@ export async function sendOrderNotificationToAdmin({ payload, order }: OrderEmai
           <tr><td style="padding:6px 0;color:#555;">Phone</td><td>${order.customerPhone || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">City</td><td>${order.deliveryCity || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Payment</td><td>${paymentLabel}</td></tr>
-          <tr><td style="padding:6px 0;color:#555;">Total</td><td><strong>LKR ${Number(order.amount || 0).toFixed(2)}</strong></td></tr>
+          <tr><td style="padding:6px 0;color:#555;">Total</td><td><strong>LKR ${Number(order.amount || 0).toLocaleString()}</strong></td></tr>
         </table>
+
+        ${itemsHtml}
 
         <p style="margin-top:24px;">
           <a href="${adminOrderURL}" style="background:#1a1a1a;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;display:inline-block;">
