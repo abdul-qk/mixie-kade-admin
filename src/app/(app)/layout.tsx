@@ -13,6 +13,7 @@ import { getServerSideURL } from '@/utilities/getURL'
 import { SITE_NAME } from '@/utilities/site'
 import { ensureStartsWith } from '@/utilities/ensureStartsWith'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import { GoogleTagManager } from '@/components/GoogleTagManager'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
@@ -96,6 +97,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <InitTheme />
       </head>
       <body>
+        <GoogleTagManager />
         <SiteJsonLd />
         <Providers>
           <AdminBar />
