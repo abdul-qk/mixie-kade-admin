@@ -71,6 +71,7 @@ export async function sendOrderConfirmationToCustomer({ payload, order }: OrderE
 
         <table style="width:100%;border-collapse:collapse;margin:16px 0;">
           <tr><td style="padding:6px 0;color:#555;">Order #</td><td><strong>${order.id}</strong></td></tr>
+          <tr><td style="padding:6px 0;color:#555;vertical-align:top;">Delivery Address</td><td style="white-space:pre-line;">${[order.deliveryAddress, order.deliveryCity].filter(Boolean).join(', ') || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Payment</td><td>${paymentLabel}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Total</td><td><strong>LKR ${Number(order.amount || 0).toLocaleString()}</strong></td></tr>
         </table>
@@ -115,6 +116,7 @@ export async function sendOrderNotificationToAdmin({ payload, order }: OrderEmai
           <tr><td style="padding:6px 0;color:#555;">Customer</td><td>${order.customerName || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Email</td><td>${order.customerEmail || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Phone</td><td>${order.customerPhone || '–'}</td></tr>
+          <tr><td style="padding:6px 0;color:#555;vertical-align:top;">Address</td><td style="white-space:pre-line;">${order.deliveryAddress || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">City</td><td>${order.deliveryCity || '–'}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Payment</td><td>${paymentLabel}</td></tr>
           <tr><td style="padding:6px 0;color:#555;">Total</td><td><strong>LKR ${Number(order.amount || 0).toLocaleString()}</strong></td></tr>
